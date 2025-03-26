@@ -25,6 +25,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
 \usepackage{url}
+\usepackage{listings}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
 \usepackage{float}  %% H para posicionar figuras
@@ -37,7 +38,7 @@
 % cual los escribas, a veces totalmente en mayúsculas, a veces de otras
 % formas
 \title{Título del Trabajo con Letras Mayúsculas para Sustantivos y Adjetivos}
-\author{Nombre del autor / autora}
+\author{Juan José Arias Rojas}
 
 % Guarda el título, el autor y la fecha en variables
 \makeatletter
@@ -68,11 +69,11 @@ ESCUELA DE INGENIERÍA DE FUENLABRADA
 \vspace{1cm}
 
 \LARGE
-TITULACIÓN EN MAYÚSCULAS
+GRADO EN INGENÍERIA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
 \vspace{1cm}
 \LARGE
-\textbf{TRABAJO FIN DE GRADO/MÁSTER}
+\textbf{TRABAJO FIN DE GRADO}
 
 \vspace{2cm}
 
@@ -83,12 +84,11 @@ TITULACIÓN EN MAYÚSCULAS
 
 \large
 Autor : \theauthor \\
-Tutor : Dr. Nombre del Profesor/a\\
-Cotutor: (si procede)
+Tutor : Dr. Jesús María González Barahona\\
 \vspace{1cm}
 
 \large
-Curso académico 202X/202X
+Curso académico 2024/2025
 
 \end{center}
 \end{titlepage}
@@ -130,7 +130,8 @@ disponible en \\
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+todos aquellos que me animaron y apollaron \\
+incluso en mis momentos de debilidad}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,22 +329,25 @@ Así:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% OBJETIVOS %
+% Tecnologias usadas capitulo 2 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage % empezamos en página impar
-\chapter{Objetivos} % título del capítulo (se muestra)
+\chapter{Tecnologías utilizadas} % título del capítulo (se muestra)
 \label{chap:objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
-
-\section{Objetivo general} % título de sección (se muestra)
+En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto
+\section{Tecnologías principales} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Aquí vendría el objetivo general en una frase:
-Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
+\subsection{HTML5}
+\label{subsec:HTML5}
+\textbf{HTML5} representa la quinta versión del lenguaje de marcado de hipertexto (\textbf{HTML}), empleado en el desarrollo y estructuración de contenido web. Esta versión fue desarrollada en conjunto por el World Wide Web Consortium (\textit{W3C}) y el Web Hypertext Application Technology Working Group (\textit{WHATWG}), con el propósito de ofrecer mejoras significativas respecto a sus versiones anteriores. Entre sus principales innovaciones destacan la introducción de nuevas etiquetas semánticas, la optimización del soporte multimedia y una mayor compatibilidad con navegadores y dispositivos. Su diseño busca simplificar el desarrollo de aplicaciones web, eliminando la dependencia de complementos externos como Adobe Flash o Microsoft Silverlight \cite{w3c2014html5}.  
 
-Recuerda que los objetivos siempre vienen en infinitivo.
+Una de las principales contribuciones de \textbf{HTML5} es la incorporación de etiquetas semánticas, como \texttt{<header>}, \texttt{<article>}, \texttt{<section>} y \texttt{<footer>}, que permiten estructurar el contenido de manera más clara y accesible. Estas etiquetas mejoran la organización de la información dentro de un documento web, lo que facilita su interpretación tanto por desarrolladores como por motores de búsqueda, optimizando así su indexación. Asimismo, esta versión introduce nuevas interfaces de programación de aplicaciones (\textit{API}), entre las que destacan las capacidades de almacenamiento local a través de \texttt{localStorage} y \texttt{sessionStorage}, permitiendo la gestión de datos en el navegador sin necesidad de recurrir a bases de datos externas \cite{freeman2018head}.  
 
+Otra de las mejoras significativas de \textbf{HTML5} es la integración de elementos para la gestión de contenido multimedia sin requerir complementos adicionales. Las etiquetas \texttt{<audio>} y \texttt{<video>} facilitan la incorporación de archivos de sonido y video directamente en una página web, garantizando un mejor rendimiento y mayor interoperabilidad entre plataformas. Además, se introduce el elemento \texttt{<canvas>}, que permite la generación de gráficos y animaciones en tiempo real mediante JavaScript, lo que resulta particularmente útil en el desarrollo de aplicaciones interactivas y videojuegos en línea \cite{pilgrim2010html5}.  
 
+Finalmente, \textbf{HTML5} se ha consolidado como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y otros entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript posibilita la creación de interfaces dinámicas y adaptables a distintos dispositivos, incluyendo ordenadores, tabletas y teléfonos inteligentes. Dada su versatilidad y continuo desarrollo, \textbf{HTML5} sigue evolucionando con nuevas especificaciones que buscan optimizar su rendimiento y ampliar sus funcionalidades en el ámbito del desarrollo web \cite{whatwg2024html}.  
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
@@ -463,7 +467,7 @@ Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es c�
   \centering
   \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
   \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
+  \label{fig:arquitectura2}
 \end{figure}
 
 
