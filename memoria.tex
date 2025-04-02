@@ -341,13 +341,69 @@ En esta sección se muestran las distintas tecnologías que han sido necesarias 
 
 \subsection{HTML5}
 \label{subsec:HTML5}
-\textbf{HTML5} representa la quinta versión del lenguaje de marcado de hipertexto (\textbf{HTML}), empleado en el desarrollo y estructuración de contenido web. Esta versión fue desarrollada en conjunto por el World Wide Web Consortium (\textit{W3C}) y el Web Hypertext Application Technology Working Group (\textit{WHATWG}), con el propósito de ofrecer mejoras significativas respecto a sus versiones anteriores. Entre sus principales innovaciones destacan la introducción de nuevas etiquetas semánticas, la optimización del soporte multimedia y una mayor compatibilidad con navegadores y dispositivos. Su diseño busca simplificar el desarrollo de aplicaciones web, eliminando la dependencia de complementos externos como Adobe Flash o Microsoft Silverlight \cite{w3c2014html5}.  
 
-Una de las principales contribuciones de \textbf{HTML5} es la incorporación de etiquetas semánticas, como \texttt{<header>}, \texttt{<article>}, \texttt{<section>} y \texttt{<footer>}, que permiten estructurar el contenido de manera más clara y accesible. Estas etiquetas mejoran la organización de la información dentro de un documento web, lo que facilita su interpretación tanto por desarrolladores como por motores de búsqueda, optimizando así su indexación. Asimismo, esta versión introduce nuevas interfaces de programación de aplicaciones (\textit{API}), entre las que destacan las capacidades de almacenamiento local a través de \texttt{localStorage} y \texttt{sessionStorage}, permitiendo la gestión de datos en el navegador sin necesidad de recurrir a bases de datos externas \cite{freeman2018head}.  
+HTML5 es la quinta iteración del lenguaje de HTML (\textit{marcado de hipertexto}), el cual es la estructura básica y principal de toda página web. 
+Desarrollado conjuntamente por W3C (\textit{World Wide Web Consortium}) y WHATWG (\textit{Web Hypertext Application Technology Working Group}). 
+HTML5 introduce mejoras sustanciales respecto a sus anteriores versiones, incluyendo nuevas etiquetas semánticas, soporte multimedia mejorado y compatibilidad 
+ampliada con diversos navegadores y dispositivos, dándole mayor flexibilidad y dinamismo a la creación de páginas web.
 
-Otra de las mejoras significativas de \textbf{HTML5} es la integración de elementos para la gestión de contenido multimedia sin requerir complementos adicionales. Las etiquetas \texttt{<audio>} y \texttt{<video>} facilitan la incorporación de archivos de sonido y video directamente en una página web, garantizando un mejor rendimiento y mayor interoperabilidad entre plataformas. Además, se introduce el elemento \texttt{<canvas>}, que permite la generación de gráficos y animaciones en tiempo real mediante JavaScript, lo que resulta particularmente útil en el desarrollo de aplicaciones interactivas y videojuegos en línea \cite{pilgrim2010html5}.  
+Una de sus nuevas introducciones clave es la introducción de etiquetas semánticas como: \texttt{<header>}, \texttt{<article>}, \texttt{<section>} y \texttt{<footer>}, 
+que facilitan una estructuración clara y accesible del contenido web. Estas etiquetas no solo ayudan a mejorar la organización de la información, si no que también facilitan la búsqueda
+de información por parte de los motores de búsqueda y facilitan la interpretación por parte de los desarrolladores. 
+Además, HTML5 incorpora nuevas interfaces de programación de aplicaciones (\textit{API}), destacándose las funcionalidades de almacenamiento local mediante 
+\texttt{localStorage} y \texttt{sessionStorage}, que permiten la gestión eficiente de datos directamente en el navegador, eliminando la necesidad de bases de datos externas. \cite{freeman2018head}
 
-Finalmente, \textbf{HTML5} se ha consolidado como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y otros entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript posibilita la creación de interfaces dinámicas y adaptables a distintos dispositivos, incluyendo ordenadores, tabletas y teléfonos inteligentes. Dada su versatilidad y continuo desarrollo, \textbf{HTML5} sigue evolucionando con nuevas especificaciones que buscan optimizar su rendimiento y ampliar sus funcionalidades en el ámbito del desarrollo web \cite{whatwg2024html}.  
+HTML5 también introduce mejoras significativas en la gestión de contenido multimedia, eliminando la necesidad de complementos externos. Para esto se implementaron 
+las etiquetas \texttt{<audio>} y \texttt{<video>} las cuales permiten la incorporación directa de archivos de sonido y video en las páginas web, permitiendo mayor dinamismo en el desarrollo. 
+Otro elemento que se añadió fue el elemento \texttt{<canvas>} el cual habilita la generación de gráficos y animaciones en tiempo real a través de JavaScript, permitiendo el desarrollo de aplicaciones interactivas y videojuegos en línea.
+
+HTML5 se ha establecido firmemente como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y en entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript 
+permite la creación de interfaces dinámicas y adaptativas, compatibles con una amplia gama de dispositivos, desde ordenadores hasta tabletas y teléfonos.
+
+\subsection{JavaScript}
+\label{subsec:JavaScript}
+JavaScript es un lenguaje de programación ligero y multiplataforma utilizado principalmente para la creación de contenido dinámico e interactivo para páginas web.
+Su felixibilidad permite desarrollar elementos para mejorar la interacción del usuario en páginas web tanto del lado del servidor como del lado del cliente. En 1997, JavaScript fue estandarizado
+por \textit{ECMA} como ECMAScript y poco después como un éstandar \textit{ISO}. 
+
+JavaScript, creado por Brendan Eich de Netscape en 1995 bajo el nombre de \textit{Mocha}, posteriormente se renombró a LiveScript y finalmente a JavaScript.
+En el año 2000, JavaScript se extendió al lado de los servidores con la introducción de tecnologías como \textit{Node.js}, y posteriormente su popularidad creció con la llegada de \textit{AJAX}. Y Con la llegada de ECMAScript 6 en 2015, se introdujeron características mas avanzadas y 
+actualizaciones anuales, haciendo que hoy en día sea uno de los lenguajes mas importantes en el desarrollo web.
+
+JavaScript es un lenguaje de programación de alto nivel, lo que significa que su leguaje esta diseñado para ser lo mas 'humano' posible, permitiendo una rapida comprensión del codigo sin necesidad de un nivel alto de conocimientos. 
+Es un lenguaje basado en eventos ya sean entradas de ratón o entradas de teclado, permitiendo la creación de interfaces de usuario interactivas. JavaScript puede integrarse en un HTML dentro de la etiqueta \texttt{<script>} de forma directa, escribiendo el codigo. 
+También, se puede introducir codigos de JavaScript, los cuales estén en archivos distintos con la extensión correspondiente al lenguaje (.js), esto es posible vinculando dicho archivo en la cabecera del HTML.
+
+\subsection{WebXR}
+\label{subsec:WebXR}
+
+WebXR \cite{onirix2024} es una tecnología desarrollada por W3C (\textit{World Wide Web Consortium}) que permite crear experiencias inmersivas desde el navegador. Esta tecnología combina la Realidad Aumentada (\textit{AR}) y la Realidad Virtual (\textit{VR}) con la accesibilidad de un navegador web.
+Lo cual permite a los usuarios experimentar e interactuar con entornos tridimensionales a través de cualquier dispositivo con acceso a un navegador compatible. 
+
+A medida que la tecnología de WebXR ha ido evolucionando, se han desarrollado distintos tipos de experiencias para poder adaptarse a distintos contextos y necesidades. Hoy en día, se podria clasificar los distintos tipos en 3 categorias: 
+\begin{itemize}
+  \item \textbf{WebXR AR:} Este tipo de WebXR combina el mundo virtual y el mundo real, permitiendo que distintos elementos del mundo virtual puedan superponerse en el entorno físico a través 
+  de la cámara de un dispositivo compatible, pero sin que llegue a influir el mundo real en los elementos virtuales.
+  \item \textbf{WebXR VR:} Este modo permite a los usuarios sumergirse en el entorno virtual creado, y con la ayuda de dispositivos suplementarios como auriculares, la experiencia es aún mayor. Esta tecnología permite a los usuarios 
+  interactuar y experimentar en primera persona distintos entornos virtuales, desde juegos y entretenimiento, hasta simulaciones virtuales y visualizaciones en 3D.
+  \item \textbf{WebXR MR(Mixed Reality):} Esta tecnología combina el mundo real y el virtual de forma mas profunda que la tecnología AR. Permite a los usuarios poder interactuar con elementos tantos virtuales como físicos y que estos puedan interactuar entre si. Este tipo de combinación proporciona un nivel mayor de interacción entre el usuario y 
+  y su entorno, dando mayor numero de posibilidades para la creación de contenido. 
+\end{itemize}
+
+Estos distintos tipos de WebXR ofrecen distintos tipos de experiencias dependiendo del entorno virtual que se quiera diseñar.
+
+\subsection{Three.js}
+\label{subsec:Three.js}
+
+Three.js \cite{threejs_wikipedia} es una biblioteca de codigo abierto de JavaScript utilizada para la creación de gráficos 3D en los navegadores web. Three.js funciona sobre WebGL \cite{webgl_encodebiz}, la cual permite generar y visualizar animaciones y escenas 3D en el navegador sin necesidad de complementos. La tecnologia de WebGL tambiénpuede usarse junto con el elemento \texttt{<canva>} de HTML. 
+
+Esta biblioteca proporciona una API de alto nivel la cual permite al usuario la creación y manipulación de geometrías 3D como cubos, esfera o planos, así como la aplicación de texturas o la aplicación de tanto camaras como de efectos de iluminación en las escena, permitiendo que el desarrollo de dichas escenas sea mucho mas simplificado. También, Three.js permite la posibilidad de importar modelos 3D desde archivos distintos creados desde aplicaciones distintas.
+
+
+
+\subsection{Aframe}
+\label{subsec: Aframe}
+
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
