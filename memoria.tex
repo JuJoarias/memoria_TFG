@@ -20,6 +20,8 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 
+\usepackage{textcomp}
+\usepackage{xcolor}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
 \usepackage[utf8]{inputenc}
@@ -31,6 +33,20 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+
+\definecolor{codegray}{RGB}{100,100,100} % Puedes ajustar el gris aquí
+
+\lstset{
+  basicstyle=\ttfamily\small\color{codegray},
+  showstringspaces=false,
+  breaklines=true,
+  numbers=none,
+  language={},         % <- sin lenguaje para evitar resaltado
+  keywordstyle=,
+  commentstyle=,
+  stringstyle=,
+  identifierstyle=,
+}
 
 % Escribe el título y el nombre del autor / autora para que se use bien
 % en otras partes de la plantilla
@@ -59,38 +75,38 @@
 % PORTADA
 
 \begin{titlepage}
-\begin{center}
-\includegraphics[scale=0.6]{img/URJ_logo_Color_POS.png}
+	\begin{center}
+		\includegraphics[scale=0.6]{img/URJ_logo_Color_POS.png}
 
-\vspace{1.75cm}
+		\vspace{1.75cm}
 
-\LARGE
-ESCUELA DE INGENIERÍA DE FUENLABRADA
-\vspace{1cm}
+		\LARGE
+		ESCUELA DE INGENIERÍA DE FUENLABRADA
+		\vspace{1cm}
 
-\LARGE
-GRADO EN INGENÍERIA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
+		\LARGE
+		GRADO EN INGENÍERIA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
-\vspace{1cm}
-\LARGE
-\textbf{TRABAJO FIN DE GRADO}
+		\vspace{1cm}
+		\LARGE
+		\textbf{TRABAJO FIN DE GRADO}
 
-\vspace{2cm}
+		\vspace{2cm}
 
-\Large
-\MakeUppercase{\thetitle}
+		\Large
+		\MakeUppercase{\thetitle}
 
-\vspace{2cm}
+		\vspace{2cm}
 
-\large
-Autor : \theauthor \\
-Tutor : Dr. Jesús María González Barahona\\
-\vspace{1cm}
+		\large
+		Autor : \theauthor \\
+		Tutor : Dr. Jesús María González Barahona\\
+		\vspace{1cm}
 
-\large
-Curso académico 2024/2025
+		\large
+		Curso académico 2024/2025
 
-\end{center}
+	\end{center}
 \end{titlepage}
 
 \newpage
@@ -111,16 +127,16 @@ Curso académico 2024/2025
 %% Ver detalles en https://ofilibre.urjc.es/guias/tfg-abierto/
 
 \begin{flushright}
-\includegraphics[scale=0.6]{img/by-sa}
-%\includegraphics[scale=0.6]{img/by}
+	\includegraphics[scale=0.6]{img/by-sa}
+	%\includegraphics[scale=0.6]{img/by}
 
-%% Poner el año adecuado
-\noindent©2025 \theauthor  \\
-Algunos derechos reservados  \\
-Este documento se distribuye bajo la licencia \\
-``Atribución-CompartirIgual 4.0 Internacional'' de Creative Commons, \\
-disponible en \\
-\url{https://creativecommons.org/licenses/by-sa/4.0/deed.es}
+	%% Poner el año adecuado
+	\noindent©2025 \theauthor  \\
+	Algunos derechos reservados  \\
+	Este documento se distribuye bajo la licencia \\
+	``Atribución-CompartirIgual 4.0 Internacional'' de Creative Commons, \\
+	disponible en \\
+	\url{https://creativecommons.org/licenses/by-sa/4.0/deed.es}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,9 +145,9 @@ disponible en \\
 \chapter*{}
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
-\textit{Dedicado a \\
-todos aquellos que me animaron y apollaron \\
-incluso en mis momentos de debilidad}
+	\textit{Dedicado a \\
+		todos aquellos que me animaron y apollaron \\
+		incluso en mis momentos de debilidad}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,8 +157,6 @@ incluso en mis momentos de debilidad}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-Además, la pareja quizás no sea para siempre, pero tu madre sí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -151,17 +165,6 @@ Además, la pareja quizás no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto.
-Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
-
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
-\end{itemize}
-
-Lo mejor es escribir el resumen al final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -169,11 +172,6 @@ Lo mejor es escribir el resumen al final.
 \chapter*{Summary}
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
-
-Here comes a translation of the ``Resumen'' into English. 
-Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,7 +183,7 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 % y comentar/descomentar esa instrucción de LaTeX.
 
 %%%% Índice de contenidos
-\tableofcontents 
+\tableofcontents
 %%%% Índice de figuras
 \cleardoublepage
 %\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
@@ -198,131 +196,13 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% INTRODUCCIÓN %
+% INTRODUCCIÓN cpitulo 1%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
 \chapter{Introducción}
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
-
-En este capítulo se introduce el proyecto.
-Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
-
-No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
-
-Aconsejo a todo el mundo que mire y se inspire en memorias pasadas.
-Las memorias de los proyectos que he llevado yo están (casi) todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
-
-En mayo de 2023 me apunté a un curso de innovación docente donde nos pidieron hacer un podcast con temática docente. Aproveché entonces para hacer un podcast de unos 30 minutos donde en los primeros quince minutos introducía LaTeX y la memoria, y en los segundos hacía hincapién en aquellas cosas que más os cuestan utilizar en la memoria: las figuras, las tablas y las citas. Podéis escuchar el podcast en Internet\footnote{\url{https://podcasters.spotify.com/pod/show/gregorio-robles9/episodes/Tu-memoria-de-Trabajo-Fin-de-Grado-o-de-Mster-en-LaTeX-e23hucr/a-a58kp2}}.
-
-
-\section{Sección}
-\label{sec:seccion}
-
-Esto es una sección, que es una estructura menor que un capítulo. 
-
-Por cierto, a veces me comentáis que no os compila por las tildes.
-Eso es un problema de codificación.
-Al guardar el archivo, guardad la codificación de ``ISO-Latin-1'' a ``UTF-8'' (o viceversa) y funcionará.
-
-\subsection{Estilo}
-\label{subsec:estilo}
-
-Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
-
-Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
-Las comas en español no se ponen al tuntún.
-Y nunca, nunca entre el sujeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
-La coma no debe separar el sujeto del predicado en una oración, pues se cortaría la secuencia natural del discurso.
-No se considera apropiado el uso de la llamada coma respiratoria o \emph{coma criminal}.
-Solamente se suele escribir una coma para marcar el lugar que queda cuando omitimos el verbo de una oración, pero es un caso que se da de manera muy infrecuente al escribir un texto científico (p.ej. ``El Real Madrid, campeón de Europa'').
-
-A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
-Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces tu memoria.
-Si no, no se crearán las referencias.
-
-
-
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
-
-
-A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
-Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
-
-
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
-
-
-
-\section{Estructura de la memoria}
-\label{sec:estructura}
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
-\end{figure}
-
-
-
-
-En esta sección se debería introducir la estructura de la memoria. 
-
-Así:
-
-
-\begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
-  
-  \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
-  
-  \item A continuación se presenta el estado del arte en el capítulo~\ref{chap:estado}.
-  
-  \item \ldots
-\end{itemize}
-
 
 
 
@@ -335,245 +215,186 @@ Así:
 \cleardoublepage % empezamos en página impar
 \chapter{Tecnologías utilizadas} % título del capítulo (se muestra)
 \label{chap:objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
-En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto
+En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto tanto de forma directa como indirecta.
 \section{Tecnologías principales} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
+
+Aquí se nombran y explican aquellas tecnologías que han tenido una implicación directa con el proyecto y que han tenido un papel crucial e imprescindible con las cuales, sin ellas, no se habria popido llegar a los resultados obtenidos. 
 
 \subsection{HTML5}
 \label{subsec:HTML5}
 
-HTML5 es la quinta iteración del lenguaje de HTML (\textit{marcado de hipertexto}), el cual es la estructura básica y principal de toda página web. 
-Desarrollado conjuntamente por W3C (\textit{World Wide Web Consortium}) y WHATWG (\textit{Web Hypertext Application Technology Working Group}). 
-HTML5 introduce mejoras sustanciales respecto a sus anteriores versiones, incluyendo nuevas etiquetas semánticas, soporte multimedia mejorado y compatibilidad 
+HTML5 es la quinta iteración del lenguaje de HTML (\textit{marcado de hipertexto}), el cual es la estructura básica y principal de toda página web.
+Desarrollado conjuntamente por W3C (\textit{World Wide Web Consortium}) y WHATWG (\textit{Web Hypertext Application Technology Working Group}).
+HTML5 introduce mejoras sustanciales respecto a sus anteriores versiones, incluyendo nuevas etiquetas semánticas, soporte multimedia mejorado y compatibilidad
 ampliada con diversos navegadores y dispositivos, dándole mayor flexibilidad y dinamismo a la creación de páginas web.
 
-Una de sus nuevas introducciones clave es la introducción de etiquetas semánticas como: \texttt{<header>}, \texttt{<article>}, \texttt{<section>} y \texttt{<footer>}, 
+Una de sus nuevas introducciones clave es la introducción de etiquetas semánticas como: \texttt{<header>}, \texttt{<article>}, \texttt{<section>} y \texttt{<footer>},
 que facilitan una estructuración clara y accesible del contenido web. Estas etiquetas no solo ayudan a mejorar la organización de la información, si no que también facilitan la búsqueda
-de información por parte de los motores de búsqueda y facilitan la interpretación por parte de los desarrolladores. 
-Además, HTML5 incorpora nuevas interfaces de programación de aplicaciones (\textit{API}), destacándose las funcionalidades de almacenamiento local mediante 
+de información por parte de los motores de búsqueda y facilitan la interpretación por parte de los desarrolladores.
+Además, HTML5 incorpora nuevas interfaces de programación de aplicaciones (\textit{API}), destacándose las funcionalidades de almacenamiento local mediante
 \texttt{localStorage} y \texttt{sessionStorage}, que permiten la gestión eficiente de datos directamente en el navegador, eliminando la necesidad de bases de datos externas. \cite{freeman2018head}
 
-HTML5 también introduce mejoras significativas en la gestión de contenido multimedia, eliminando la necesidad de complementos externos. Para esto se implementaron 
-las etiquetas \texttt{<audio>} y \texttt{<video>} las cuales permiten la incorporación directa de archivos de sonido y video en las páginas web, permitiendo mayor dinamismo en el desarrollo. 
+HTML5 también introduce mejoras significativas en la gestión de contenido multimedia, eliminando la necesidad de complementos externos. Para esto se implementaron
+las etiquetas \texttt{<audio>} y \texttt{<video>} las cuales permiten la incorporación directa de archivos de sonido y video en las páginas web, permitiendo mayor dinamismo en el desarrollo.
 Otro elemento que se añadió fue el elemento \texttt{<canvas>} el cual habilita la generación de gráficos y animaciones en tiempo real a través de JavaScript, permitiendo el desarrollo de aplicaciones interactivas y videojuegos en línea.
 
-HTML5 se ha establecido firmemente como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y en entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript 
+HTML5 se ha establecido firmemente como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y en entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript
 permite la creación de interfaces dinámicas y adaptativas, compatibles con una amplia gama de dispositivos, desde ordenadores hasta tabletas y teléfonos.
 
 \subsection{JavaScript}
 \label{subsec:JavaScript}
 JavaScript es un lenguaje de programación ligero y multiplataforma utilizado principalmente para la creación de contenido dinámico e interactivo para páginas web.
 Su felixibilidad permite desarrollar elementos para mejorar la interacción del usuario en páginas web tanto del lado del servidor como del lado del cliente. En 1997, JavaScript fue estandarizado
-por \textit{ECMA} como ECMAScript y poco después como un éstandar \textit{ISO}. 
+por \textit{ECMA} como ECMAScript y poco después como un éstandar \textit{ISO}.
 
 JavaScript, creado por Brendan Eich de Netscape en 1995 bajo el nombre de \textit{Mocha}, posteriormente se renombró a LiveScript y finalmente a JavaScript.
-En el año 2000, JavaScript se extendió al lado de los servidores con la introducción de tecnologías como \textit{Node.js}, y posteriormente su popularidad creció con la llegada de \textit{AJAX}. Y Con la llegada de ECMAScript 6 en 2015, se introdujeron características mas avanzadas y 
+En el año 2000, JavaScript se extendió al lado de los servidores con la introducción de tecnologías como \textit{Node.js}, y posteriormente su popularidad creció con la llegada de \textit{AJAX}. Y Con la llegada de ECMAScript 6 en 2015, se introdujeron características mas avanzadas y
 actualizaciones anuales, haciendo que hoy en día sea uno de los lenguajes mas importantes en el desarrollo web.
 
-JavaScript es un lenguaje de programación de alto nivel, lo que significa que su leguaje esta diseñado para ser lo mas 'humano' posible, permitiendo una rapida comprensión del codigo sin necesidad de un nivel alto de conocimientos. 
-Es un lenguaje basado en eventos ya sean entradas de ratón o entradas de teclado, permitiendo la creación de interfaces de usuario interactivas. JavaScript puede integrarse en un HTML dentro de la etiqueta \texttt{<script>} de forma directa, escribiendo el codigo. 
+JavaScript es un lenguaje de programación de alto nivel, lo que significa que su leguaje esta diseñado para ser lo mas 'humano' posible, permitiendo una rapida comprensión del codigo sin necesidad de un nivel alto de conocimientos.
+Es un lenguaje basado en eventos ya sean entradas de ratón o entradas de teclado, permitiendo la creación de interfaces de usuario interactivas. JavaScript puede integrarse en un HTML dentro de la etiqueta \texttt{<script>} de forma directa, escribiendo el codigo.
 También, se puede introducir codigos de JavaScript, los cuales estén en archivos distintos con la extensión correspondiente al lenguaje (.js), esto es posible vinculando dicho archivo en la cabecera del HTML.
 
 \subsection{WebXR}
 \label{subsec:WebXR}
 
 WebXR \cite{onirix2024} es una tecnología desarrollada por W3C (\textit{World Wide Web Consortium}) que permite crear experiencias inmersivas desde el navegador. Esta tecnología combina la Realidad Aumentada (\textit{AR}) y la Realidad Virtual (\textit{VR}) con la accesibilidad de un navegador web.
-Lo cual permite a los usuarios experimentar e interactuar con entornos tridimensionales a través de cualquier dispositivo con acceso a un navegador compatible. 
+Lo cual permite a los usuarios experimentar e interactuar con entornos tridimensionales a través de cualquier dispositivo con acceso a un navegador compatible.
 
-A medida que la tecnología de WebXR ha ido evolucionando, se han desarrollado distintos tipos de experiencias para poder adaptarse a distintos contextos y necesidades. Hoy en día, se podria clasificar los distintos tipos en 3 categorias: 
+A medida que la tecnología de WebXR ha ido evolucionando, se han desarrollado distintos tipos de experiencias para poder adaptarse a distintos contextos y necesidades. Hoy en día, se podria clasificar los distintos tipos en 3 categorias:
 \begin{itemize}
-  \item \textbf{WebXR AR:} Este tipo de WebXR combina el mundo virtual y el mundo real, permitiendo que distintos elementos del mundo virtual puedan superponerse en el entorno físico a través 
-  de la cámara de un dispositivo compatible, pero sin que llegue a influir el mundo real en los elementos virtuales.
-  \item \textbf{WebXR VR:} Este modo permite a los usuarios sumergirse en el entorno virtual creado, y con la ayuda de dispositivos suplementarios como auriculares, la experiencia es aún mayor. Esta tecnología permite a los usuarios 
-  interactuar y experimentar en primera persona distintos entornos virtuales, desde juegos y entretenimiento, hasta simulaciones virtuales y visualizaciones en 3D.
-  \item \textbf{WebXR MR(Mixed Reality):} Esta tecnología combina el mundo real y el virtual de forma mas profunda que la tecnología AR. Permite a los usuarios poder interactuar con elementos tantos virtuales como físicos y que estos puedan interactuar entre si. Este tipo de combinación proporciona un nivel mayor de interacción entre el usuario y 
-  y su entorno, dando mayor numero de posibilidades para la creación de contenido. 
+	\item \textbf{WebXR AR:} Este tipo de WebXR combina el mundo virtual y el mundo real, permitiendo que distintos elementos del mundo virtual puedan superponerse en el entorno físico a través
+	      de la cámara de un dispositivo compatible, pero sin que llegue a influir el mundo real en los elementos virtuales.
+	\item \textbf{WebXR VR:} Este modo permite a los usuarios sumergirse en el entorno virtual creado, y con la ayuda de dispositivos suplementarios como auriculares, la experiencia es aún mayor. Esta tecnología permite a los usuarios
+	      interactuar y experimentar en primera persona distintos entornos virtuales, desde juegos y entretenimiento, hasta simulaciones virtuales y visualizaciones en 3D.
+	\item \textbf{WebXR MR(Mixed Reality):} Esta tecnología combina el mundo real y el virtual de forma mas profunda que la tecnología AR. Permite a los usuarios poder interactuar con elementos tantos virtuales como físicos y que estos puedan interactuar entre si. Este tipo de combinación proporciona un nivel mayor de interacción entre el usuario y
+	      y su entorno, dando mayor numero de posibilidades para la creación de contenido.
 \end{itemize}
 
 Estos distintos tipos de WebXR ofrecen distintos tipos de experiencias dependiendo del entorno virtual que se quiera diseñar.
 
+\subsection{WebLG}
+\label{subsec:WebLG}
+WebGl (\textit{Web graphics Library}), se trata de una tecnología de bajo nivel multiplataforma usada para la renderización de gráficos tanto tridimensionales como bidimensionales dentro de cualquier navegador que sea compatible.
+
+WebGl fue lanzado en 2011 por el grupo Khronos. Esta tecnología se fundamenta en OpenGL ES, la cual es una variante simplificada de OpenGL, diseñada para dispositivos moviles. WebGL ha sufrido numerables actualizaciones, 
+lo cual ha permitido una evolución continua que ha ido mejorando tanto su funcionalidad como compatibilidad tanto en navegadores de escritorio como en navegadores en dispositivos móviles. 
+
+WebGL esta diseñado para trabajar directamente con la GPU (\textit{Graphic Processing Unit}) del dispositivo, lo cual permite un mayor aprovechamiento de la computación para poder generar gráficos detallados y de alta calidad. 
+Además, la tecnología de WebGL esta diseñada para poder integrarse de manera fluida con otros estandares de desarrollo web como HTML, CSS o DOM. 
+
 \subsection{Three.js}
 \label{subsec:Three.js}
 
-Three.js \cite{threejs_wikipedia} es una biblioteca de codigo abierto de JavaScript utilizada para la creación de gráficos 3D en los navegadores web. Three.js funciona sobre WebGL \cite{webgl_encodebiz}, la cual permite generar y visualizar animaciones y escenas 3D en el navegador sin necesidad de complementos. La tecnologia de WebGL tambiénpuede usarse junto con el elemento \texttt{<canva>} de HTML. 
+Three.js \cite{threejs_wikipedia} es una biblioteca de codigo abierto de JavaScript utilizada para la creación de gráficos 3D en los navegadores web. Three.js funciona sobre WebGL \cite{webgl_encodebiz}, la cual permite generar y visualizar animaciones y escenas 3D en el navegador sin necesidad de complementos. La tecnologia de WebGL tambiénpuede usarse junto con el elemento \texttt{<canva>} de HTML.
 
-Esta biblioteca proporciona una API de alto nivel la cual permite al usuario la creación y manipulación de geometrías 3D como cubos, esfera o planos, así como la aplicación de texturas o la aplicación de tanto camaras como de efectos de iluminación en las escena, permitiendo que el desarrollo de dichas escenas sea mucho mas simplificado. También, Three.js permite la posibilidad de importar modelos 3D desde archivos distintos creados desde aplicaciones distintas.
+Esta biblioteca proporciona una API de alto nivel la cual permite al usuario la creación y manipulación de geometrías 3D como cubos, esfera o planos, así como la aplicación de texturas o la aplicación de tanto camaras como de efectos de iluminación en las escena, permitiendo que el desarrollo de dichas escenas sea mucho mas simplificado. 
+También, Three.js permite la posibilidad de importar modelos 3D desde archivos distintos creados desde aplicaciones distintas.
+
+La biblioteca de Three.js ofrece una alta variedad de herramientas que permiten la gestión y control de usuario, facilitando asi tanto la navegación como la interacción dentro de las escenas 3D. También, Three.js soporta animaciones suaves y dinámicas tanto para objetos en la escena como para camaras, lo cual permite la creación de efectos visuales mas dinámicos e impresionantes al igual que juegos interactivos. 
 
 
-
-\subsection{Aframe}
+\subsection{A-frame}
 \label{subsec: Aframe}
 
-\section{Objetivos específicos}
-\label{sec:objetivos-especificos}
+A-Frame \cite{aframe_docs} es un web framework diseñado para construir experiencias de realidad virtual. A-frame esta basado en HTML y en JavaScript, permitiendo realizar cualquier escena que uno pueda imaginar sin necesidad de conocimientos avanzados en gráficos 3D. 
+Al estar basado en HTMl es posible realizar escenas simples directamente desde un archivo HTML simplemente importando la libreria de A-frame y añadiendo dentro de la etiqueta \texttt{<a-scene>} cualquier elemento que desee el usuario.  
 
-Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-Y, sí, también vienen en infinitivo.
+Uno de los ejemplos mas simples de A-frame es el siguiente:
+\begin{lstlisting}[language=HTML, caption=Escena A-Frame básica, captionpos=b]
+  <html>
+    <head>
+      <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    </head>
+    <body>
+      <a-scene>
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
+      </a-scene>
+    </body>
+  </html>
+\end{lstlisting}
 
-
-\section{Planificación temporal}
-\label{sec:planificacion-temporal}
-
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ESTADO DEL ARTE %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Estado del arte}
-\label{chap:estado}
-
-Descripción de las tecnologías que utilizas en tu trabajo. 
-Con dos o tres párrafos por cada tecnología, vale. 
-Se supone que aquí viene todo lo que no has hecho tú.
-
-Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
-Me encantan los procesos estigmérgicos.
-Deberías leer más sobre ellos.
-Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
-Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
-Imprescindible ponerlo para las citas.
-
-Citar es importantísimo en textos científico-técnicos. 
-Porque no partimos de cero.
-Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
-¿Dónde puedo encontrar textos científicos que referenciar?
-Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
-Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de \emph{estigmergia} (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
-Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
-Abajo a la derecha, aparece un enlace BibTeX.
-Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
-
-{\footnotesize
-\begin{verbatim}
-@inproceedings{robles2005self,
-  title={Self-organized development in libre software:
-         a model based on the stigmergy concept},
-  author={Robles, Gregorio and Merelo, Juan Juli\'an 
-          and Gonz\'alez-Barahona, Jes\'us M.},
-  booktitle={ProSim'05},
-  year={2005}
-}
-\end{verbatim}
-}
-
-Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
-Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
-Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita~\cite{robles2005self}!
-
-También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página del GSyC\footnote{\url{http://gsyc.es}}.
-
-
-
-\section{Sección 1} 
-\label{sec:seccion1}
-
-Hemos hablado de cómo incluir figuras.
-Pero no hemos dicho nada de tablas.
-A mí me gustan las tablas.
-Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tab:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
-
-\begin{table}
- \begin{center}
-  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
-    \hline
-    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    Cuatro & 5 & 6 \\ \hline
-    Siete & 8 & 9 \\
-    \hline
-  \end{tabular}
-  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}, el pie de tabla/figura) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
-  \label{tab:ejemplo}
- \end{center}
-\end{table}
-
-Hay un sitio en Internet donde puedes diseñar las tablas fácilmente y luego hacer un corta y pega del resultado en tu editor.
-Puedes probarlo en \url{https://www.tablesgenerator.com/}.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DISEÑO E IMPLEMENTACIÓN %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Diseño e implementación}
-\label{sec:diseno}
-
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
-
-
-
-\section{Arquitectura general} 
-\label{sec:arquitectura}
-
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
+Este código de HTMl genera una de las escenas mas básicas que se pueden hacer en A-frame. La cual consiste de un plano y encima una serie de figuras geometricas como se aprecia en la figura \ref{fig:aframe-basic}
 
 \begin{figure}
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura2}
+  \includegraphics[width=0.7\textwidth]{img/aframe_hello_world.png}
+  \caption{Escena basica de A-frame}
+  \label{fig:aframe-basic}
 \end{figure}
 
+Una de las principales características de esta tecnología es su arquitectura basada en un modelo de entidad-componente (\textit{Entity Component System}), donde cada objeto dentro de la escena es una entidad que luego es integrada con Three.js para crear la escena.
+Una entidad en A-frame es un objeto HTML que se crea añadiendo la etiqueta \texttt{<a-entity>} y el componente es la apariencia, comportamiento y funcionalidad que se le asigna mediante JavaScript. 
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-\LaTeX \ pone las figuras donde mejor cuadran. 
-Y eso quiere decir que quizás no lo haga donde lo hemos puesto\ldots 
-Eso no es malo.
-A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
+Para hacer uso de un componente se requiere de una serie de pasos previos. Si el componente es externo es necesario importarlo en la cabecera del HTML del mismo modo que se importa A-frame y posteriormente añadirlo a la entidad en la que uno desee usarlo. 
+Por otra parte, si el  componente es de nuestra creación, primero hay que registrar y definir el componente. Esto se hace en un archivo externo de JavaScript mediante el método de \texttt{AFRAME.registerComponente}. A este método, del mimo modo que una función primero se le asigna un nombre, 
+este sera el nombre del componente. Luego, este metodo consta de varias funciones internas las cuales se encargan de definir la apariencia y lógica de dicho componente. Alguna de estas funciones son la función \texttt{schema}, \texttt{init} o \texttt{tick}.
+La función \texttt{schema}, define las propiedades principales del componente, estas se pueden modificar dependiendo de la lógica del componente desde el HTML a la hora de llamarlo. La función \texttt{init} se ejecuta una única vez al inicio cuando se inicializa el componente y la función \texttt{tick} se ejecuta a cada frame de la escena.
+Una vez el componente esta registrado y programado importamos el archivo que contiene el componente al HTML y lo insertamos a la escena en la entidad u objeto que deseemos. 
+
+Un ejemplo de la llamada de un componente dentro de un archivo de HTML se puede apreciar en \ref{lst:aframe-entity}
+\begin{lstlisting}[language=HTML, caption=Ejemplo de entidad en A-frame, captionpos=b, label=lst:aframe-entity]
+  <html>
+    <head>
+      <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+      <script src = "componente1.js"></script>
+      <script src = "componente2.js"></script>
+    </head>
+    <body>
+      <a-scene>
+        <a-entity componente1></a-entity>
+        <a-box componente2></a-box>
+      </a-scene>
+    </body>
+  </html>
+\end{lstlisting}
+
+En este ejemplo primero se muestra como a una entidad vacia se le añade un compoennte llamado \texttt{componente1} y también se muestra como a una entidad de cubo se le añade el componente \texttt{componente2}.
+
+\section{Tecnologias auxiliares}
+\label{sec:tecnologias-auxiliares}
+En esta sección se detallan y describen las distintas tecnologías que aunque no hayan influido de manera directa en los resultados del proyecto, han tenido un papel crucial para el desarroyo de este.
 
 
- 
-Recuerda que toda figura que añadas a tu memoria debe ser explicada.
-Sí, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en sí solamente es un apoyo a tu texto.
-Así que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aquí.
-Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} básico, que consta de seis componentes diferentes: los datos se obtienen de la red, y según el tipo de dato, se pasará a un \emph{parser} específico y bla, bla, bla\ldots
+\subsection{Visual Studio Code}
+\label{subsec: visualstudiocode}
 
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
+\subsection{Github}
+\label{subsect:github}
 
+\subsection{Meta Quest 3}
+\label{subsec:metaquest}
 
+\subsection{LaTeX}
+\label{subsec:latex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EXPERIMENTOS Y VALIDACIÓN %
+% {Desarrollo del proyecto copitulo 3 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Experimentos y validación}
-\label{chap:experimentos}
-
-Este capítulo se introdujo como requisito en 2019. 
-Describe los experimentos y casos de test que tuviste que implementar para validar tus resultados. 
-Incluye también los resultados de validación que permiten afirmar que tus resultados son correctos. 
+\chapter{Desarrollo del proyecto}
+\label{chap:Desarrollo del proyecto}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RESULTADOS %
+% RESULTADOS capitulo 4%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
 \chapter{Resultados}
 \label{chap:resultados}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado.
-
-Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CONCLUSIONES %
+% CONCLUSIONES capitulo 5%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
@@ -581,65 +402,17 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejem
 \label{chap:conclusiones}
 
 
-\section{Consecución de objetivos}
-\label{sec:consecucion-objetivos}
-
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
-
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-
-Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
-
-\begin{verbatim}
-  aspell --lang=es_ES -c memoria.tex
-\end{verbatim}
-
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM.
-Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
-
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
-
-\begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene otro.
-\end{enumerate}
-
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
-
-Ningún proyecto ni software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
-
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% APÉNDICE(S) %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\appendix
-\chapter{Manual de usuario}
-\label{app:manual}
-
-Esto es un apéndice.
-Si has creado una aplicación, siempre viene bien tener un manual de usuario.
-Pues ponlo aquí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
