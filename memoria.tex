@@ -30,6 +30,7 @@
 \usepackage{listings}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
+\usepackage{caption}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
@@ -301,7 +302,8 @@ La biblioteca de Three.js ofrece una alta variedad de herramientas que permiten 
 A-Frame \cite{aframe_docs} es un web framework diseñado para construir experiencias de realidad virtual. A-frame esta basado en HTML y en JavaScript, permitiendo realizar cualquier escena que uno pueda imaginar sin necesidad de conocimientos avanzados en gráficos 3D. 
 Al estar basado en HTMl es posible realizar escenas simples directamente desde un archivo HTML simplemente importando la libreria de A-frame y añadiendo dentro de la etiqueta \texttt{<a-scene>} cualquier elemento que desee el usuario.  
 
-Uno de los ejemplos mas simples de A-frame es el siguiente:
+Uno de los ejemplos más simples de A-frame es el siguiente:
+
 \begin{lstlisting}[language=HTML, caption=Escena A-Frame básica, captionpos=b]
   <html>
     <head>
@@ -319,12 +321,12 @@ Uno de los ejemplos mas simples de A-frame es el siguiente:
   </html>
 \end{lstlisting}
 
-Este código de HTMl genera una de las escenas mas básicas que se pueden hacer en A-frame. La cual consiste de un plano y encima una serie de figuras geometricas como se aprecia en la figura \ref{fig:aframe-basic}
+Este código de HTML genera una de las escenas más básicas que se pueden hacer en A-frame. La cual consiste en un plano y, encima, una serie de figuras geométricas, como se aprecia en la figura \ref{fig:aframe-basic}.
 
-\begin{figure}
+\begin{figure}[H]  % requiere \usepackage{float}
   \centering
   \includegraphics[width=0.7\textwidth]{img/aframe_hello_world.png}
-  \caption{Escena basica de A-frame}
+  \caption{Escena básica de A-frame}
   \label{fig:aframe-basic}
 \end{figure}
 
@@ -380,11 +382,27 @@ Algunas de las extensiones utilizadas en este proyecto han sido:
 \subsection{Github}
 \label{subsect:github}
 
-\subsection{Meta Quest 3}
-\label{subsec:metaquest}
+GitHub es una plataforma basada en la nube que permite almacenar distintos repositorios y en cada repositorio codigo. Git fue creado en 2005 por Linus Torvalds como un sistema de control de versiones de código abierto.
+Este sistema fue desarroyado con la intención de ayudar a los desarrolladores a tener en cualquier dispositivo con acceso a internet todo el historial de código que estan desarrollando. 
+
+Esta tecnología es ampliamente utilizada a nivel mundial por desarrolladores de todo tipo debido a su capacidad de almacenar, soportar y gestionar proyectos de toda clase. Una de las funciones clave que presenta la plataforma, es la capacidad de crear ramificaciones (branches). Esta opcion permite a los desarroyadores poder crear copias del codigo del repositorio en el que 
+estan trabajando para poder trabajar en paralelo y posteriormete poder integrar los cambios realizados en paralelo al codigo principal. Esta opcion también permite que mas de un desarrollador pueda trabajar en el mismo codigo, haciendo que cada uno trabaje en paralelo en ramas distintas. 
+
+% \subsection{Meta Quest 3}
+% \label{subsec:metaquest}
+
+% Meta Quest se trata de un dispositivo inalámbrico diseñado para disfrutar de contenido de realidad virtual (VR). Dicho dispositivo esta compuesto por unas gafas, un micrófono y auriculares integrados en un unico dispositivo que el usuario pone en su cabeza y un par de mandos inalámbricos. 
+% La primera version fue lanzada en 2020 con las Meta Quest 2 y 3 años mas tarde, en 2023 se lanzaron las Meta Quest 3. 
+
 
 \subsection{LaTeX}
 \label{subsec:latex}
+
+LaTeX \cite{latexproject_about} es un software de uso libre de creación de documentación de alta calidad. Este sistema es altamente utilizado para la creación de documentación tecnica o cientifica de media o larga extensión, aunque gracias a su versatilidad se puede utilizar para cualquier tipo de documentación.
+
+Entre las distintas caracteristicas de LaTeX cabe destacar su capacidad de manejar expresiones matematicas complejas, lo cual es una herramienta indispensable para cualquier documento cintifico. También gracias a su software motor TeX LaTeX es capaz de convertir los comandos de texto, utilizados para expresar los resultados tipográficos, en un archivo PDF profesional. 
+
+Además de facilitar la creación de formulas matematicas complejas, LaTeX también ofrece otras facilidades avanzadas, como puede ser la creación de un índice del contenido, un índice de las figuras utilizadas, gestión de bibliografias o referencias simplificando la organización del documento y la citación de figuras o elementos externos en la bibliografia.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % {Desarrollo del proyecto copitulo 3 %
