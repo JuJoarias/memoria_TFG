@@ -43,7 +43,7 @@
   showstringspaces=false,
   breaklines=true,
   numbers=none,
-  language={},         % <- sin lenguaje para evitar resaltado
+  language={},        
   keywordstyle=,
   commentstyle=,
   stringstyle=,
@@ -125,8 +125,6 @@
 
 \vspace{12cm}
 
-%% Licencia de publicación en abierto elegida
-%% Ver detalles en https://ofilibre.urjc.es/guias/tfg-abierto/
 
 \begin{flushright}
 	\includegraphics[scale=0.6]{img/by-sa}
@@ -216,10 +214,11 @@
 
 \cleardoublepage % empezamos en página impar
 \chapter{Tecnologías utilizadas} 
-\label{chap:objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
-En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto tanto de forma directa como indirecta.
+\label{chap:tecnologias} % identificador del capítulo (no se muestra, es para poder referenciarlo)
+En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto tanto de forma directa como indirecta. Del mismo modo, se explicará su funcionalidad
+y la manera en la que contribuyeron al proyecto. 
 \section{Tecnologías principales} 
-\label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
+\label{sec:tecnologias-principales} % identificador de sección (no se muestra, es para poder referenciarla)
 
 Aquí se nombran y explican aquellas tecnologías que han tenido una implicación directa con el proyecto y que han tenido un papel crucial e imprescindible con las cuales, sin ellas, no se habria popido llegar a los resultados obtenidos. 
 Las principales tecnologias utilizadas han sido HTML5, JavaScript y A-Frame, estas tres tecnologias han sido el nucleo principal del proyecto. El resto de las tecnologías principales 
@@ -231,7 +230,7 @@ son aquellas en las que se apollan esas tres, permitiendo que funcionen como lo 
 A-Frame \cite{aframe_docs} es un web framework diseñado para construir experiencias de realidad virtual. A-frame esta basado en HTML y en JavaScript, permitiendo realizar cualquier escena que uno pueda imaginar sin necesidad de conocimientos avanzados en gráficos 3D. 
 Al estar basado en HTML es posible realizar escenas simples directamente desde un archivo HTML simplemente importando la libreria de A-frame y añadiendo dentro de la etiqueta \texttt{<a-scene>} cualquier elemento que desee el usuario.  
 
-Uno de los ejemplos más simples de A-frame es el siguiente:
+Uno de los ejemplos más simples que se puede llegar a realizar utilizando A-frame es el siguiente:
 
 \begin{lstlisting}[language=HTML, caption=Escena A-Frame básica, captionpos=b]
   <html>
@@ -252,7 +251,7 @@ Uno de los ejemplos más simples de A-frame es el siguiente:
 
 Este código de HTML genera una de las escenas más básicas que se pueden hacer en A-frame. La cual consiste en un plano y, encima, una serie de figuras geométricas, como se aprecia en la figura \ref{fig:aframe-basic}.
 
-\begin{figure}[H]  % requiere \usepackage{float}
+\begin{figure}[H]  
   \centering
   \includegraphics[width=0.7\textwidth]{img/aframe_hello_world.png}
   \caption{Escena básica de A-frame}
@@ -269,7 +268,7 @@ La función \texttt{schema}, define las propiedades principales del componente, 
 Una vez el componente esta registrado y programado importamos el archivo que contiene el componente al HTML y lo insertamos a la escena en la entidad u objeto que deseemos. 
 
 Un ejemplo de la llamada de un componente dentro de un archivo de HTML se puede apreciar en \ref{lst:aframe-entity}
-\begin{lstlisting}[language=HTML, caption=Ejemplo de llamada de entidad, captionpos=b, label=lst:aframe-entity]
+\begin{lstlisting}[caption=Ejemplo de llamada de entidad, captionpos=b, label=lst:aframe-entity]
   <html>
     <head>
       <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
@@ -288,7 +287,7 @@ Un ejemplo de la llamada de un componente dentro de un archivo de HTML se puede 
 En este ejemplo primero se muestra como a una entidad vacia se le añade un compoennte llamado \texttt{componente1} y también se muestra como a una entidad de cubo se le añade el componente \texttt{componente2}.
 Del mismo modo, para la creación de un componente, en el archivo \texttt{.js} que posteriormente importaremos en la escena, unicamente es necesario registrar el componente y definir sus caracteristicas como en el siguiente ejemplo:
 
-\begin{lstlisting}[language=HTML, caption=Ejemplo de creacion de entidad, captionpos=b, label=lst:aframe-entity-creation]
+\begin{lstlisting}[caption=Ejemplo de creacion de entidad, captionpos=b, label=lst:aframe-entity-creation]
   AFRAME.registerComponent('componente1', {
   init() {
     const box = document.createElement('a-box');
@@ -309,6 +308,8 @@ Del mismo modo, para la creación de un componente, en el archivo \texttt{.js} q
 
 Este fragmento de código registra el componente \texttt{componente1} el cual crea un cubo y un cilindro con unos colores, posición y rotación especificos y los añade a la escena.
 
+Para este proyecto, A-Frame ha sido la tecnología principal, permitiendo elementos fundamentales como la creación y gestión de entornos de realidad virtual. 
+También, permitio la integración de componentes diseñados mediante JavaScript y permitio el manejo de interacciones mas complejas a la vez que optimizaba el rendimiento de la escena 3D.
 \subsection{HTML5}
 \label{subsec:HTML5}
 
@@ -330,8 +331,8 @@ Otro elemento que se añadió fue el elemento \texttt{<canvas>} el cual habilita
 HTML5 se ha establecido firmemente como un estándar en el desarrollo de aplicaciones web progresivas (\textit{PWA}) y en entornos multiplataforma. Su integración con tecnologías como CSS3 y JavaScript
 permite la creación de interfaces dinámicas y adaptativas, compatibles con una amplia gama de dispositivos, desde ordenadores hasta tabletas y teléfonos.
 
-Gracias a que HTML es una tecnologia extensible, gracias a tecnologias como A-Frame o WebXR han sido posibles de utilizar ya que son extensiones de HTML. WebXR permitio poder trabajar con entornos VR desde el navegador mientras que A-Frame fue el eje central 
-del proyecto, donde se estructuro la escena.
+Gracias a que HTML es una tecnologia extensible, tecnologias como A-Frame o WebXR han sido posibles de utilizar ya que son extensiones de HTML. WebXR permitio poder trabajar con entornos VR desde el navegador mientras que A-Frame fue el eje central 
+del proyecto, donde se estructuro la escena. HTML fue una de las tecnologías mas importantes ya que ofrece una estructura esencial para el desarroyo del proyecto, haciendo uso de sus extensiones de A-Frame y WebXR para poder mostrar los elementos de la escena en la realidad virtual.
 
 \subsection{JavaScript}
 \label{subsec:JavaScript}
@@ -347,7 +348,7 @@ JavaScript es un lenguaje de programación de alto nivel, lo que significa que s
 Es un lenguaje basado en eventos ya sean entradas de ratón o entradas de teclado, permitiendo la creación de interfaces de usuario interactivas. JavaScript puede integrarse en un HTML dentro de la etiqueta \texttt{<script>} de forma directa, escribiendo el codigo.
 También, se puede introducir codigos de JavaScript, los cuales estén en archivos distintos con la extensión correspondiente al lenguaje (.js), esto es posible vinculando dicho archivo en la cabecera del HTML.
 
-Para este proyecto formo un papel crucial, ya que los distintos componentes de A-Frame que se crearon para el funcionamiento del proyecto fueron programados mediante JavaScript.
+Para este proyecto formo un papel crucial, ya que fue con JavaScript que se desarrollaron los distintos componentes de A-Frame que se usaron para el funcionamiento del proyecto. Permitio diseñar e implementar la lógica que hay tras cada componente permitiendo alcanzar los resultados obtenidos.
 
 \subsection{Three.js}
 \label{subsec:Threejs}
@@ -360,12 +361,14 @@ También, Three.js permite la posibilidad de importar modelos 3D desde archivos 
 La biblioteca de Three.js ofrece una alta variedad de herramientas que permiten la gestión y control de usuario, facilitando asi tanto la navegación como la interacción dentro de las escenas 3D. También, Three.js soporta animaciones suaves y dinámicas tanto para objetos en la escena como para camaras, lo cual permite la creación de efectos visuales mas dinámicos e impresionantes al igual que juegos interactivos. 
 
 Gracias a la amplia variedad de posibilidades que permite la biblioteca de Three.js las opciones de los elementos o escenas que se pueden llegar a crear son basicamente ilimitadas. Siendo capaz de crear escenas complejas como la de la figura \ref{fig:three}
-\begin{figure}[H]  % requiere \usepackage{float}
+\begin{figure}[H] 
   \centering
   \includegraphics[width=0.7\textwidth]{img/three.jpeg}
   \caption{Escena de Three.js}
   \label{fig:three}
 \end{figure}
+
+Three.js permitio añadir una capa mas simplificada a WebGL, simplificando asi el proceso de creación y manipulación de los elementos 3D. Permitió crear un entorno 3D con mayor dinamismo y control para el proyecto.
 
 \subsection{WebXR}
 \label{subsec:WebXR}
@@ -419,18 +422,29 @@ Algunas de las extensiones utilizadas en este proyecto han sido:
 \subsection{Github}
 \label{subsect:github}
 
-GitHub es una plataforma basada en la nube que permite almacenar distintos repositorios y en cada repositorio codigo. Git fue creado en 2005 por Linus Torvalds como un sistema de control de versiones de código abierto.
+GitHub es una plataforma basada en la nube que permite almacenar distintos repositorios y en cada repositorio codigo. Github esta basado en Git \cite{git}, el cual fue creado en 2005 por Linus Torvalds como un sistema de control de versiones de código abierto.
 Este sistema fue desarroyado con la intención de ayudar a los desarrolladores a tener en cualquier dispositivo con acceso a internet todo el historial de código que estan desarrollando. 
 
 Esta tecnología es ampliamente utilizada a nivel mundial por desarrolladores de todo tipo debido a su capacidad de almacenar, soportar y gestionar proyectos de toda clase. Una de las funciones clave que presenta la plataforma, es la capacidad de crear ramificaciones (branches). Esta opcion permite a los desarroyadores poder crear copias del codigo del repositorio en el que 
 estan trabajando para poder trabajar en paralelo y posteriormete poder integrar los cambios realizados en paralelo al codigo principal. Esta opcion también permite que mas de un desarrollador pueda trabajar en el mismo codigo, haciendo que cada uno trabaje en paralelo en ramas distintas. 
 
-% \subsection{Meta Quest 3}
-% \label{subsec:metaquest}
+GitHub aprovecha todas las ventajas que permite Git, permitiendo crear repositorios en la nube para sus proyectos Git, que los desarrolladores pueden llegar a compartir con otras personas. Esta plataforma tambien facilita la colaboración entre desarrolladores y aparte de las ventajas ya mencionadas de Git permite también el uso de herramientas de gestión de proyectos al igual que acciones automaticas. 
 
-% Meta Quest se trata de un dispositivo inalámbrico diseñado para disfrutar de contenido de realidad virtual (VR). Dicho dispositivo esta compuesto por unas gafas, un micrófono y auriculares integrados en un unico dispositivo que el usuario pone en su cabeza y un par de mandos inalámbricos. 
-% La primera version fue lanzada en 2020 con las Meta Quest 2 y 3 años mas tarde, en 2023 se lanzaron las Meta Quest 3. 
+\subsection{Meta Quest 3}
+\label{subsec:metaquest}
 
+Meta Quest se trata de un dispositivo inalámbrico diseñado para disfrutar de contenido de realidad virtual (VR) por Meta \cite{meta_company_info}. Dicho dispositivo esta compuesto por unas gafas, un micrófono y auriculares integrados en un unico dispositivo que el usuario pone en su cabeza y un par de mandos inalámbricos. 
+La primera version fue lanzada en 2020 con las Meta Quest 2 y 3 años mas tarde, en 2023 se lanzaron las Meta Quest 3. 
+
+Para este proyecto se han utilizado unas Meta Quest 3, las cuales coontaban con una memoria de 8 GBB de memoria RAM, una resolición de 2064x2208 pixeles por cada uno de los ojos. También, cuenta con mejoras respecto al campo de visión (FOV) respecto a su version anterior. Para este proyecto jugaron un papel cricial ya que al enfocarse en la detección de mandos
+el proyecto, sin las gafas no se habria podido probar los resultados que se iban obteniendo.
+
+\begin{figure}[H] 
+  \centering
+  \includegraphics[width=0.7\textwidth]{img/meta_quest.jpg}
+  \caption{Meta Quest 3}
+  \label{fig:metaquest}
+\end{figure}
 
 \subsection{LaTeX}
 \label{subsec:latex}
@@ -440,6 +454,8 @@ LaTeX \cite{latexproject_about} es un software de uso libre de creación de docu
 Entre las distintas caracteristicas de LaTeX cabe destacar su capacidad de manejar expresiones matematicas complejas, lo cual es una herramienta indispensable para cualquier documento cintifico. También gracias a su software motor TeX LaTeX es capaz de convertir los comandos de texto, utilizados para expresar los resultados tipográficos, en un archivo PDF profesional. 
 
 Además de facilitar la creación de formulas matematicas complejas, LaTeX también ofrece otras facilidades avanzadas, como puede ser la creación de un índice del contenido, un índice de las figuras utilizadas, gestión de bibliografias o referencias simplificando la organización del documento y la citación de figuras o elementos externos en la bibliografia.
+
+Para este proyecto, LaTeX facilito considerablemente el trabajo a la hora de crear este documento, ayudando con la creación y gestión de indices, imagenes y bibliografia al igual que a estructurar el texto del documento de forma correcta.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % {Desarrollo del proyecto copitulo 3 %
