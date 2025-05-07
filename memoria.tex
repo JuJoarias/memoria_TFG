@@ -489,9 +489,10 @@ Para ello, primero se creo primero el repositorio de \textit{Git}\footnote{\url{
 \subsection{Resultados}
 \label{subsec:resultados0}
 Para familiarimarme aun mas con el entorno de A-FRAME se crearon una serie de escenas muy sencillas donde se creaba y utilizaba un componente customizado y se hacia uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
+El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en las figura \ref{fig:sprint0}.
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...}
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la primera escena de test que hice
   \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
   \caption{Escena de test de A-Frame}
   \label{fig:sprint0}
@@ -501,19 +502,140 @@ Tras la familiarización con el entorno de A-Frame y sus características el pro
 
 \section{Sprint 1}
 \label{sec:sprint1}
-Explorando el handtraking
+Investigando el handtraking
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal1}
-texto pendiente
+En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtraking en A-Frame. 
+Este era el paso principal en el que se basaria todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame este proyecto habria sido imposible de realizar.
 
 \subsection{Implementación}
 \label{subsec:implementacion1}
-texto pendiente
+Los primeros pasos fue investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
+Para ellos se usaron pequeñas escenas de prueba para comprender mejor el comportamiento de las manos en la realidad virtual, y del mismo modo, tener una idea mas clara del objetivo final del aspecto de handtracking. 
+
+Tras la investigación de las manos y la sugerencia del tutor, se decidio utilizar la tecnologia de WebXR para el handtracking puesto que esta tecnología ya posee un sistema preparado para ello. Además, usando la tecnología de WebXR nos permitia trabajar con cada una de las articulaciones de la mano de forma independiente. 
+
+Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/TR/webxr-hand-input-1/}}, se empezo el desarrollo de las manos. para ello en el codigo fue necesario tratar cada una de las manos de forma independiente, del mismo modo que cada una de las articulaciones como se muestra en el esquema de las manos de WebXR en la figura \ref{fig:webxr-manos}. 
+
+\begin{figure}[H] 
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/webxr-mano.png} 
+  \caption{Esquema manos segun WebXR}
+  \label{fig:webxr-manos}
+\end{figure}
+
+Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que sera el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenia un schema, en el init se definian las distintas variables que eran necesarias para el funcionamiento del código. 
+En el HTML que define la escena unicamente era necesario añadir una vez el componente como una entidad. Pero era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición unicamente se realizaba en el código de JavaScript.
+\begin{lstlisting}[caption=Definición de articulaciones, captionpos=b, label=lst:articulaciones]
+  const orderedJoints = [
+    ["wrist"],
+    ["thumb-metacarpal", "thumb-phalanx-proximal", "thumb-phalanx-distal", "thumb-tip"],
+    ["index-finger-metacarpal", "index-finger-phalanx-proximal", "index-finger-phalanx-intermediate", "index-finger-phalanx-distal", "index-finger-tip"],
+    ["middle-finger-metacarpal", "middle-finger-phalanx-proximal", "middle-finger-phalanx-intermediate", "middle-finger-phalanx-distal", "middle-finger-tip"],
+    ["ring-finger-metacarpal", "ring-finger-phalanx-proximal", "ring-finger-phalanx-intermediate", "ring-finger-phalanx-distal", "ring-finger-tip"],
+    ["pinky-finger-metacarpal", "pinky-finger-phalanx-proximal", "pinky-finger-phalanx-intermediate", "pinky-finger-phalanx-distal", "pinky-finger-tip"]
+  ];
+\end{lstlisting}
+Después de definir todas las articulaciones era necesario procesarlas. 
+Para ello, se creo la función que se muestra en el fragmento de código \ref{lst:manos-codigo}. En la función \texttt{renderHandSkeleton} se crea un bucle de código el cual, toma la sesión XR de la escena y por cada input de la sesion toma cada una de las articulaciones, las detecta en la mano y crea una esfera a traves de una segunda función unicamente encargada de crear esferas. Dichas esferas se crean en la posición corerspoondiente a la mano real
+y tambien se ajusta el radio de la esfera para que coincida con la mano. 
+
+\begin{lstlisting}[caption=Dibujo de las manos en la escena, captionpos=b, label=lst:manos-codigo]
+  renderHandSkeleton: function () {
+    const session = this.el.sceneEl.renderer.xr.getSession();
+    if (!session || !this.frame || !this.referenceSpace) {
+        return;
+    }
+    const inputSources = session.inputSources;
+    for (const inputSource of inputSources) {
+        if (inputSource.hand) {
+            const hand = inputSource.hand;
+            const handedness = inputSource.handedness; // Determina si es la mano derecha o izquierda
+            for (const finger of orderedJoints) {
+                for (const jointName of finger) {
+                    const joint = hand.get(jointName);
+                    if (joint) {
+                        const jointPose = this.frame.getJointPose(joint, this.referenceSpace);
+                        if (jointPose) {
+                            const position = jointPose.transform.position;
+                            if (!this.spheres[handedness + '_' + jointName]) {
+                                this.spheres[handedness + '_' + jointName] = this.drawSphere(jointPose.radius, position);
+                            } else {
+                                this.spheres[handedness + '_' + jointName].object3D.position.set(position.x, position.y, position.z);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  },
+\end{lstlisting}
+
+Esta función se encuentra dentro de la función Tick del componente manos, asi que a cada frame el propio código revisa la posición de todas y cada una de las articulaciones para cada una 
+de las dos manos de entrada.
+Además de detectar y dibujar las manos en la escena, en esta primera demo se implementó el gesto de \texttt{Pinch}, distinguiendo cada mano y realizando una acción distinta dependiendo de la mano que lo realizase. 
+
+Primero, para la detección del gesto se creo la función de \texttt{detectGestures}, como se muestra en el fragmento de código \ref{lst:firstdetectGesture}. En dicha función, se tomaba la posición del la punta del dedo índice y del pulgar y se calculaba la distancia entre ambos puntos.
+
+\begin{lstlisting}[caption=Función detectGestures, captionpos=b, label=lst:firstdetectGesture]
+  detectGestures: function () {
+    const session = this.el.sceneEl.renderer.xr.getSession();
+    const inputSources = session.inputSources;
+    let rightPinching = false;
+    let leftPinching = false;
+    for (const inputSource of inputSources) {
+        if (inputSource.hand) {
+            const thumbTip = this.frame.getJointPose(inputSource.hand.get("thumb-tip"), this.referenceSpace);
+            const indexTip = this.frame.getJointPose(inputSource.hand.get("index-finger-tip"), this.referenceSpace);
+            if (thumbTip && indexTip) {
+                const distance = calculateDistance(thumbTip.transform.position, indexTip.transform.position);
+                if (distance < pinchDistance) {
+                    if (inputSource.handedness === 'right') {
+                        rightPinching = true;
+                        if (!this.rightPinching) {
+                          this.createBoxAtHand(inputSource.hand);  
+                        }
+                    } else if (inputSource.handedness === 'left') {
+                        leftPinching = true;
+                        if (!this.leftPinching) {
+                            this.selectObjectAtHand(inputSource.hand); // Selecciona un objeto cercano para mover
+                        }
+                    }
+                }
+            }
+        }
+    }
+    this.rightPinching = rightPinching;
+    this.leftPinching = leftPinching;
+  },
+\end{lstlisting}
+
+Si la distancia era inferior a 0.02 (valor obtenido tras realizar varias pruebas), se comprobaba que mano era la que lo realizaba y luego se llamaba a la función correspondiente. 
+Si se trataba de la mano derecha, se creaba un cubo verde en la posición de la punta del dedo índice. Y si se trataba de la mano izquierda, si esta se encontraba lo bastante cerda de uno de los cubos creados por la mano derecha (a una distancia inferior a 0.15) la posición del cubo copiaria la de la punta del dedo índice izquierdo hasta que se soltase el gesto.
+
 
 \subsection{Resultados}
 \label{subsec:resultados1}
-texto pendiente
+
+Como resultado de este sprint se creo la prueba de \textit{pinch test}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/pinch_test.html}} al igual que en la figura \ref{fig:sprint1}.
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la primera escena de manos
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Primera demo de manos}
+  \label{fig:sprint1}
+\end{figure}
+
+Las esferas se dibujaban correctamente y los gestos funcionaban, pero habia bastantes aspectos a mejorar. Primero, por sujerencia del tutor,
+se debia modificar el componente para que fuese necesario añadirlo 2 veces a la escena, 1 por cada mano. También, respecto al gesto, con la mano derecha habia que cambiar el funcionamiento
+ya que el que creara un cubo no seria necesario mas adelante. Y respecto a la mano izquierda, se identificó que a la hora de tomar el cubo, este se transportaba hacia la posicion del dedo índice. 
+Y aunque esto era lo deseado de primeras, visualmente no quedaba bien ya que si se agarraba una esquina el cubo se transportaba, tragandose la mano en vez de agarrar el cubo mientras mantenia la distance entre el dedo y el centro del cubo. 
+Aparte de eso, en el caso de que hubiese mas de un cubo muy pegado, el código no identificaba siempre de forma correcta el mas cercano, haciendo que a veces se tomara el cubo no deseado.
+
+Todos estos factores dieron paso al siguiente sprint, donde se corregirian los errores resaltados. Aparte se intentaria optimmizar la creación de las manos y se añadiria la emisión y gestión de eventos, ya que en esta primera demo, al realizar el gesto, se llama a la función correspondiente si utilizar eventos. 
 
 \section{Sprint 2}
 \label{sec:sprint2}
