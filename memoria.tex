@@ -525,7 +525,7 @@ Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/T
   \label{fig:webxr-manos}
 \end{figure}
 
-Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que sera el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenia un schema, en el init se definian las distintas variables que eran necesarias para el funcionamiento del código. 
+Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que sera el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenia un \texttt{schema}, en el \texttt{init} se definian las distintas variables que eran necesarias para el funcionamiento del código. 
 En el HTML que define la escena unicamente era necesario añadir una vez el componente como una entidad. Pero era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición unicamente se realizaba en el código de JavaScript.
 \begin{lstlisting}[caption=Definición de articulaciones, captionpos=b, label=lst:articulaciones]
   const orderedJoints = [
@@ -573,7 +573,7 @@ y tambien se ajusta el radio de la esfera para que coincida con la mano.
   },
 \end{lstlisting}
 
-Esta función se encuentra dentro de la función Tick del componente manos, asi que a cada frame el propio código revisa la posición de todas y cada una de las articulaciones para cada una 
+Esta función se encuentra dentro de la función \texttt{tick} del componente manos, asi que a cada frame el propio código revisa la posición de todas y cada una de las articulaciones para cada una 
 de las dos manos de entrada.
 Además de detectar y dibujar las manos en la escena, en esta primera demo se implementó el gesto de \texttt{Pinch}, distinguiendo cada mano y realizando una acción distinta dependiendo de la mano que lo realizase. 
 
@@ -619,7 +619,7 @@ Si se trataba de la mano derecha, se creaba un cubo verde en la posición de la 
 \subsection{Resultados}
 \label{subsec:resultados1}
 
-Como resultado de este sprint se creo la prueba de \textit{pinch test}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/pinch_test.html}} al igual que en la figura \ref{fig:sprint1}.
+Como resultado de este sprint se creo la demo de \textit{pinch test}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/pinch_test.html}} al igual que en la figura \ref{fig:sprint1}.
 
 \begin{figure}[H] 
   \centering
@@ -639,19 +639,77 @@ Todos estos factores dieron paso al siguiente sprint, donde se corregirian los e
 
 \section{Sprint 2}
 \label{sec:sprint2}
-Primeros gestos
+Introducción de eventos y optimización del manejo de manos. 
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal2}
-texto pendiente
+Tras la observaciones del sprint anterior, para este sprint se replanteo el funcionamiento de los gestos. También, se reorganizo la forma de creación de las manos en la escena y la detección de los gestos. 
+
 
 \subsection{Implementación}
 \label{subsec:implementacion2}
-texto pendiente
+Primero, se reorganizo el componente encargado de dibujar las manos que se creo en el sprint anterior. Dicho componente se renombro a \texttt{manos}, nombre que se mantendría hasta el final del proyecto. A dicho componente se le añadio un \texttt{schema}. 
+En dicho \texttt{schema} hay unacamente una variable llamada \texttt{hand}, dicha variable unicamente acepta \texttt{left} o \texttt{right} como entradas. Este cambio era para que el componente distinguiera las manos y unicamente dibujase una mano a la vez, esto hizo que para dibujar ambas manos en la escena fuese necesario añadir el componente 2 veces, 1 por cada mano. 
+También, se modifico la función \texttt{init}. Ahora, aparte de definir los valores iniciales de las variables utilizadas, realiza un bucle que recorre la constante que contiene todas las articulaciones y por cada una crea una esfera. Dichas esferas son añadidas a la escena y tambien se crea un diccionario al que se le añade el nombre y entidad de cada articulación.
+Este bucle se puede apreciar en el fragmento de código \ref{lst:esferas}. Como se puede apreciar, esto no nos permite detectar las manos y utilizarlas en la escena, simplemente prepara las entidades que representaran la mano dentro de la escena.
+
+\begin{lstlisting}[caption=Creación de las esferas de las articulaciones, captionpos=b, label=lst:esferas]
+  orderedJoints.flat().forEach((jointName) => {
+    const jointEntity = document.createElement('a-sphere');
+    jointEntity.setAttribute('color', 'white'); 
+    this.el.appendChild(jointEntity);
+    this.joints[jointName] = jointEntity;
+  });
+\end{lstlisting}
+
+Para la actualización de la posición de todas las articulaciones se creao la funcion que se muestra en el fragmetno de código \ref{lst:nuevas_manos}. Esa nueva función es una versión actualizada de la que se creo en el sprint anterior. 
+La principal diferencia con el código previo es que este unicamente trabaja con la mano que se definió en el \texttt{schema} y trabaja directamente con las entidades que estan guardadas en el diccionario que se creo en el \texttt{init}. 
+
+\begin{lstlisting}[caption=Actualización de las manos, captionpos=b, label=lst:nuevas_manos]
+  updateSkeleton: function () {
+    const session = this.el.sceneEl.renderer.xr.getSession();
+    const inputSources = session.inputSources;
+    for (const inputSource of inputSources) {
+      if (inputSource.handedness === this.data.hand && inputSource.hand) {
+        for (const [jointName, jointEntity] of Object.entries(this.joints)) {
+          const joint = inputSource.hand.get(jointName);
+          const jointPose = this.frame.getJointPose(joint, this.referenceSpace);
+          
+          if (jointPose) {
+            const { x, y, z } = jointPose.transform.position;
+            const radius = jointPose.radius; 
+            jointEntity.setAttribute('position', { x, y, z });
+            jointEntity.setAttribute('radius', radius || 0.008);
+          } else {
+            jointEntity.setAttribute('position', '0 0 0'); // Esconder si no hay datos
+          }
+        }
+      }
+    }
+  },
+\end{lstlisting}
+
+Para la detección del gesto la lógica general permanece igual, pero en vez de llamar a otras funciones se emiten los eventos \texttt{pinchstart} y \texttt{pinchend} dependiendo de si se esta realizando el gesto o no y junto al evento se envia como argumento de este la mano que lo realiza, la derecha u izquierda.
+
+Para escuchar los eventos, se creo el componente \texttt{detector}. Este componente posee 2 variables en su \texttt{schema}. La primera es que mano detectara, del mismo modo que el componente \texttt{manos}, y la segunda es un target. El target es principalmente para debug de la escena, ya que para esta demo se añadieron 2 entidades a la escena las cuales 
+eran texto. Asi que el target seria el ID de una de esas entidades de texto.
+Este componente cada vez que reciviese un evento se encargaria de modificar el texto del target, señalando si se ha iniciado o terminado el gesto y de que mano. 
 
 \subsection{Resultados}
 \label{subsec:resultados2}
-texto pendiente
+El resultado de este sprint fue el código \textit{componentes}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/componentes.html}}.
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de componentes.html
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Primera demo de manos}
+  \label{fig:sprint2}
+\end{figure}
+
+En este sprint a nivel visual en la escena no habia grandes cambios ya que el objetivo principal era la optimización de la creación de las manos y la introducción de los eventos. 
+Como se aprecia en la figura \ref{fig:sprint2}, dentro de la escena se dibujan las manos correctamente y los texton se modifican com oes debido. Para esta demo, para los gestos unicamente se implemento el cambio de texto ya que 
+como aun no se trabajaba con los gestos y hacia falta añadir mas, se queria una forma mas sencilla de comprobar que los eventos se emitian y escuchaban correctamento. 
 
 \section{Sprint 3}
 \label{sec:sprint3}
@@ -659,16 +717,31 @@ Nuevos gestos de las manos
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal3}
-texto pendiente
+Para este nuevo sprint, el objetivo principal era introducir mas gestos. Hasta ahora unicamente estaba implementado el gesto de \texttt{Pinch}.
+Durante este sprint se planeo introducir la logica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand}.
 
 \subsection{Implementación}
 \label{subsec:implementacion3}
-texto pendiente
+Para conseguir implementar los nuevos gestos principalmente hizo falta modificar la función de \texttt{detectGesture}, aparte de eso, para poder distinguir bien que gesto se esta realizando, en el \texttt{init} se definio una variable booleana por cada gesto, las cuales cambian dependiendo de si se esta realizando el gesto o no. Estas variables se implementaron ya que, como la comprobación de los gestos y emisión de estos se realizan en la función \texttt{tick}, si no se implementa esta lógica, se emitiria el mismo evento repetidas veces cuando unicamente es necesaria una vez.
+
+Para ello, primero se buscaba la posicion de la punta de todos los dedos y de la muñeca. Una vez con todas las posiciones obtenidas, mediante una función se calculaba la distancia de la punta del dedo correspondiente a la muñeca y si esa distancia era inferior a 0.09 (obtenido luego de varias pruebas para que sea una distancia optima), se definia que el dedo en cuestion estaba doblado.
+Para cada dedo hay una constante booleana que esta True si el dedo esta doblado y false si esta estirado. Ahora con la información de cada dedo se comprueba si estan estirados o no y dependiendo del estado de los dedos y de si la variable de estado de los gestos esta a True o False, se emite el evento start o end correspondiente a cada gesto. 
 
 \subsection{Resultados}
 \label{subsec:resultados3}
-texto pendiente
+Como resultado, se obtuvo la demo de \textit{nuevos gestos}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/second_hands/nuevos_gestos.html}}
 
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de nuevos gestos
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Primera demo de manos}
+  \label{fig:sprint3}
+\end{figure}
+
+El resultado fue bastante similar al del sprint anterior, pero con la principal diferencia de que se habian añadido mas gestos a la lógica de las manos como se aprecia en la figura \ref{fig:sprint3}
+
+Ahora que teniamos una lógica de detección de manos y de gestos era tiempo de crear la la lógica necesaria para poder interactuar con los elementos dentro de la escena. 
 \section{Sprint 4}
 \label{sec:sprint4}
 Coliders para interacciones 
