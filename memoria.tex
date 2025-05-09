@@ -790,7 +790,7 @@ En dicha escena se mantienen los logros que ya habiamos obtenido en los sprints 
 al que le añadimos el componente de \texttt{obb-collider}. En dicha escena se implemento la lógica de que si se detectaba colisión entre el cubo y las manos  el color del cubo cambiaria para tener una respuesta mas visual. 
 
 Mientras se comprobaba el funcionamiento se noto un error. Como la mano estaba formada por varias esferas con espacios entre medias, y cada  esfera poseia un colliders, se emitian varias veces los eventos de inicio y fin de la colisión incluso si no se sacaba la mano del cubo. 
-Esto era un problema ya que estos eventos repetidos cuando no corresponden hacian que cualquier función implementada cuando se detecta colisión actue de forma intermitente y por lo tanto erronea. 
+Esto era un problema ya que estos eventos repetidos cuando no corresponden hacian que cualquier función implementada cuando se detecta colisión actue de forma intermitente y por lo tanto erronea. Aunque este problema no fue identificado hasta el sprint siguiente. 
 
 \section{Sprint 5}
 \label{sec:sprint5}
