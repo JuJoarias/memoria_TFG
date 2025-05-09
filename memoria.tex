@@ -794,16 +794,37 @@ Esto era un problema ya que estos eventos repetidos cuando no corresponden hacia
 
 \section{Sprint 5}
 \label{sec:sprint5}
-Componentes de cada gesto
+Función grabable
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal5}
-texto pendiente
+Para este sprint se quiso ya ir incorporando el funcionamiento de los gestos en la escena. Para empezar se quiso trabajar con el gesto \texttt{Pinch}. Se planteo que si se hacia con la manos derecha sobre el cubo poder 
+arrastrar dicho cubo por la escena en cualquier dirección e imitando la rotación de la mano para que parezca que lo estamos agarrando realmente. Y si se hacia con la mano izquierda, el cubo unicamente se podria deslizar en un unico eje, el eje X.
 
 \subsection{Implementación}
 \label{subsec:implementacion5}
-texto pendiente
+Este sprint fue uno de los mas complejos hasta ahora, ya que a lo largo del proceso fuimos encontrando distintos problemas que hicieron replantear la lógica del código. 
 
+Para empezar con este sprint, se creo el componente de \texttt{Grabable}, dicho componente no posee un \texttt{schema}. Y en su init aparte de definir las distintas variables necesarias, se comprueba si la entidad a la que se añada el componente posee un collider, y en caso de no tener le añade uno.
+En este componente toda la lógica se ejecuta dentro la una función llamada \texttt{check}, la cual se llama en el \texttt{tick}. 
+
+En dicha función, lo primero que se compruba es si hay una colisión, y si la hay ocurren 2 procesos importantes. El primero, es que se cambia el estado de una variable booleana la cual indica si hay colisión o no, y el segundo, se ejecuta una función llamada \texttt{hoover}. En esa función para saber de forma visual que estamos interactuando con el cubo, incluso antes de realizar ningun gesto, se cambia la trasparencia del cubo ligeramente.
+
+Luego, para distinguir entre el pinch de la mano derecha y la mano izquierda escuchamos los eventos de \texttt{pinchstart} y \texttt{pinchend} ya que el evento lleva la información de la mano que esta realizando el gesto. Con esa información se cambia la variable boolenan correspondiente para saber que mano realiza el gesto. Una vez con esa información ya se podia realizar la lógica del gesto.
+
+Para poder realizar correctamente la lógica del gesto, era necesario poder acceder a la información de las entidades que forman las articulaciones. Para ello, debiamos de ser capaces de acceder a la información del componente \texttt{manos} mediante las siguientes lineas de código:
+
+\begin{lstlisting}[caption=Acceso información componente manos, captionpos=b, label=lst:info_manos]
+  
+  this.leftHandEntity = document.querySelector('#left-hand');
+  this.rightHandEntity = document.querySelector('#right-hand');
+
+  const manoDerecha = this.rightHandEntity.components.manos;
+  const manoIzquierda = this.leftHandEntity.components.manos;
+\end{lstlisting}
+
+Con eso ya somos capaces de acceder a la información de \texttt{joints}, donde se almacenaban todas las entidades de las articulaciones.
+ 
 \subsection{Resultados}
 \label{subsec:resultados5}
 texto pendiente
