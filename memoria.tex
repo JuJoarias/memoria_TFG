@@ -741,22 +741,56 @@ Como resultado, se obtuvo la demo de \textit{nuevos gestos}\footnote{\url{https:
 
 El resultado fue bastante similar al del sprint anterior, pero con la principal diferencia de que se habian añadido mas gestos a la lógica de las manos como se aprecia en la figura \ref{fig:sprint3}
 
-Ahora que teniamos una lógica de detección de manos y de gestos era tiempo de crear la la lógica necesaria para poder interactuar con los elementos dentro de la escena. 
+Ahora que teniamos una lógica de detección de manos y de gestos era tiempo de crear la la lógica necesaria para poder interactuar con los elementos dentro de la escena, para lo cual, primero era necesario saber cuando las manos estaban colisionando con los elementos de la escena. 
 \section{Sprint 4}
 \label{sec:sprint4}
-Coliders para interacciones 
+Incorporación de colliders  
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal4}
-texto pendiente
+Como ultimo paso de preparación de las manos era necesario saber cuando las manos estaban interactuado con los elementos de la escena. El objetivo principal de este sprint era la incorporación de Incorporación de colliders  
+en la escena. 
+
 
 \subsection{Implementación}
 \label{subsec:implementacion4}
-texto pendiente
+Para añadir Incorporación de colliders  
+a la escena se hizo uso del componente propio de A-Frame \textit{obb-collider}\footnote{\url{https://aframe.io/docs/1.7.0/components/obb-collider.html}}.
+La principal ventaja que nos proporciona el uso de este componente nativo de A-Frame, era que cuando detecta una colisión entre 2 entidades que posean dicho componente este lanza un evento indicando el inicio de la colisión y cuando no hay colisión lanza otro indicando el final de la colisión.
+Los eventos que lanza el componente eran \texttt{obbcollisionstarted} y \texttt{obbcollisionended}.
+
+Lo principal para añadir los Incorporación de colliders  
+era añadirlos a la mano, ya que añadirlos a los distintos elementos de la escena era tan sencillo como añadir el componente de \texttt{obb-collider}. Para ello,
+habia que modificar la función encargada de actualizar las articulaciones de las manos. 
+
+Dentro de la función de \texttt{updateSkeleton} \ref{lst:nuevas_manos} se añade las siguientes lineas de código:
+
+\begin{lstlisting}[caption=Añadir Incorporación de colliders a la mano, captionpos=b, label=lst:colliders]
+  
+  if (!jointEntity.hasAttribute('obb-collider')) {
+    jointEntity.setAttribute('obb-collider', `size: ${radius * 2} ${radius * 2} ${radius * 2}`);
+  }
+\end{lstlisting}
+
+Como se aprecia en el código \ref{lst:colliders}, se comprueba si la articulación en cuestion tiene ya un colider y si no lo tiene lo añade.
 
 \subsection{Resultados}
 \label{subsec:resultados4}
-texto pendiente
+Como resultado de este sprint se obtuvo la demo de \textit{colliders}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/second_hands/colliders.html}}. 
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de colliders
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Primera demo de manos}
+  \label{fig:sprint4}
+\end{figure}
+
+En dicha escena se mantienen los logros que ya habiamos obtenido en los sprints anteriores. Y para comrpobar el funcionamiento de los colliders se añadio a la escena un cubo
+al que le añadimos el componente de \texttt{obb-collider}. En dicha escena se implemento la lógica de que si se detectaba colisión entre el cubo y las manos  el color del cubo cambiaria para tener una respuesta mas visual. 
+
+Mientras se comprobaba el funcionamiento se noto un error. Como la mano estaba formada por varias esferas con espacios entre medias, y cada  esfera poseia un colliders, se emitian varias veces los eventos de inicio y fin de la colisión incluso si no se sacaba la mano del cubo. 
+Esto era un problema ya que estos eventos repetidos cuando no corresponden hacian que cualquier función implementada cuando se detecta colisión actue de forma intermitente y por lo tanto erronea. 
 
 \section{Sprint 5}
 \label{sec:sprint5}
