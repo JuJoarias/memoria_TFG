@@ -824,10 +824,40 @@ Para poder realizar correctamente la lógica del gesto, era necesario poder acce
 \end{lstlisting}
 
 Con eso ya somos capaces de acceder a la información de \texttt{joints}, donde se almacenaban todas las entidades de las articulaciones.
- 
+
+Para la mano izquierda fue mas sencillo. Se comprobaba si habia solisión con el cubo y tambien si la variable correspondiente al pinch de la mano izquierda estaba en True, y de estarlo, el cubo cambiaba su color a azul y posteriormente se procede a acceder a la información 
+de la punta del indice de la mano izquierda y se hace que el cubo copie la coordenada de dicha articulación mientras mantiene sus otras coordenadas, asi se desliza unicamente en un único eje.
+
+Para la manos derecha fue mas complejo. Se queria poder agarrar el cubo y poder deslizarlo y rotarlo a antojo del usuario. Para ello se planteo hacer un \texttt{reparenting}, para volver la entidad del cubo hija de la entidad de la mano para que asi imitara sus movimientos y rotaciones. Para realizar esto se realizo un \textit{test externo}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/external_tests/reparenting_test.html}}.
+El test dio los resultados deseados, pero a la hora de aplicarlo al código resaltaron varios probelmas. 
+
+El primero, era que no se lograba realizar el \texttt{reparenting} con la entidad de la mano, asi que para solucionarlo se obto por que el nuevo padre del cubo fuese la punta del dedo índice mientras se realizaba el gesto.
+Otro fallo que resalto fue la rotación. Pese a que el \texttt{reparenting} se realizaba correctamente, el cubo no seguia las rotaciones de la mano. Y esto se debia a como se dibujaban las manos, ya que a cada frame se actualiza la posición de cada articulación, pero no la rotación, con lo cual esta se mantiene fija. Para solucionar este problema, se obto por tomar 3 articulaciones de la mano y con estas 
+como referencia para los ejes X y Z se creo un eje de coordenadas relativo. Dicho eje relativo seguiria la orientación y rotación de la mano. Una vez obtenido ese eje cuando se realiza el gesto derecho el cubo empieza a imitar dicho eje, permitiendo que el cubo rote al mismo tiempo que se arrastra el cubo por la escena. 
 \subsection{Resultados}
 \label{subsec:resultados5}
-texto pendiente
+El resultado de este sprint se refleja en la demo \textit{hands grabable}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/second_hands/hands_grabable.js}}. 
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos Grabable}
+  \label{fig:sprint5-1}
+\end{figure}
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos Grabable}
+  \label{fig:sprint5-2}
+\end{figure}
+
+Como se aprecia en las figuras \ref{fig:sprint5-1} y \ref{fig:sprint5-2} cada vez que se realiza el gesto con cada una de las manos sobre el cubo este reacciona de manera distinta. 
+El color cabia para tener una respuesta mas visual además de que cada mano tenia se propia reacción. 
+
+Con esto se habia conseguido implementar las acciones de \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}. De cara al siguiente sprint se decidio organizar mejor el código de dichas acciones al igual que añadir las acciones de \texttt{Stretch} y \texttt{Click}
 
 \section{Sprint 6}
 \label{sec:sprint6}
@@ -835,16 +865,83 @@ Manos finales
 
 \subsection{Objetivo Principal}
 \label{subsec:objetivo-principal6}
-texto pendiente
+El objetivo de este ultimo sprint era añadir nuevas acciones y organizar mejor el código para que quedase lo mas limpio posible. 
+También, por sugerencia del tutor se intento modificar el código para que las manos diseñadas en este proyecto funcionasen junto con el componente ya existente de \texttt{Superhands}, aunque esto no se logro al final. 
 
 \subsection{Implementación}
 \label{subsec:implementacion6}
-texto pendiente
+Para empezar con este sprint, primero se decidio por organizar el código ya existente y las acciones. Para ello, por cada acción que ya estaba implementada , \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}, se creo un componente. También, el componente \texttt{Grabable}, creado en el sprint anterior fue modificado para que en vez de llamar directamente a las funciones encargadas de las acciones de los gestos, emita los eventos \texttt{Start} o \texttt{End} correspondeintes a cada acción. 
 
+Dichos eventos luego serian escuchados por el componente correspondiente. La estructura de los componentes de las acciones todos siguen la misma estructura. En el \texttt{Init} primero se comprueba si la entidad a la que fue añadido contiene también el componente \texttt{Grabable} y si no lo tiene lo añade ya que este componente es indispensable para que los componentes de acciones funcionen a excepción del componente correspondiente al \texttt{Click}. Luego de eso, el componente escucha los eventos de \texttt{Start} y \texttt{End} y si los escucha llama a una función
+, la cual inicializa los datos o variables correspondientes que posteriormente se usaran en la función \texttt{Tick} del componente. En el siguiente fragmento de código se aprecia el componente \texttt{hoover} como ejemplo:
+
+\begin{lstlisting}[caption=Componente Hoover, captionpos=b, label=lst:Hoover]
+  
+  AFRAME.registerComponent('hoover', {
+
+    init: function(){
+        if (!this.el.hasAttribute('grabable')) {
+            this.el.setAttribute('grabable', '');
+        }
+
+       this.el.addEventListener('hooverStart', this.onHooverStart.bind(this));
+       this.el.addEventListener('hooverEnd', this.onHooverEnd.bind(this));
+       this.hooverState = false;
+       this.isHoovering = false;
+    },
+
+    onHooverStart: function () {
+       if (this.isHoovering) return;
+       this.isHoovering = true;
+
+       this.hooverState = true;
+    },
+
+    onHooverEnd: function () {
+       this.hooverState = false;
+       this.isHoovering = false;
+    },
+
+    tick: function () {
+        if (this.hooverState){
+           this.el.setAttribute('material', 'opacity', '0.8');
+        } else{
+           this.el.setAttribute('material', 'opacity', '1');
+        }
+    },
+});
+\end{lstlisting}
+
+Para los componentes de \texttt{Slide} y \texttt{Drag} se ha mantenido la lógica obtenida en el sprint anterior, pero aplicando la estructura mostrada. 
+También, al componente \texttt{Slide}, se le añadio un \texttt{Schema}. Este componente es el único que lo tiene y en el se puede definir en que eje queremos que se deslice el objeto, ya no se limita al eje X.
+
+Respecto al componente de \texttt{Stretch}, la lógica detras del gesto es similar a las acciones previamente implementadas. La única diferencia es que este componente unicamente reacciona cuando se esta haciendo el gesto sobre el mismo objeto con ambas manos a la vez.
+Una vez activado, el componente comprueba la distancia entre la punta de los dedos indices de ambas manos y con esa distancia la guarda en una variable. Utilizando esa distasncia inicial, se crea un factor de escalado al dividir la distancia actual entre las manos y la inicial. Posteriormente se multiplica dicho factor por la escala del objeto, asi esta crecera o decrecera dependiendo de la distancia entre ambas manos. 
+
+Hasta ahora todas las acciones habian funcionado con el gesto \texttt{Pinch}, pero para la accion de \texttt{Click} era necesario otro. Para este componente se utilizo el gesto de \texttt{Point}, el cual consistia en tener el dedo índice estirado. Al relizar el gesto el código crearía un puntero desde la punta del dedo y a cada frame actualizaria su dirección utilizando como vector la línea que une la punta del dedo con su nudillo. 
+Ahora que teniamos el puntero era necesaria una acción para que se emitiera el evento. Para ello, se utilizó el dedo pulgar. Como si se tratase de una pistola, se configuró el código para que cuando se haga el gesto de "disparar una pistola" se emitiera el evento de click. Toda esta implementación del gesto se introdujo directamente dentro del componente principal, el componente \texttt{Manos}. 
+Posteriormente, en el propio componente, al escuchar el evento este componente unicamente cambia el color del cubo a morado y al soltar el gesto de pistola, sin necesidad de soltar el gesto de \texttt{Point}, el color vuelve a su color original. 
 \subsection{Resultados}
 \label{subsec:resultados6}
-texto pendiente
+El resultado de este sprint es la propia \textit{demo}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/demo/demo.html}} presentada al final. 
 
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos finales 1}
+  \label{fig:sprint6-1}
+\end{figure}
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos finales 2}
+  \label{fig:sprint6-2}
+\end{figure}
+
+En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de las acciones implementadas durante este proyecto. En esta demo se aprecia un cubo por cada acción que se implemento al igual que un cubo que posee todas ya que cada cubo unicamente cuenta con uno de los componentes de acción.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESULTADOS capitulo 4%
