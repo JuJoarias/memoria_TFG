@@ -215,22 +215,23 @@
 \cleardoublepage % empezamos en página impar
 \chapter{Tecnologías utilizadas} 
 \label{chap:tecnologias} % identificador del capítulo (no se muestra, es para poder referenciarlo)
-En esta sección se muestran las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto tanto de forma directa como indirecta. Del mismo modo, se explicará su funcionalidad
-y la manera en la que contribuyeron al proyecto. 
+En este capítulo se mostraeán las distintas tecnologías que han sido necesarias para el desarroyo de este proyecto tanto de forma directa como indirecta. Del mismo modo, se explicará su funcionalidad
+y la manera en la que contribuyeron al proyecto. Las tecnologías se dividirán en 2 categorias, las principales y las auxiliares. Las principales son aquellas que han tenido un papel directo en el desarrollo 
+del proyecto sin las cuales no se podria haber realizado, mientras que las auxiliares sen aquellas que han ayudado al desarrollo de forma mas indirecta.  
 \section{Tecnologías principales} 
 \label{sec:tecnologias-principales} % identificador de sección (no se muestra, es para poder referenciarla)
 
 Aquí se nombran y explican aquellas tecnologías que han tenido una implicación directa con el proyecto y que han tenido un papel crucial e imprescindible con las cuales, sin ellas, no se habria popido llegar a los resultados obtenidos. 
-Las principales tecnologias utilizadas han sido HTML5, JavaScript y A-Frame, estas tres tecnologias han sido el nucleo principal del proyecto. El resto de las tecnologías principales 
+Algunas de las principales tecnologias utilizadas han sido HTML5, JavaScript y A-Frame, estas tres tecnologias han sido el nucleo principal del proyecto. El resto de las tecnologías principales 
 son aquellas en las que se apollan esas tres, permitiendo que funcionen como lo hacen. 
 
-\subsection{A-frame}
+\subsection{A-Frame}
 \label{subsec: A-Frame}
 
-A-Frame \cite{aframe_docs} es un web framework diseñado para construir experiencias de realidad virtual. A-frame esta basado en HTML y en JavaScript, permitiendo realizar cualquier escena que uno pueda imaginar sin necesidad de conocimientos avanzados en gráficos 3D. 
-Al estar basado en HTML es posible realizar escenas simples directamente desde un archivo HTML simplemente importando la libreria de A-frame y añadiendo dentro de la etiqueta \texttt{<a-scene>} cualquier elemento que desee el usuario.  
+A-Frame \cite{aframe_docs} es un web framework diseñado para construir experiencias de realidad virtual. A-Frame esta basado en HTML y en JavaScript, permitiendo realizar cualquier escena que uno pueda imaginar sin necesidad de conocimientos avanzados en gráficos 3D. 
+Al estar basado en HTML es posible realizar escenas simples directamente desde un archivo HTML simplemente importando la libreria de A-Frame y añadiendo dentro de la etiqueta \texttt{<a-scene>} cualquier elemento que desee el usuario.  
 
-Uno de los ejemplos más simples que se puede llegar a realizar utilizando A-frame es el siguiente:
+Uno de los ejemplos más simples que se puede llegar a realizar utilizando A-Frame es el siguiente:
 
 \begin{lstlisting}[language=HTML, caption=Escena A-Frame básica, captionpos=b]
   <html>
@@ -249,19 +250,19 @@ Uno de los ejemplos más simples que se puede llegar a realizar utilizando A-fra
   </html>
 \end{lstlisting}
 
-Este código de HTML genera una de las escenas más básicas que se pueden hacer en A-frame. La cual consiste en un plano y, encima, una serie de figuras geométricas, como se aprecia en la figura \ref{fig:aframe-basic}.
+Este código de HTML genera una de las escenas más básicas que se pueden hacer en A-Frame. La cual consiste en un plano y, encima, una serie de figuras geométricas, como se aprecia en la figura \ref{fig:aframe-basic}.
 
 \begin{figure}[H]  
   \centering
   \includegraphics[width=0.7\textwidth]{img/aframe_hello_world.png}
-  \caption{Escena básica de A-frame}
+  \caption{Escena básica de A-Frame}
   \label{fig:aframe-basic}
 \end{figure}
 
 Una de las principales características de esta tecnología es su arquitectura basada en un modelo de entidad-componente (\textit{Entity Component System}), donde cada objeto dentro de la escena es una entidad que luego es integrada con Three.js para crear la escena.
-Una entidad en A-frame es un objeto HTML que se crea añadiendo la etiqueta \texttt{<a-entity>} y el componente es la apariencia, comportamiento y funcionalidad que se le asigna mediante JavaScript. 
+Una entidad en A-Frame es un objeto HTML que se crea añadiendo la etiqueta \texttt{<a-entity>} y el componente es la apariencia, comportamiento y funcionalidad que se le asigna mediante JavaScript. 
 
-Para hacer uso de un componente se requiere de una serie de pasos previos. Si el componente es externo es necesario importarlo en la cabecera del HTML del mismo modo que se importa A-frame y posteriormente añadirlo a la entidad en la que uno desee usarlo.
+Para hacer uso de un componente se requiere de una serie de pasos previos. Si el componente es externo es necesario importarlo en la cabecera del HTML del mismo modo que se importa A-Frame y posteriormente añadirlo a la entidad en la que uno desee usarlo.
 Por otra parte, si el  componente es de nuestra creación, primero hay que registrar y definir el componente. Esto se hace en un archivo externo de JavaScript mediante el método de \texttt{A-Frame.registerComponente}. A este método, del mimo modo que una función primero se le asigna un nombre, 
 este sera el nombre del componente. Luego, este metodo consta de varias funciones internas las cuales se encargan de definir la apariencia y lógica de dicho componente. Alguna de estas funciones son la función \texttt{schema}, \texttt{init} o \texttt{tick}.
 La función \texttt{schema}, define las propiedades principales del componente, estas se pueden modificar dependiendo de la lógica del componente desde el HTML a la hora de llamarlo. La función \texttt{init} se ejecuta una única vez al inicio cuando se inicializa el componente y la función \texttt{tick} se ejecuta a cada frame de la escena.
@@ -353,7 +354,7 @@ Para este proyecto formo un papel crucial, ya que fue con JavaScript que se desa
 \subsection{Three.js}
 \label{subsec:Threejs}
 
-Three.js \cite{threejs_wikipedia} es una biblioteca de codigo abierto de JavaScript utilizada para la creación de gráficos 3D en los navegadores web. Three.js funciona sobre WebGL \cite{webgl_encodebiz}, la cual permite generar y visualizar animaciones y escenas 3D en el navegador sin necesidad de complementos. La tecnologia de WebGL tambiénpuede usarse junto con el elemento \texttt{<canva>} de HTML.
+Three.js \cite{webdev_three_intro} es una biblioteca de código abierto de JavaScript utilizada para la creación de gráficos 3D en los navegadores web. Three.js funciona sobre WebGL, la cual permite generar y visualizar animaciones y escenas 3D en el navegador sin necesidad de complementos. La tecnologia de WebGL tambiénpuede usarse junto con el elemento \texttt{<canva>} de HTML.
 
 Esta biblioteca proporciona una API de alto nivel la cual permite al usuario la creación y manipulación de geometrías 3D como cubos, esfera o planos, así como la aplicación de texturas o la aplicación de tanto camaras como de efectos de iluminación en las escena, permitiendo que el desarrollo de dichas escenas sea mucho mas simplificado. 
 También, Three.js permite la posibilidad de importar modelos 3D desde archivos distintos creados desde aplicaciones distintas.
@@ -388,9 +389,10 @@ A medida que la tecnología de WebXR ha ido evolucionando, se han desarrollado d
 
 Estos distintos tipos de WebXR ofrecen distintos tipos de experiencias dependiendo del entorno virtual que se quiera diseñar.
 
+Fue gracias a WebXR, en este proyecto se pudieron realizar las distintas escenas inmersivas que permitieron ir comprobando el avance del proyecto con cada una de las demos que se creaban y que posteriormente se explicaran. Además de eso, fue gracias a WebXR que se pudo realizar la detección de las manos ya que ya posee una función integrada que permite el handtracking y al querer trabajar sobre el navegador era la mejor opción para ello. 
 \subsection{WebGL}
 \label{subsec:WebGL}
-WebGL (\textit{Web graphics Library}), se trata de una tecnología de bajo nivel multiplataforma usada para la renderización de gráficos tanto tridimensionales como bidimensionales dentro de cualquier navegador que sea compatible.
+WebGL \cite{webgl_encodebiz} (\textit{Web graphics Library}), se trata de una tecnología de bajo nivel multiplataforma usada para la renderización de gráficos tanto tridimensionales como bidimensionales dentro de cualquier navegador que sea compatible.
 
 WebGL fue lanzado en 2011 por el grupo Khronos. Esta tecnología se fundamenta en OpenGL ES, la cual es una variante simplificada de OpenGL, diseñada para dispositivos moviles. WebGL ha sufrido numerables actualizaciones, 
 lo cual ha permitido una evolución continua que ha ido mejorando tanto su funcionalidad como compatibilidad tanto en navegadores de escritorio como en navegadores en dispositivos móviles. 
@@ -398,31 +400,33 @@ lo cual ha permitido una evolución continua que ha ido mejorando tanto su funci
 WebGL esta diseñado para trabajar directamente con la GPU (\textit{Graphic Processing Unit}) del dispositivo, lo cual permite un mayor aprovechamiento de la computación para poder generar gráficos detallados y de alta calidad. 
 Además, la tecnología de WebGL esta diseñada para poder integrarse de manera fluida con otros estandares de desarrollo web como HTML, CSS o DOM. 
 
+Gracias a esta tecnología fue posible renderizar en la escena las distintas entidades que forman las manos del mismo modo que las otras entidades que se crearon para ir comprobando si los componentes creados funcionaban.
 \section{Tecnologias auxiliares}
 \label{sec:tecnologias-auxiliares}
 En esta sección se detallan y describen las distintas tecnologías que aunque no hayan influido de manera directa en los resultados del proyecto, han tenido un papel crucial para el desarroyo de este.
+Entre dichas tecnologias se encuentra el \textit{IDE} utilizado durante el proyecto al igual que el dispositivo utilizado para realizar las pruebas de las demos, la plataforma donde se almacenó el código y también el software utilizado para la redacción de esta memoria.
 
 
 \subsection{Visual Studio Code}
 \label{subsec: visualstudiocode}
 
-Visual Studio Code (\textit{VS Code}) es un potente editor de código abierto el cual esta disponible para Windows, Linux, MacOS y versión web. VS Code es una de las plataformas de edición de codigo más utilizadas a nivel mundial 
+Visual Studio Code (\textit{VS Code}) es un potente entorno de desarrollo integrado (\textit{IDE}) el cual esta disponible para Windows, Linux, MacOS y versión web. VS Code es una de las plataformas de edición de codigo más utilizadas a nivel mundial 
 por toda clase de desarrolladores de software debido a su versatilidad, flexibilidad y amplia gama de extensiones que facilitan la edición y depuración de código.
 
-También, gracias a su pestaña de \textbf{Source Control}, permite ir guardando el código en GitHub para tener un control de las distintas versiones del código. 
+Una de las pestañas mas importantes durante el desarrollo fue su pestaña de \textbf{Source Control}, la cual luego de conectar mi repositorio de GitHub, permite ir guardando el código en GitHub para tener un control de las distintas versiones del código. 
 
 Gracias a las numerosas extensiones que hay disponibles facilitan en gran medida la creación y depuración de código, permitiendo cosas como autocompletar palabras o expresiones o permitir compilar o depurar con algun lenguaje que VS Code no tenga por defecto.
 Algunas de las extensiones utilizadas en este proyecto han sido: 
 \begin{itemize}
-  \item \textbf{A-frame completition}: Permite autocompletar rapidamente a la hora de escribir los distintos elementos o Snippets que posee A-frame
+  \item \textbf{A-Frame completition}: Permite autocompletar rapidamente a la hora de escribir los distintos elementos o Snippets que posee A-Frame
   \item \textbf{Error lens}: A la hora de depuración, permite visualizar dentro del código si hay algun error de sintaxis o lógica 
   \item \textbf{LaTeX Workshop}: Permite la escritura, compilación y previsualización de la memoria de este proyecto.
 \end{itemize}
 
-\subsection{Github}
+\subsection{GitHub}
 \label{subsect:github}
 
-GitHub es una plataforma basada en la nube que permite almacenar distintos repositorios y en cada repositorio codigo. Github esta basado en Git \cite{git}, el cual fue creado en 2005 por Linus Torvalds como un sistema de control de versiones de código abierto.
+GitHub es una plataforma basada en la nube que permite almacenar distintos repositorios y en cada repositorio codigo. GitHub esta basado en Git \cite{git}, el cual fue creado en 2005 por Linus Torvalds como un sistema de control de versiones de código abierto.
 Este sistema fue desarroyado con la intención de ayudar a los desarrolladores a tener en cualquier dispositivo con acceso a internet todo el historial de código que estan desarrollando. 
 
 Esta tecnología es ampliamente utilizada a nivel mundial por desarrolladores de todo tipo debido a su capacidad de almacenar, soportar y gestionar proyectos de toda clase. Una de las funciones clave que presenta la plataforma, es la capacidad de crear ramificaciones (branches). Esta opcion permite a los desarroyadores poder crear copias del codigo del repositorio en el que 
@@ -430,6 +434,7 @@ estan trabajando para poder trabajar en paralelo y posteriormete poder integrar 
 
 GitHub aprovecha todas las ventajas que permite Git, permitiendo crear repositorios en la nube para sus proyectos Git, que los desarrolladores pueden llegar a compartir con otras personas. Esta plataforma tambien facilita la colaboración entre desarrolladores y aparte de las ventajas ya mencionadas de Git permite también el uso de herramientas de gestión de proyectos al igual que acciones automaticas. 
 
+Durente este proyecto se creo el repositorio de GitHub \textit{TFG}\footnote{\url{https://github.com/JuJoarias/TFG}} donde se fue guardando todas las versiones del código al igual que todas las demos y pruebas realizadas.
 \subsection{Meta Quest 3}
 \label{subsec:metaquest}
 
@@ -464,13 +469,14 @@ Para este proyecto, LaTeX facilito considerablemente el trabajo a la hora de cre
 \cleardoublepage
 \chapter{Desarrollo del proyecto}
 \label{chap:Desarrollo del proyecto}
-En el siguiente capítulo se describe de forma detallada como fue el desarrollo del proyecto. Dicho desarrollo
-se describe en forma de sprints, desde los inicios y planteamiento del proyecto hasta obtener los resultados finales.
+En este capítulo se describe de forma detallada como fue el desarrollo del proyecto. Dicho desarrollo
+se describe en forma de sprints siguiendo una estructura de una metodología \textit{Agile}\cite{asana_agile_methodology}, pese a que el propio proyecto no siguio dicha metodología. 
+El desarrollo explica desde los inicios y planteamiento del proyecto hasta obtener los resultados finales.
 
 \section{Sprint 0}
 \label{sec:sprint0}
 Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso basico de A-Frame.
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal0}
 El objetivo principal de este sprint se puede dividir en 2 partes principales. 
 \begin{itemize}
@@ -479,16 +485,16 @@ El objetivo principal de este sprint se puede dividir en 2 partes principales.
   \item \textbf{Dominio del uso basico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas al igual que la creación e implementacion de componentes o el uso de librerias de A-Frame.
 \end{itemize}
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion0}
 La identificación de las necesidades y requisitos de un proyecto es una parte fundamental. Durante las primeras charlas con el tutor se concretaron los distintos objetivos y los posibles caminos que puede tomar este proyecto. 
 Al principio se plantearon varios caminos, pero la idea general de todos ellos era la creación de un sistema de handtracking que sea capaz de interactuar con distintos elementos dentro de la escena. 
 
 Para lograr llegar a ese objetivo primero fue necesario dominar los elementos basicos de A-Frame como biene a ser la organización de la escena, el uso y creación de componentes y el uso de eventos. 
-Para ello, primero se creo primero el repositorio de \textit{Git}\footnote{\url{https://github.com/JuJoarias/TFG}}  con el que trabajaremos durante todo el proyecto. Se crearon una serie de escenas sencillas con el objetivo de dominar el uso de componentes y eventos simples. 
+Para ello, primero se creo primero el repositorio de \textit{Git}  con el que trabajaremos durante todo el proyecto. Se crearon una serie de escenas sencillas con el objetivo de dominar el uso de componentes y eventos simples. 
 \subsection{Resultados}
 \label{subsec:resultados0}
-Para familiarimarme aun mas con el entorno de A-FRAME se crearon una serie de escenas muy sencillas donde se creaba y utilizaba un componente customizado y se hacia uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
+Para familiarimarme aun mas con el entorno de A-Frame se crearon una serie de escenas muy sencillas donde se creaba y utilizaba un componente customizado y se hacia uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
 El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en las figura \ref{fig:sprint0}.
 \begin{figure}[H] 
   \centering
@@ -504,25 +510,25 @@ Tras la familiarización con el entorno de A-Frame y sus características el pro
 \label{sec:sprint1}
 Investigando el handtraking
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal1}
 En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtraking en A-Frame. 
 Este era el paso principal en el que se basaria todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame este proyecto habria sido imposible de realizar.
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion1}
 Los primeros pasos fue investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
 Para ellos se usaron pequeñas escenas de prueba para comprender mejor el comportamiento de las manos en la realidad virtual, y del mismo modo, tener una idea mas clara del objetivo final del aspecto de handtracking. 
 
 Tras la investigación de las manos y la sugerencia del tutor, se decidio utilizar la tecnologia de WebXR para el handtracking puesto que esta tecnología ya posee un sistema preparado para ello. Además, usando la tecnología de WebXR nos permitia trabajar con cada una de las articulaciones de la mano de forma independiente. 
 
-Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/TR/webxr-hand-input-1/}}, se empezo el desarrollo de las manos. para ello en el codigo fue necesario tratar cada una de las manos de forma independiente, del mismo modo que cada una de las articulaciones como se muestra en el esquema de las manos de WebXR en la figura \ref{fig:webxr-manos}. 
+Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/TR/webxr-hand-input-1/}}, se empezo el desarrollo de las manos. para ello en el codigo fue necesario tratar cada una de las manos de forma independiente, del mismo modo que cada una de las articulaciones como se muestra en el esquema de las manos de WebXR en la figura \ref{fig:WebXR-manos}. 
 
 \begin{figure}[H] 
   \centering
   \includegraphics[width=0.4\textwidth]{img/webxr-mano.png} 
   \caption{Esquema manos segun WebXR}
-  \label{fig:webxr-manos}
+  \label{fig:WebXR-manos}
 \end{figure}
 
 Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que sera el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenia un \texttt{schema}, en el \texttt{init} se definian las distintas variables que eran necesarias para el funcionamiento del código. 
@@ -641,12 +647,12 @@ Todos estos factores dieron paso al siguiente sprint, donde se corregirian los e
 \label{sec:sprint2}
 Introducción de eventos y optimización del manejo de manos. 
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal2}
 Tras la observaciones del sprint anterior, para este sprint se replanteo el funcionamiento de los gestos. También, se reorganizo la forma de creación de las manos en la escena y la detección de los gestos. 
 
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion2}
 Primero, se reorganizo el componente encargado de dibujar las manos que se creo en el sprint anterior. Dicho componente se renombro a \texttt{manos}, nombre que se mantendría hasta el final del proyecto. A dicho componente se le añadio un \texttt{schema}. 
 En dicho \texttt{schema} hay unacamente una variable llamada \texttt{hand}, dicha variable unicamente acepta \texttt{left} o \texttt{right} como entradas. Este cambio era para que el componente distinguiera las manos y unicamente dibujase una mano a la vez, esto hizo que para dibujar ambas manos en la escena fuese necesario añadir el componente 2 veces, 1 por cada mano. 
@@ -715,12 +721,12 @@ como aun no se trabajaba con los gestos y hacia falta añadir mas, se queria una
 \label{sec:sprint3}
 Nuevos gestos de las manos
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal3}
 Para este nuevo sprint, el objetivo principal era introducir mas gestos. Hasta ahora unicamente estaba implementado el gesto de \texttt{Pinch}.
 Durante este sprint se planeo introducir la logica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand}.
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion3}
 Para conseguir implementar los nuevos gestos principalmente hizo falta modificar la función de \texttt{detectGesture}, aparte de eso, para poder distinguir bien que gesto se esta realizando, en el \texttt{init} se definio una variable booleana por cada gesto, las cuales cambian dependiendo de si se esta realizando el gesto o no. Estas variables se implementaron ya que, como la comprobación de los gestos y emisión de estos se realizan en la función \texttt{tick}, si no se implementa esta lógica, se emitiria el mismo evento repetidas veces cuando unicamente es necesaria una vez.
 
@@ -746,13 +752,13 @@ Ahora que teniamos una lógica de detección de manos y de gestos era tiempo de 
 \label{sec:sprint4}
 Incorporación de colliders  
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal4}
 Como ultimo paso de preparación de las manos era necesario saber cuando las manos estaban interactuado con los elementos de la escena. El objetivo principal de este sprint era la incorporación de Incorporación de colliders  
 en la escena. 
 
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion4}
 Para añadir Incorporación de colliders  
 a la escena se hizo uso del componente propio de A-Frame \textit{obb-collider}\footnote{\url{https://aframe.io/docs/1.7.0/components/obb-collider.html}}.
@@ -796,12 +802,12 @@ Esto era un problema ya que estos eventos repetidos cuando no corresponden hacia
 \label{sec:sprint5}
 Función grabable
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal5}
 Para este sprint se quiso ya ir incorporando el funcionamiento de los gestos en la escena. Para empezar se quiso trabajar con el gesto \texttt{Pinch}. Se planteo que si se hacia con la manos derecha sobre el cubo poder 
 arrastrar dicho cubo por la escena en cualquier dirección e imitando la rotación de la mano para que parezca que lo estamos agarrando realmente. Y si se hacia con la mano izquierda, el cubo unicamente se podria deslizar en un unico eje, el eje X.
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion5}
 Este sprint fue uno de los mas complejos hasta ahora, ya que a lo largo del proceso fuimos encontrando distintos problemas que hicieron replantear la lógica del código. 
 
@@ -863,12 +869,12 @@ Con esto se habia conseguido implementar las acciones de \texttt{Hoover}, \textt
 \label{sec:sprint6}
 Manos finales
 
-\subsection{Objetivo Principal}
+\subsection{Objetivos}
 \label{subsec:objetivo-principal6}
 El objetivo de este ultimo sprint era añadir nuevas acciones y organizar mejor el código para que quedase lo mas limpio posible. 
 También, por sugerencia del tutor se intento modificar el código para que las manos diseñadas en este proyecto funcionasen junto con el componente ya existente de \texttt{Superhands}, aunque esto no se logro al final. 
 
-\subsection{Implementación}
+\subsection{Tareas Realizadas}
 \label{subsec:implementacion6}
 Para empezar con este sprint, primero se decidio por organizar el código ya existente y las acciones. Para ello, por cada acción que ya estaba implementada , \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}, se creo un componente. También, el componente \texttt{Grabable}, creado en el sprint anterior fue modificado para que en vez de llamar directamente a las funciones encargadas de las acciones de los gestos, emita los eventos \texttt{Start} o \texttt{End} correspondeintes a cada acción. 
 
