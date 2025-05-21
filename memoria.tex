@@ -473,6 +473,7 @@ En este capítulo se describe de forma detallada como fue el desarrollo del proy
 se describe en forma de sprints siguiendo una estructura de una metodología \textit{Agile}\cite{asana_agile_methodology}, pese a que el propio proyecto no siguio dicha metodología. 
 El desarrollo explica desde los inicios y planteamiento del proyecto hasta obtener los resultados finales.
 
+Por la forma en la que se fue planteando el proyecto, al final de cada sprint se planteaban los objetivos del siguiente para llegar al objetivo final de tener un handtracking funcional y que permitiese interactuar con la escena. 
 \section{Sprint 0}
 \label{sec:sprint0}
 Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso basico de A-Frame.
@@ -480,14 +481,13 @@ Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso basi
 \label{subsec:objetivo-principal0}
 El objetivo principal de este sprint se puede dividir en 2 partes principales. 
 \begin{itemize}
-  \item \textbf{El planteamiento con el tutor}, donde se identificaron las necesidades para el proyecto del mismo modo que planificar las distintas etapas y duración de cada una
-  y los objetivos que se deseaban obtener.
   \item \textbf{Dominio del uso basico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas al igual que la creación e implementacion de componentes o el uso de librerias de A-Frame.
+  \item \textbf{El planteamiento con el tutor}, donde se identificaron las necesidades para el proyecto, también se plantearon los primeros objetivos principales del proyecto, detectar y dibujar las manos y poder usarlas para interactuar con ellas. 
 \end{itemize}
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion0}
-La identificación de las necesidades y requisitos de un proyecto es una parte fundamental. Durante las primeras charlas con el tutor se concretaron los distintos objetivos y los posibles caminos que puede tomar este proyecto. 
+La identificación de las necesidades y requisitos de un proyecto es una parte fundamental. Durante las primeras charlas con el tutor se plantearon algunos de los posibles objetivos a los que se podia llegar y los posibles caminos que puede tomar este proyecto. 
 Al principio se plantearon varios caminos, pero la idea general de todos ellos era la creación de un sistema de handtracking que sea capaz de interactuar con distintos elementos dentro de la escena. 
 
 Para lograr llegar a ese objetivo primero fue necesario dominar los elementos basicos de A-Frame como biene a ser la organización de la escena, el uso y creación de componentes y el uso de eventos. 
@@ -508,13 +508,13 @@ Tras la familiarización con el entorno de A-Frame y sus características el pro
 
 \section{Sprint 1}
 \label{sec:sprint1}
-Investigando el handtraking
+Investigación del handtraking y primeras implementaciones de este en el proyecto.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal1}
 En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtraking en A-Frame. 
 Este era el paso principal en el que se basaria todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame este proyecto habria sido imposible de realizar.
-
+Además de obtener una primera demo del handtracking en la escena.
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion1}
 Los primeros pasos fue investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
@@ -966,7 +966,19 @@ En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de 
 \cleardoublepage
 \chapter{Pruebas y experimentos}
 \label{chap:pruebas-experimentos}
+En este capítulo se describiran las distintas impresiones que han tenido familiares y amigos que han ayudado al probar la escena final. 
 
+Primero se descrebiran las distintas instrucciones que se les dieron a cada uno nada mas entrar a la escena y posteriormente se describiran las distintas impresiones y opiniones que han dado al respecto.
+Para este apartado se pidio la colaboración de 4 familiares y amigos.
+
+Nada mas entrar a la escena todos recibieron las mismas instrucciones. Lo primero era que se mirasen las manos para que las gafas pudieran detectarlas correctamente y el programa pudiera renderizarlas. Una vez las manos estaban ya renderizadas se les pidio que movieran sus manos y dedos y se les pidio que dieran su opinión al respecto. 
+Las 4 personas dijeron cosas parecidas, que pese a que solo se renderizaban las articulaciones y no la mano en si, la forma en la que se dibujaban y movian era bastante natural y fluida, pero algunos resaltaron que cuando las gafas no detectan bien algún dedo, ya sea porque algún objeto real o la propia mano esta tapando un dedo, a veces dicho dedo realizaba movimientos extraños. 
+Esto era de esperar ya que dependemos del sistema de detección de manos de las gafas y si estas no detectan correctamente el programa no puede funcionar correctamente. 
+
+Luego de que se acostumbrasen a las manos virtuales se les pidio que mirasen a su alrededor. Al cargar la escena el usuario aparece en el centro la escena y a su alrededor hay una serie de cubos formando un circulo. Cada cubo posee uno de los componentes interactivos que se han desarrollado y encima hay un panel con el nombre de este cubo, el cual refleja el componente que posee, y una descripción en ingles de lo que tienen que hacer para interactuar con el.
+Unicamente aquellos que no eran fluidos con el ingles tuvieron ciertos problemas para entender las instrucciones de cada cubo, pero aquellos que lo entendian bien no tuvieron problemas. Uno por uno se acercaban a los cubos y mediante la acción correspondiente descrita en el panel, pudieron interactuar con todos y cada uno de los cubos. 
+
+Una vez terminaron de experimentar con los distintos cubos de la escena, se les pidio que dieran su opinión al respecto. Todos estaban algo sorprendidos con la naturalidad con la que se movian las manos dentro de la escena al igual que les pareció bastante sencillo de interactuar con los distintos elementos de la escena, aunque recomendaron la implementación de nuevos gestos ya que unicamente los gestos de \texttt{Pinch} y \texttt{Point} habian sido utilizados para los componentes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONCLUSIONES capitulo 6%
