@@ -508,11 +508,11 @@ Tras la familiarización con el entorno de A-Frame y sus características el pro
 
 \section{Sprint 1}
 \label{sec:sprint1}
-Investigación del handtraking y primeras implementaciones de este en el proyecto.
+Investigación del handtracking y primeras implementaciones de este en el proyecto.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal1}
-En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtraking en A-Frame. 
+En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtracking en A-Frame. 
 Este era el paso principal en el que se basaria todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame este proyecto habria sido imposible de realizar.
 Además de obtener una primera demo del handtracking en la escena.
 \subsection{Tareas Realizadas}
@@ -956,8 +956,74 @@ En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de 
 \cleardoublepage
 \chapter{Resultados}
 \label{chap:resultados}
+En este capítulo se se describen en detalle los resultados obtenidos a lo largo de este proyecto, así como una descripción funcional de este, donde se desarrollan las partes básicas de la conclusión del proyecto de forma funcional. También, en este capítulo se incluye un manual de usuario donde se detalla la forma en la que los usuarios pueden interactuar dentro de la escena de demo final y como se podria implementar en otras escenas. Finalmente, se describen los detalles tecnicos detras del funcionamiento del proyecto y su implementación.
 
+\section{Descripción funcional}
+\label{sec:descripcion-funcional}
+El proyecto esta dividido en dos áreas principales, la primera se centra en las entidades comunes de una escena de A-Frame, como cubos y esferas. El enfoque de esta área consiste en la creación e implementación de componentes que nos permitan interactuar con las distintas entidades dentro de la escena de forma mas natural, permitiendo coger y mover dichos elementos.
 
+El segundo área del proyecto se centra en el uso avanzado del sistema de handtracking que posee WebXR, permitiendo la detección y el renderizado de las manos dentro del entorno virtual. Aparte de la detección, este área también se centra en la creación de la lógica necesaria para que las manos puedan interactuar con los distintos elementos dentro den entorno virtual.
+\section{Manual de usuario}
+\label{sec:manual-usuario}
+Nada mas cargar la escena de la demo, el usuario se encontrará en el centro de esta, rodeado de una serie de cubos que estan sobre unos pedestales. Cinco de los cubos representan cada uno de los distintos componentes de interacción que se crearon durante el proyecto, estos se encuentran formando un semicirculo frente al usuario y detras del usuario hay un sexto cubo, el cual posee todos los componentes.
+
+Al principio, si el sistema no ha detectado las manos en las coordenadas [0,0] aparecerá una esfera, pero dicha esfera desaparece en cuanto el sistema detecta las manos. Es recomendable que lo primero en hacer al cargar la escena es que el usuario se mire las manos para poder detectarlas y renderizarlas correctamente. 
+
+Una vez se detectan las manos manos, el usuario puede acercarse a cada uno de los cubos. Encima de cada cubo hay un panel flotante, donde aparece el nombre del componente que posee el cubo al igual que una descripción del gesto necesario para interactuar con el cubo en cuestión. 
+
+La mayoria de los cubos requieren que el usuario se acerque a estos y que los toque dentro de la escena virtual para poder interactuar con ellos, en caso de que el espacio donde se encuentra el usuario no sea lo bastante grande como para acercarse a todos los cubos indivudualmente, detras del usuario al aparecer se encuentra un único cubo que posee todos los componentes, asi el usuario puede probar todas las funcionalidades sin necesidad de ir uno por uno. 
+Para poder interactuar con los distintos cubos, el usuario necesita realizar dos tipos de gestos, el primero es el gesto \texttt{Pinch}, este gesto es necesario para la mayoria de los cubos, y el segundo es el gesto \texttt{Point}, los cubos que requieren de este segundo gesto no es necesario acercarse hasta estos para interactuar con ellos. 
+\section{Descripción tecnica}
+\label{sec:descripcion-tecnica}
+
+Para esta sección hablaremos de las dos partes principales del proyecto, la detección e implementación de las manos en el entorno virtual y la creación de los distintos componentes que acompañan a los elementos de la escena para interactuar con ellos.
+
+\subsection{Handtracking}
+\label{subsec:handtracking}
+La detección de las manos es uno de los pilares fundamentales del proyecto. El proceso siguio varias etapas hasta llegar al resultado final de este proyecto.
+
+Primero, se creo el componente de \texttt{manos}, este componente era el encargado de detectar y renderizar las manos dentro de la escena virtual. En la figura \ref{fig:manos} se aprecia el resultado de las manos dentro de la escena.
+
+\begin{figure}[H] 
+  \centering
+  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de las manos dentro de la escena
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos en la escena}
+  \label{fig:manos}
+\end{figure}
+
+Para poder renderizar la mano, era necesario definir todas las articulaciones que la componian, desde la muñeca hasta la punta de los dedos y todas las distintas falanges intermedias. Esto se debe a que ya que se utilizo WebXR, al querer que el programa funcionase en navegadores, si no se definian las falanges el programa no seria capaz de detectar aquellas que no fueron definidas.
+En la figura \ref{fig:manos-esquema} se muestra todas las articulaciones necesarias para que WebXR sea capaz de detectar y renderizar de forma correcta las manos. 
+\begin{figure}[H] 
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/webxr-mano.png} 
+  \caption{Esquema manos}
+  \label{fig:manos-esquema}
+\end{figure}
+
+Esto unicamente nos permite detectar las manos, pero no era suficiente para renderizarlas en la escena. Para ello era necesario crear una esfera por cada articulación. Utilizando el listado que posee todos los nombres de las articulaciones se crea una esfera por cada una y se procede a guardar cada entidad en un diccionario, a cada entidad se le asignaba un nombre con el nombre de la articulación y la mano a la que pertenece, definido en el \texttt{schema} del componente.
+
+Ya que estabamos utilizando WebXR, para poder acceder a la información de las posiciones de cada articulación era necesario acceder a la sesion XR y acceder a sus inputs, en este caso las manos. Esto se realizaba en una función llamada \texttt{updateSkeleton}. Por cada input de la sesion el programa accede al diccionario creado anteriormente y por cada articulación, a traves de la sesion, se accede a su posición y tamaño y se actualiza la entidad correspondiente. También, en caso de que la articulación en cuestion sea la punta del deo índice o la muñeca se le añade un colisionador para 
+poder interactuar con los elementos dentro de la escena. Esta actualización de la posición se realiza a cada frame, permitiendo un movimiento fluido y suave. 
+
+Ahora que las manos se renderizan en la escena era necesario detectar los gestos. Para ello, en una función nueva llamada \texttt{detectGesture}, al igual que la anterior, esta función se ejecutaba a cada frame. Se vuelve a acceder a la sesión de WebXR para obtener las posiciones de algunas articulaciones clave, como la muñeca, las puntas de los dedos y la falanje intermedia del dedo índice.
+Para el gesto \texttt{Pinch}, se utiliza la distancia entre la pinta del índice y del pulgar y si la distancia es lo suficiente pequeña o no se lanzan los eventos de \texttt{pinchstart} y \texttt{pinchend} respectivamente. Esta acción se ejecuta a traves de una función dentro de la función \texttt{detectGesture}, y lo mismo ocurre con los gestos de \texttt{Openhand} y \texttt{Fist}, pese a que luego no se usan estos gestos. El caso del gesto de \texttt{Point} es diferente al de los otros gestos, la forma en la que se detecta es igual, pero los otros gestos al lanzar sus eventos correspondientes, estos son escuchados por los componentes interactivos directamente, mientras que para este gesto,
+dentro de este mismo componente se realizan varios pasos previos. Este gesto esta dividido en dos fases, cuando el usuario esta haciendo la acción de \texttt{pistol} y cuando no. Cuando no es cuando el usuario tiene el índice y el pulgar estirados, al realizar esta acción el programa crea un puntero en la punta del índice, este puntero es el que nos permite interactuar con los elementos a distancia. Cuando el usuario hace la acción de \texttt{pistol},cuando el pulgar se pega al dedo índice, haciendo la acción de disparar con los dedos, se emite el evento de \texttt{click} en el elemnto que intersecciona con el puntero. 
+
+Para el puntero, era necesario que siguiera la dirección a la que puntamos con la mano, para ello en una tercera función llamada \texttt{updatePointer} se volvia a acceder a la sesión XR y se tomaban las posiciones de la punta y nudillo del dedo índice y usando el vector que se generaba a partir de esas posiciones se actualizaba la dirección a la que apunta el vector.
+
+\subsection{Componentes interactivos}
+\label{subsec:componentes-interactivos}
+Para los componentes interactivos primero se creo el componente \texttt{grabable}, dicho componente era el encargado de escuchar los eventos de los colisionadores al igual que del gesto \texttt{Pinch}, al escuchar los eventos lo primero era diferenciar de que mano provenian, para ello en caso de colisión se comprueba el nombre de la articulación que colisionó y en el caso del gesto se comprueban los detalles del evento se introduce la mano definida en el \texttt{schema}. Dependiendo de la mano se actualiza una de las variables estado dentro de este componente. Independientemente de la mano, si se detecta una colisión,
+se emite el evento de \texttt{hooverStart} y ya dependiendo de las variables estado que definen que mano esta colisionando o haciendo el gesto se emiten los eventos para realizar los gestos de \texttt{drag}, \texttt{slide} o \texttt{stretch}, estos eventos luego son escuchados por los componentes correspondientes a cada acción.
+
+Para la acción de \texttt{click} es la única que no necesita pasar a traves del componente \texttt{grabable} ya que no es necesario tocar el elemento con este componente. 
+Al recibir los eventos correspondientes a la acción, cambiando el color o devolviendolo a la normalidad dependiendo del evento. 
+La acción de \texttt{hoover} al recibir sus eventos correspondietes hace que la entidad se vuelva mas transparente al interactuar con ella.
+Para la acción de \texttt{slide}, al recibir el evento se accede a la información compartida a traves del evento, la posición del dedo índice, y dependeindo del eje seleccionado en el \texttt{schema} de este componente, se puede deslizar el elemento a traves de la escena en ese eje que selecciono el usuario mientras los otros ejes se mantienen constantes.
+
+La acción de \texttt{drag} es la mas compleja de todas. Para que funcionase correctamente esta accion se divide en dos fases, el reparenting y la rotación. Para que el elemento de la escena pudiera ser cogido con la mano, al escuchar los eventos correspondientes se realiza un reparenting, haciendo que la entidad sea hija de la punta del dedo índice,su información se transmite en los detalles del evento, en vez de la escena, esto nos permite arrastrar la entidad por la escena. Pero por como se dibujan las articulaciones, unicamente se actualiza su posición y no la rotación era necesario un paso extra para la rotación.
+Para ello primero se accede a la información de la mano, transmitida en los detalles del evento, y se toma la posicion de tres articulación, la punta y nudillo del índice y el nudillo del dedo meñique. Con esas tres posiciones se crea un eje relativo que posee la rotación de la mano, una vez con eso la entidad que estamos tomando copia dicho eje, haciendo que la entidad copie la rotación de la mano.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PRUEBAS Y EXPERIMENTOS capitulo 5%
