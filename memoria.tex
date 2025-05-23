@@ -203,8 +203,58 @@
 \chapter{Introducción}
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
+La realidad virtual es un campo que cada vez toma mayor peso, e introducir al usuario cada vez más dentro del entorno virtual ha sido uno de los principales objetivos desde el comienzo. Al principio y hoy en día la principal 
+solución para mejorar las interfaces de usuario en Realidad Extendida (XR), era el uso de los controladores de los distintos dispositivos VR. Pero el uso de los controladores no era natural en comparación al empleo de las manos, así que se inició el desarrollo de la detección de manos. Hoy en 
+día la detección de manos está muy extendida, sin embargo, la utilización de los controladores sigue predominando, puesto que las tecnologías de detección de manos no están tan desarrolladas. El uso de estos controladores supone una limitación, produciendo una sensación de inmersión en la escena virtual no tan profunda como se podría desear, ya que 
+el control de las distintas entidades que pueda haber no resulta tan natural para el usuario.  
 
+Este proyecto se centra en dar un paso más en la evolución de la detección de manos, permitiendo que los usuarios puedan utilizar sus manos dentro de los distintos entornos virtuales que estos creen en sus navegadores a través de A-Frame. 
+Esto permite a los usuarios interactuar con los elementos de la escena de una forma más natural. Hoy en día ya existen componentes nativos en A-Frame que permiten la detección de manos, pero su funcionamiento es muy limitado, permitiendo únicamente agarrar elementos de la escena.
+Mi proyecto va un paso más allá de eso, permitiendo la detección de varios gestos de la mano y la ejecución de diferentes acciones al realizar dichos gestos, lo cual contrasta bastante con la tecnología actual, en la cual únicamente están implementados un gesto y una acción.
+Además de las acciones y gestos implementados en este proyecto, la forma de su diseño la convierte en una tecnología escalable y adaptable para la creación de distintas escenas o aplicaciones VR. En el siguiente enlace se puede acceder al repositorio de GitHub que contiene el proyecto: \url{https://github.com/JuJoarias/TFG}
 
+\section{Contexto}
+\label{sec:contexto}
+La realidad virtual (VR) tiene sus orígenes en 1963, cuando el escritor Hugo Gernsback, presento su prototipo de gafas inmersivas \texttt{The Teleyeglasses}. La idea de este prototipo era la de permitir a los usuarios sentirse como si estuvieran dentro del mundo de la televisión, al sujetar una televisión en miniatura a la cabeza como si fuesen unas gafas. Años más tarde, en 1968, el científico de la computación Ivan Sutherland del MIT,
+desarrolló \texttt{The Sword of Damocles}, dicho sistema hoy en día se considera como el padre de las gafas de realidad virtual modernas. Este sistema incluía un casco sostenido por un brazo mecánico desde el techo, y utilizaba pantallas CRT para proyectar gráficos básicos que respondían al movimiento de la cabeza del usuario.
+Estos dispositivos sentaron las bases para la evolución de la realidad virtual. 
+
+Más tarde, cuando Palmer Luckey inicio su campaña para la creación de las Oculus Rift, llamo la atención de Facebook, la cual compro la empresa de Palmer en 2014. Desde entonces, la industria de la realidad virtual ha ido creciendo a pasos agigantados con la llegada de diversos dispositivos. Gracias a su versatilidad, la realidad virtual ha conseguido implantarse en áreas como el entretenimiento, la medicina o la educación. Hoy en día grandes empresas como Apple o Meta 
+realizan grandes inversiones para seguir desarrollando estas tecnologías con el objetivo de potenciar la realidad virtual y hacerla más accesible.  
+
+Gracias a que grandes empresas invierten muchos recursos, la realidad virtual ha avanzado mucho, pero aún le queda mucho por mejorar. Desde hace años, las tecnologías de realidad extendida (XR) han sido uno de los principales pilares de la realidad virtual, en especial la detección de manos. Aunque la detección de manos es una tecnología que se usa desde hace años, no está tan desarrollada como otros campos. Esto se debe a que en la mayoría de ocasiones es necesario 
+utilizar los controladores de los distintos dispositivos VR, puesto que el uso del handtracking está muy limitado o es poco fluido. 
+Mi trabajo de fin de grado se centra en el desarrollo de una tecnología de detección de manos que permita a los usuarios interactuar, de forma más natural y fluida, con distintos elementos de la escena mediante escenas que estén dentro de un navegador. 
+
+\section{Objetivos}
+\label{sec:objetivos}
+
+\subsection{Objetivo general}
+\label{subsec:objetivo-general}
+El objetivo principal de este proyecto es dar un paso más en la continua evolución de la realidad virtual, en especial, el sistema de detección de manos. Este consiste en el desarrollo de un sistema de detección de manos que permita la interacción fluida y natural con elementos de la escena a través de un navegador, mediante gestos que realice el usuario. 
+\subsection{Objetivos específicos}
+\label{subsec:objetivos-especificos}
+A continuación se describen los diversos objetivos secundarios que fueron necesarios para realizar el objetivo principal.
+\begin{itemize}
+  \item \textbf{Estudio de opciones actuales}: Estudio de los distintos componentes ya existentes de A-Frame dedicados a la detección de manos.
+  \item \textbf{Implementar detección de manos}: Estudio e implementación de WebXR dentro de A-Frame para obtener los datos necesarios de las manos para posteriormente su renderización.
+  \item \textbf{Implementar una herramienta de renderización de manos en A-Frame}: Construir un componente capaz renderizar las manos dentro del entorno virtual de la escena que reaccione de forma fluida a los movimientos del usuario, mientras mantiene una estructura realista que asemeje las manos reales. 
+  \item \textbf{Implementar detección de gestos}: Desarrollar un sistema capaz de detectar y distinguir los distintos gestos que puede realizar el usuario con sus manos.
+  \item \textbf{Implementación de acciones}: Creación de una serie de componentes capaces de reaccionar a los distintos gestos del usuario para que estos realicen distintas acciones dependiendo del gesto y la intención del usuario. 
+  \item \textbf{Creación de escena}: Creación de una escena virtual donde poder visualizar las manos y las distintas acciones.
+\end{itemize}
+
+\section{Estructura de la memoria}
+\label{subsec:estructura}
+En esta sección se presenta la estructura de esta memoria, organizada en capítulos:
+
+\begin{itemize}
+  \item \textbf{Tecnologías utilizadas:} Este capítulo enumera y describe las distintas tecnologías que han sido utilizadas a lo largo de todo el proyecto. Dichas tecnologías están divididas en principales y auxiliares y en cada una, además de su funcionalidad, se describe su importancia en el desarrollo del proyecto.
+  \item \textbf{Desarrollo del proyecto:} Este capítulo describe el proceso que ha sido necesario para llegar a los resultados obtenidos. Se describe siguiendo la metodología \texttt{Agile}, dividiendo el proceso en distintos sprints donde cada uno tiene sus propios objetivos y resultados.
+  \item \textbf{Resultados:} Aquí se presenta el resultado final del proyecto. Se describe de forma detallada la arquitectura de los distintos componentes que se han creado, al igual que se da una explicación de cara al usuario para que sea capaz de manejarse dentro de la escena y pueda interactuar con los elementos en ella. 
+  \item \textbf{Pruebas y experimentos:} En este capítulo se describen las opiniones y sensaciones que han tenido algunas personas que han ayudado a probar la escena final. 
+  \item \textbf{Conclusiones:} En este último capítulo se exploran las distintas lecciones aprendidas a lo largo del desarrollo de este proyecto, al igual que la aplicación de los distintos conocimientos que se han adquirido a lo largo de la carrera. Además, se contemplan las distintas aplicaciones a futuro que podría tener este proyecto o las posibles optimizaciones que se le podrían hacer.
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
