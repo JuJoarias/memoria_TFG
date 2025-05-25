@@ -1106,20 +1106,48 @@ Una vez terminaron de experimentar con los distintos cubos de la escena, se les 
 \cleardoublepage
 \chapter{Conclusiones}
 \label{chap:conclusiones}
+En este último capítulo se presenta un resumen de las conclusiones obtenidas y las lecciones aprendidas a lo largo del desarrollo de este proyecto. También, se destacaran los conocimientos aplicados durante su elavoración y se evaluará el cumplimiento de los objetivos establecidos. Además, se ofreceran opciones y planteamientos de cara a futuras mejoras o implementaciones del sistema u otros posibles proyectos.
 
+Respecto al cumplimiento del objetivo general, desarrollar un sistema de detección de manos y gestos para utilizar en escenas dentro del navegador, ha sido cumplido. Se ha creado un sistema de detección y renderización de manos capaz de interactuar con los distintos elementos dentro de la escena de forma mas natural y fluida en comparación a los elementos existentes previamente. La manos resultantes mantienen un tamaño y proporción bastante realistas respecto a las manos del usuario lo que le permite adaptarse mejor al entorno virtual.
+
+Respecto a los objetivos específicos, tras realizar un estudio sobre las opciones actuales de detección de manos dentro de A-Frame, se llego a la conclusión de que la mejor opción era la de trabajar directamente con la información que nos proporciona WebXR. 
+Utilizando esa información, se consigío cumplir los objetivos de detección y renderización de las manos dentro de la escena, al igual que la detección de gestos. 
+Respecto a la implementación de acciones, ese objetivo se cumplio con creces. Al principio unicamente se planteaba implementar un par de acciones, pero al final del proyecto se logro implementar hasta 5 acciones, siendo estas las mismas que posee el componente de \texttt{Superhands}.
+Finalmente se logro crear una escena donde el usuario sería capaz de experimentar el funcionameinto de los resultados de este proyecto, cumpliendo asi todos los objetivos planateados. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
+En esta sección se detallan las distintas asignaturas de la carrera de Ingeniería en Sistemas Audiovisuales y Multimedia que han aportado los conocimientos necesarios para afrontar los distintos desafios que ha supuesto este proyecto. 
 
+\begin{itemize}
+  \item \textbf{Informática I y II:} Estas asignaturas fuero la base de todo. Me proporcionaron unos conocimientos fundamentales de la programa como la resolución de problemas mediante código o la programación oriendada a objetos.
+  \item \textbf{Gráficos y Visualización en 3D:} Esta asignatura fue la que mas me ayudo de cara a este proyecto. Me proporcionó los conocimientos necesarios para dominar los principios básicos de la Visualización en 3D de un entorno virtual. También, me proporciono los conocimientos básicos de WebGL y de Three.js, herramientas que han sido esenciales durante todo el proyecto y sin las cuales no se habria podido completar. 
+  \item \textbf{Construcción de servicios y aplicaciones audiovisuales en internet y Laboratorio de tecnoligías audiovisuales en la Web:} Estas dos asignaturas fueron mi primer contacto con la programación web. Me dieron los conocimientos esenciales de HTML, CSS y JavaScript necesarios para la creación de páginas web dinámicas e interactivas, permitiendo asi la creación de las distintas escenas demo y de la lógica detras de todos los componentes que permiten que funcione el proyecto.
+\end{itemize}
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
+A lo largo del desarrollo de este Trabajo de Fin de Grado, me he enfrentado a diversos obstáculos los cuales al superarlos, me han aportado nuevos conocimientos sobre las tecnologías utilizadas en este proyecto, además, también los conocimientos que tenía previamente que han sido aplicados a este proyecto han mejorado y me han dado un mayor entendimiento de las tecnologías utilizadas.
+
+Gracias a este proyecto, aprendí a manejar tecnologías como A-Frame, WebGL y WebXR. Esta era mi primera experiencia con el mundo de la realidad virtual, sobre todo como desarrollador, pero gracias a las tecnologías mencionadas, aprendí a crear escenas inmersivas e interactivas. También aprendí a manejar la lógica necesaria para detectar cambios que ocurrían a cada frame dentro de la escena, como el cambio de las posiciones de las manos o los gestos y a responder a dichos cambios de la forma deseada mediante eventos. 
+Aparte, también obtuve conocimientos sobre el manejo del DOM y la manipulación de elementos HTML con el fin de crear experiencias interactivas. La integración de estos elementos me ayudo a comprender como los usuarios podían interactuar de manera más natural con los elementos virtuales dentro de la escena.
+
+Además, mi manejo de GitHub ha mejorado gracias a este proyecto, he aprendido a mantener mi código más ordenado y limpio, aparte del uso de GitHub pages, que me ha permitido crear páginas web donde visualizar las distintas demos que se fueron creando. También aprendí a utilizar LaTeX para la creación de la documentación de este proyecto. Esta herramienta me ha ayudado a producir un documento técnico de alta calidad, permitiendo estructurar de forma clara y precisa los distintos aspectos del proyecto mientras mantiene una presentación ordenada y profesional. 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
+Aunque este proyecto ha conseguido sus objetivos, aún tiene mucho espacio para mejora. A continuación se presentan algunas de las posibles mejoras que se le podrían realizan al proyecto para mejorarlo y como esta tecnología puede ser aplicada en distintas aplicaciones o escenas virtuales:
 
+\begin{itemize}
+  \item \textbf{Desarrollo de nuevas poses:} En este proyecto en el resultado final únicamente se han implementado un par de gestos, pero dada la forma en la que se obtiene la información de WebXR, no resultaría muy complejo implementar nuevos para añadir mayor profundidad a la experiencia de inmersión.
+  \item \textbf{Desarrollo de nuevas acciones:} Del mismo modo que con los gestos, es posible crear nuevos componentes para realizar distintos tipos de acciones que permitan aumentar las distintas formas que tiene el usuario para interactuar con la escena.
+  \item \textbf{Implementar soporte para realidad aumentada:} Actualmente el sistema desarrollado en este proyecto únicamente funciona en entornos VR, pero se puede llegar a configurar para que también funcione en entornos AR.
+  \item \textbf{Mejora de la detección de poses:} Aunque el sistema detecta generalmente la pose que se está realizando, es posible mejorar la lógica detrás de esto para que sea más preciso aún.
+  \item \textbf{Implementar compatibilidad con controladores:} Dado que existen sistemas que realizan cosas similares que las manos desarrolladas en este proyecto utilizando los controladores, es posible llegar a configurar el código para que dentro de la misma escena sea posible utilizar tanto las manos como los controladores funcionen de forma conjunta. Una opción sería combinar el código con el componente de \texttt{Superhands}.
+  \item \textbf{Implementaciones:} La posibilidad de poder visualizar tus manos reales dentro del entorno virtual y de poder interactuar con estas con los distintos elementos de la escena da paso a posibilidades casi infinitas. Algunos ejemplos de posibles implementaciones sería la del uso en videojuegos, la creación de aplicaciones de diseño o incluso simuladores de entrenamiento para distintas profesiones.
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA %
