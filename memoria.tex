@@ -535,41 +535,40 @@ Para este proyecto, LaTeX facilito considerablemente el trabajo a la hora de cre
 \chapter{Desarrollo del proyecto}
 \label{chap:Desarrollo del proyecto}
 En este capítulo se describe de forma detallada como fue el desarrollo del proyecto. Dicho desarrollo
-se describe en forma de sprints siguiendo una estructura de una metodología \textit{Agile}\cite{asana_agile_methodology}, pese a que el propio proyecto no siguio dicha metodología. 
+se describe en forma de sprints siguiendo una estructura de una metodología \textit{Agile}\cite{asana_agile_methodology}, pese a que el propio proyecto no siguió dicha metodología. 
 El desarrollo explica desde los inicios y planteamiento del proyecto hasta obtener los resultados finales.
 
-Por la forma en la que se fue planteando el proyecto, al final de cada sprint se planteaban los objetivos del siguiente para llegar al objetivo final de tener un handtracking funcional y que permitiese interactuar con la escena. 
-\section{Sprint 0}
+Por la forma en la que se fue planteando el proyecto, al final de cada sprint se planteaban los objetivos del siguiente para llegar al objetivo final de tener una detección de manos funcional y que permitiese interactuar con los distintos elementos de la escena. \section{Sprint 0}
 \label{sec:sprint0}
-Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso basico de A-Frame.
+Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso básico de A-Frame.
 \subsection{Objetivos}
 \label{subsec:objetivo-principal0}
 El objetivo principal de este sprint se puede dividir en 2 partes principales. 
 \begin{itemize}
-  \item \textbf{Dominio del uso basico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas al igual que la creación e implementacion de componentes o el uso de librerias de A-Frame.
+  \item \textbf{Dominio del uso básico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas, al igual que la creación e implementación de componentes o el empleo de librerías de A-Frame.
   \item \textbf{El planteamiento con el tutor}, donde se identificaron las necesidades para el proyecto, también se plantearon los primeros objetivos principales del proyecto, detectar y dibujar las manos y poder usarlas para interactuar con ellas. 
 \end{itemize}
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion0}
-La identificación de las necesidades y requisitos de un proyecto es una parte fundamental. Durante las primeras charlas con el tutor se plantearon algunos de los posibles objetivos a los que se podia llegar y los posibles caminos que puede tomar este proyecto. 
-Al principio se plantearon varios caminos, pero la idea general de todos ellos era la creación de un sistema de handtracking que sea capaz de interactuar con distintos elementos dentro de la escena. 
+La identificación de las necesidades y requisitos de un proyecto es una parte fundamental. Durante las primeras charlas con el tutor se plantearon algunos de los posibles objetivos a los que se podía llegar y los posibles caminos que puede tomar este proyecto. 
+Al principio se plantearon varios caminos, pero la idea general de todos ellos era la creación de un sistema de detección de manos que sea capaz de interactuar con distintos elementos dentro de la escena. 
 
-Para lograr llegar a ese objetivo primero fue necesario dominar los elementos basicos de A-Frame como biene a ser la organización de la escena, el uso y creación de componentes y el uso de eventos. 
-Para ello, primero se creo primero el repositorio de \textit{Git}  con el que trabajaremos durante todo el proyecto. Se crearon una serie de escenas sencillas con el objetivo de dominar el uso de componentes y eventos simples. 
+Para lograr llegar a ese objetivo primero fue necesario dominar los elementos básicos de A-Frame como viene a ser la organización de la escena, el uso y creación de componentes y el uso de eventos. 
+Para ello, primero se creo primero el repositorio de \textit{Git}  con el que trabajaremos durante todo el proyecto. Se crearon una serie de escenas sencillas con el objetivo de dominar el empleo de componentes y eventos simples. 
 \subsection{Resultados}
 \label{subsec:resultados0}
-Para familiarimarme aun mas con el entorno de A-Frame se crearon una serie de escenas muy sencillas donde se creaba y utilizaba un componente customizado y se hacia uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
-El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en las figura \ref{fig:sprint0}.
+Para familiarizarme aún más con el entorno de A-Frame se generaron una serie de escenas muy sencillas donde se generaba y utilizaba un componente customizado y se hacía uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
+El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en la figura \ref{fig:sprint0}.
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la primera escena de test que hice
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \includegraphics[width=0.7\textwidth]{img/primera_escena.png} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
   \caption{Escena de test de A-Frame}
   \label{fig:sprint0}
 \end{figure}
 
-Tras la familiarización con el entorno de A-Frame y sus características el proyecto fue formalizado formalmente. Tras ellos se planteo el siguiente sprint del proyecto donde ya se empezarian los primeros pasos formales de este. 
+Tras la familiarización con el entorno de A-Frame y sus características, el proyecto fue formalizado formalmente. Tras ellos se planteo el siguiente sprint del proyecto, donde ya se empezarían los primeros pasos formales de este. 
 
 \section{Sprint 1}
 \label{sec:sprint1}
@@ -577,17 +576,17 @@ Investigación del handtracking y primeras implementaciones de este en el proyec
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal1}
-En este primer sprint oficial del proyecto, el objetivo princpial era investigar y comprender el uso del handtracking en A-Frame. 
-Este era el paso principal en el que se basaria todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame este proyecto habria sido imposible de realizar.
+En este primer sprint oficial del proyecto, el objetivo principal era investigar y comprender el uso del handtracking en A-Frame. 
+Este era el paso principal en el que se basaría todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame, este proyecto habría sido imposible de realizar.
 Además de obtener una primera demo del handtracking en la escena.
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion1}
-Los primeros pasos fue investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
-Para ellos se usaron pequeñas escenas de prueba para comprender mejor el comportamiento de las manos en la realidad virtual, y del mismo modo, tener una idea mas clara del objetivo final del aspecto de handtracking. 
+Los primeros pasos fueron investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
+Para ellos se usaron pequeñas escenas de prueba para comprender mejor el comportamiento de las manos en la realidad virtual, y del mismo modo, tener una idea más clara del objetivo final del aspecto de handtracking. 
 
-Tras la investigación de las manos y la sugerencia del tutor, se decidio utilizar la tecnologia de WebXR para el handtracking puesto que esta tecnología ya posee un sistema preparado para ello. Además, usando la tecnología de WebXR nos permitia trabajar con cada una de las articulaciones de la mano de forma independiente. 
+Tras la investigación de las manos y puesto que el proyecto se desarrollo en A-Frame para que funcione en los navegadores, se decidió utilizar la tecnología de WebXR para la detección de manos, puesto que esta tecnología ya posee un sistema preparado para ello. Además, usando la tecnología de WebXR nos permitía trabajar con cada una de las articulaciones de la mano de forma independiente, permitiéndonos tomar la información necesaria de las articulaciones cuando es necesario. 
 
-Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/TR/webxr-hand-input-1/}}, se empezo el desarrollo de las manos. para ello en el codigo fue necesario tratar cada una de las manos de forma independiente, del mismo modo que cada una de las articulaciones como se muestra en el esquema de las manos de WebXR en la figura \ref{fig:WebXR-manos}. 
+Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/TR/webxr-hand-input-1/}}, se empezó el desarrollo de las manos. Para ello en el código fue necesario tratar cada una de las manos de forma independiente, del mismo modo que cada una de las articulaciones, como se muestra en el esquema de las manos de WebXR en la figura \ref{fig:WebXR-manos}. 
 
 \begin{figure}[H] 
   \centering
@@ -596,21 +595,19 @@ Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/T
   \label{fig:WebXR-manos}
 \end{figure}
 
-Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que sera el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenia un \texttt{schema}, en el \texttt{init} se definian las distintas variables que eran necesarias para el funcionamiento del código. 
-En el HTML que define la escena unicamente era necesario añadir una vez el componente como una entidad. Pero era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición unicamente se realizaba en el código de JavaScript.
+Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que será el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenía un \texttt{schema}, en el \texttt{init} se definían las distintas variables que eran necesarias para el funcionamiento del código. 
+En el HTML que define la escena únicamente era necesario añadir una vez el componente como una entidad. Pero era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición únicamente se realizaba en el código de JavaScript.
 \begin{lstlisting}[caption=Definición de articulaciones, captionpos=b, label=lst:articulaciones]
   const orderedJoints = [
     ["wrist"],
     ["thumb-metacarpal", "thumb-phalanx-proximal", "thumb-phalanx-distal", "thumb-tip"],
-    ["index-finger-metacarpal", "index-finger-phalanx-proximal", "index-finger-phalanx-intermediate", "index-finger-phalanx-distal", "index-finger-tip"],
-    ["middle-finger-metacarpal", "middle-finger-phalanx-proximal", "middle-finger-phalanx-intermediate", "middle-finger-phalanx-distal", "middle-finger-tip"],
-    ["ring-finger-metacarpal", "ring-finger-phalanx-proximal", "ring-finger-phalanx-intermediate", "ring-finger-phalanx-distal", "ring-finger-tip"],
+    ...
     ["pinky-finger-metacarpal", "pinky-finger-phalanx-proximal", "pinky-finger-phalanx-intermediate", "pinky-finger-phalanx-distal", "pinky-finger-tip"]
   ];
 \end{lstlisting}
 Después de definir todas las articulaciones era necesario procesarlas. 
-Para ello, se creo la función que se muestra en el fragmento de código \ref{lst:manos-codigo}. En la función \texttt{renderHandSkeleton} se crea un bucle de código el cual, toma la sesión XR de la escena y por cada input de la sesion toma cada una de las articulaciones, las detecta en la mano y crea una esfera a traves de una segunda función unicamente encargada de crear esferas. Dichas esferas se crean en la posición corerspoondiente a la mano real
-y tambien se ajusta el radio de la esfera para que coincida con la mano. 
+Para ello, se creo la función que se muestra en el fragmento de código \ref{lst:manos-codigo}. En la función \texttt{renderHandSkeleton} se crea un bucle de código el cual, toma la sesión XR de la escena y por cada input de la sesión, toma cada una de las articulaciones, las detecta en la mano y genere una esfera en una segunda función únicamente encargada de generar esferas. Dichas esferas se crean en la posición correspondiente a la mano real
+y también se ajusta el radio de la esfera para que coincida con la mano, esta función nos permite renderizar en la escena las manos del usuario de forma que parezca lo más natural posible. 
 
 \begin{lstlisting}[caption=Dibujo de las manos en la escena, captionpos=b, label=lst:manos-codigo]
   renderHandSkeleton: function () {
@@ -644,11 +641,11 @@ y tambien se ajusta el radio de la esfera para que coincida con la mano.
   },
 \end{lstlisting}
 
-Esta función se encuentra dentro de la función \texttt{tick} del componente manos, asi que a cada frame el propio código revisa la posición de todas y cada una de las articulaciones para cada una 
+Esta función se encuentra dentro de la función \texttt{tick} del componente manos, así que a cada frame el propio código revisa la posición de todas y cada una de las articulaciones para cada una 
 de las dos manos de entrada.
 Además de detectar y dibujar las manos en la escena, en esta primera demo se implementó el gesto de \texttt{Pinch}, distinguiendo cada mano y realizando una acción distinta dependiendo de la mano que lo realizase. 
 
-Primero, para la detección del gesto se creo la función de \texttt{detectGestures}, como se muestra en el fragmento de código \ref{lst:firstdetectGesture}. En dicha función, se tomaba la posición del la punta del dedo índice y del pulgar y se calculaba la distancia entre ambos puntos.
+Primero, para la detección del gesto se creo la función de \texttt{detectGestures}, como se muestra en el fragmento de código \ref{lst:firstdetectGesture}. En dicha función, se tomaba la posición de la punta del dedo índice y del pulgar y se calculaba la distancia entre ambos puntos.
 
 \begin{lstlisting}[caption=Función detectGestures, captionpos=b, label=lst:firstdetectGesture]
   detectGestures: function () {
@@ -684,44 +681,43 @@ Primero, para la detección del gesto se creo la función de \texttt{detectGestu
 \end{lstlisting}
 
 Si la distancia era inferior a 0.02 (valor obtenido tras realizar varias pruebas), se comprobaba que mano era la que lo realizaba y luego se llamaba a la función correspondiente. 
-Si se trataba de la mano derecha, se creaba un cubo verde en la posición de la punta del dedo índice. Y si se trataba de la mano izquierda, si esta se encontraba lo bastante cerda de uno de los cubos creados por la mano derecha (a una distancia inferior a 0.15) la posición del cubo copiaria la de la punta del dedo índice izquierdo hasta que se soltase el gesto.
+Si se trataba de la mano derecha, se creaba un cubo verde en la posición de la punta del dedo índice. Y si se trataba de la mano izquierda, si esta se encontraba lo bastante cerda de uno de los cubos creados por la mano derecha (a una distancia inferior a 0.15) la posición del cubo copiaría la de la punta del dedo índice izquierdo hasta que se soltase el gesto.
 
 
 \subsection{Resultados}
 \label{subsec:resultados1}
 
-Como resultado de este sprint se creo la demo de \textit{pinch test}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/pinch_test.html}} al igual que en la figura \ref{fig:sprint1}.
+Como resultado de este sprint se creo la demo de \textit{pinch test}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/first_hands/pinch_test.html}}, en la figura \ref{fig:sprint1} se aprecian los resultados de este sprint.
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la primera escena de manos
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \includegraphics[width=0.7\textwidth]{img/primeras_manos.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
   \caption{Primera demo de manos}
   \label{fig:sprint1}
 \end{figure}
 
-Las esferas se dibujaban correctamente y los gestos funcionaban, pero habia bastantes aspectos a mejorar. Primero, por sujerencia del tutor,
-se debia modificar el componente para que fuese necesario añadirlo 2 veces a la escena, 1 por cada mano. También, respecto al gesto, con la mano derecha habia que cambiar el funcionamiento
-ya que el que creara un cubo no seria necesario mas adelante. Y respecto a la mano izquierda, se identificó que a la hora de tomar el cubo, este se transportaba hacia la posicion del dedo índice. 
-Y aunque esto era lo deseado de primeras, visualmente no quedaba bien ya que si se agarraba una esquina el cubo se transportaba, tragandose la mano en vez de agarrar el cubo mientras mantenia la distance entre el dedo y el centro del cubo. 
-Aparte de eso, en el caso de que hubiese mas de un cubo muy pegado, el código no identificaba siempre de forma correcta el mas cercano, haciendo que a veces se tomara el cubo no deseado.
+Las esferas se dibujaban correctamente y los gestos funcionaban, pero había bastantes aspectos a mejorar. Primero, por sugerencia del tutor,
+se debía modificar el componente para que fuese necesario añadirlo 2 veces a la escena, 1 por cada mano. También, respecto al gesto, con la mano derecha había que cambiar el funcionamiento
+ya que el que creara un cubo no seria necesario más adelante. Y respecto a la mano izquierda, se identificó que a la hora de tomar el cubo, este se transportaba hacia la posición del dedo índice. 
+Y aunque esto era lo deseado de primeras, visualmente no quedaba bien por el hecho de que si se agarraba una esquina el cubo se transportaba, tragándose la mano en vez de agarrar el cubo mientras mantenía la distancia entre el dedo y el centro del cubo. 
+Aparte de eso, en el caso de que hubiese más de un cubo muy pegado, el código no identificaba siempre de forma correcta el más cercano, haciendo que a veces se tomara el cubo no deseado.
 
-Todos estos factores dieron paso al siguiente sprint, donde se corregirian los errores resaltados. Aparte se intentaria optimmizar la creación de las manos y se añadiria la emisión y gestión de eventos, ya que en esta primera demo, al realizar el gesto, se llama a la función correspondiente si utilizar eventos. 
+Todos estos factores dieron paso al siguiente sprint, donde se corregirían los errores resaltados. Aparte se intentaría optimizar la creación de las manos y se añadiría la emisión y gestión de eventos, ya que en esta primera demo, al realizar el gesto, se llama a la función correspondiente si utilizar eventos. 
 
 \section{Sprint 2}
 \label{sec:sprint2}
-Introducción de eventos y optimización del manejo de manos. 
+Introducción de eventos al sistema y optimización del manejo de manos. 
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal2}
-Tras la observaciones del sprint anterior, para este sprint se replanteo el funcionamiento de los gestos. También, se reorganizo la forma de creación de las manos en la escena y la detección de los gestos. 
-
+Tras las observaciones del sprint anterior, para este sprint se replanteo el funcionamiento de los gestos. También, se reorganizo la forma de renderización de las manos en la escena y la detección de los gestos con el fin de obtener un código más optimizado. 
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion2}
-Primero, se reorganizo el componente encargado de dibujar las manos que se creo en el sprint anterior. Dicho componente se renombro a \texttt{manos}, nombre que se mantendría hasta el final del proyecto. A dicho componente se le añadio un \texttt{schema}. 
-En dicho \texttt{schema} hay unacamente una variable llamada \texttt{hand}, dicha variable unicamente acepta \texttt{left} o \texttt{right} como entradas. Este cambio era para que el componente distinguiera las manos y unicamente dibujase una mano a la vez, esto hizo que para dibujar ambas manos en la escena fuese necesario añadir el componente 2 veces, 1 por cada mano. 
-También, se modifico la función \texttt{init}. Ahora, aparte de definir los valores iniciales de las variables utilizadas, realiza un bucle que recorre la constante que contiene todas las articulaciones y por cada una crea una esfera. Dichas esferas son añadidas a la escena y tambien se crea un diccionario al que se le añade el nombre y entidad de cada articulación.
+Primero, se reorganizo el componente encargado de dibujar las manos que se creo en el sprint anterior. Dicho componente se renombro a \texttt{manos}, nombre que se mantendría hasta el final del proyecto. A dicho componente se le añadió un \texttt{schema}. 
+En dicho \texttt{schema} hay únicamente una variable llamada \texttt{hand}, dicha variable únicamente acepta \texttt{left} o \texttt{right} como entradas. Este cambio era para que el componente distinguiera las manos y únicamente dibujase una mano a la vez, esto hizo que para dibujar ambas manos en la escena fuese necesario añadir el componente 2 veces, 1 por cada mano. 
+También, se modifico la función \texttt{init}. Ahora, aparte de definir los valores iniciales de las variables utilizadas, realiza un bucle que recorre la constante que contiene todas las articulaciones y por cada una crea una esfera. Dichas esferas son añadidas a la escena y también se crea un diccionario al que se le añade el nombre y entidad de cada articulación.
 Este bucle se puede apreciar en el fragmento de código \ref{lst:esferas}. Como se puede apreciar, esto no nos permite detectar las manos y utilizarlas en la escena, simplemente prepara las entidades que representaran la mano dentro de la escena.
 
 \begin{lstlisting}[caption=Creación de las esferas de las articulaciones, captionpos=b, label=lst:esferas]
@@ -733,8 +729,8 @@ Este bucle se puede apreciar en el fragmento de código \ref{lst:esferas}. Como 
   });
 \end{lstlisting}
 
-Para la actualización de la posición de todas las articulaciones se creao la funcion que se muestra en el fragmetno de código \ref{lst:nuevas_manos}. Esa nueva función es una versión actualizada de la que se creo en el sprint anterior. 
-La principal diferencia con el código previo es que este unicamente trabaja con la mano que se definió en el \texttt{schema} y trabaja directamente con las entidades que estan guardadas en el diccionario que se creo en el \texttt{init}. 
+Para la actualización de la posición de todas las articulaciones se creó la función que se muestra en el fragmento de código \ref{lst:nuevas_manos}. Esa nueva función es una versión actualizada de la que se creo en el sprint anterior. 
+La principal diferencia con el código previo es que este únicamente trabaja con la mano que se definió en el \texttt{schema} y trabaja directamente con las entidades que están guardadas en el diccionario que se creo en el \texttt{init}. 
 
 \begin{lstlisting}[caption=Actualización de las manos, captionpos=b, label=lst:nuevas_manos]
   updateSkeleton: function () {
@@ -760,11 +756,11 @@ La principal diferencia con el código previo es que este unicamente trabaja con
   },
 \end{lstlisting}
 
-Para la detección del gesto la lógica general permanece igual, pero en vez de llamar a otras funciones se emiten los eventos \texttt{pinchstart} y \texttt{pinchend} dependiendo de si se esta realizando el gesto o no y junto al evento se envia como argumento de este la mano que lo realiza, la derecha u izquierda.
+Para la detección del gesto la lógica general permanece igual, pero en vez de llamar a otras funciones se emiten los eventos \texttt{pinchstart} y \texttt{pinchend} dependiendo de si se está realizando el gesto o no y junto al evento se envía como argumento de este la mano que lo realiza, la derecha u izquierda.
 
-Para escuchar los eventos, se creo el componente \texttt{detector}. Este componente posee 2 variables en su \texttt{schema}. La primera es que mano detectara, del mismo modo que el componente \texttt{manos}, y la segunda es un target. El target es principalmente para debug de la escena, ya que para esta demo se añadieron 2 entidades a la escena las cuales 
-eran texto. Asi que el target seria el ID de una de esas entidades de texto.
-Este componente cada vez que reciviese un evento se encargaria de modificar el texto del target, señalando si se ha iniciado o terminado el gesto y de que mano. 
+Para escuchar los eventos, se creo el componente \texttt{detector}. Este componente posee 2 variables en su \texttt{schema}. La primera es que mano detectara, del mismo modo que el componente \texttt{manos}, y la segunda es un target. El target es principalmente para debug de la escena, ya que para esta demo se añadieron 2 entidades a la escena, las cuales 
+eran texto. Así que el target seria el ID de una de esas entidades de texto.
+Este componente cada vez que recibiese un evento se encargaría de modificar el texto del target, señalando si se ha iniciado o terminado el gesto y de que mano. 
 
 \subsection{Resultados}
 \label{subsec:resultados2}
@@ -772,31 +768,31 @@ El resultado de este sprint fue el código \textit{componentes}\footnote{\url{ht
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de componentes.html
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Primera demo de manos}
+  \includegraphics[width=0.7\textwidth]{img/primer_gesto.jpg}
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Primer gesto}
   \label{fig:sprint2}
 \end{figure}
 
-En este sprint a nivel visual en la escena no habia grandes cambios ya que el objetivo principal era la optimización de la creación de las manos y la introducción de los eventos. 
-Como se aprecia en la figura \ref{fig:sprint2}, dentro de la escena se dibujan las manos correctamente y los texton se modifican com oes debido. Para esta demo, para los gestos unicamente se implemento el cambio de texto ya que 
-como aun no se trabajaba con los gestos y hacia falta añadir mas, se queria una forma mas sencilla de comprobar que los eventos se emitian y escuchaban correctamento. 
+En este sprint a nivel visual en la escena no había grandes cambios ya que el objetivo principal era la optimización de la creación de las manos y la introducción de los eventos. 
+Como se aprecia en la figura \ref{fig:sprint2}, dentro de la escena se dibujan las manos correctamente y los textos se modifican como es debido. Para esta demo, para los gestos únicamente se implemento el cambio de texto ya que 
+como aún no se trabajaba con los gestos y hacía falta añadir más, se quería una forma más sencilla de comprobar que los eventos se emitían y escuchaban correctamente. 
 
 \section{Sprint 3}
 \label{sec:sprint3}
-Nuevos gestos de las manos
+Introducción de nuevos gestos de las manos a la escena.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal3}
-Para este nuevo sprint, el objetivo principal era introducir mas gestos. Hasta ahora unicamente estaba implementado el gesto de \texttt{Pinch}.
-Durante este sprint se planeo introducir la logica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand}.
+Para este nuevo sprint, el objetivo principal era introducir más gestos. Hasta ahora únicamente estaba implementado el gesto de \texttt{Pinch}.
+Durante este sprint se deseaba introducir la lógica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand}.
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion3}
-Para conseguir implementar los nuevos gestos principalmente hizo falta modificar la función de \texttt{detectGesture}, aparte de eso, para poder distinguir bien que gesto se esta realizando, en el \texttt{init} se definio una variable booleana por cada gesto, las cuales cambian dependiendo de si se esta realizando el gesto o no. Estas variables se implementaron ya que, como la comprobación de los gestos y emisión de estos se realizan en la función \texttt{tick}, si no se implementa esta lógica, se emitiria el mismo evento repetidas veces cuando unicamente es necesaria una vez.
+Para conseguir implementar los nuevos gestos principalmente hizo falta modificar la función de \texttt{detectGesture}, aparte de eso, para poder distinguir bien que gesto se está realizando, en el \texttt{init} se definió una variable booleana por cada gesto, las cuales cambian dependiendo de si se está realizando el gesto o no. Estas variables se implementaron ya que, como la comprobación de los gestos y emisión de estos se realizan en la función \texttt{tick}, si no se implementa esta lógica, se emitiría el mismo evento repetidas veces cuando únicamente es necesaria una vez.
 
-Para ello, primero se buscaba la posicion de la punta de todos los dedos y de la muñeca. Una vez con todas las posiciones obtenidas, mediante una función se calculaba la distancia de la punta del dedo correspondiente a la muñeca y si esa distancia era inferior a 0.09 (obtenido luego de varias pruebas para que sea una distancia optima), se definia que el dedo en cuestion estaba doblado.
-Para cada dedo hay una constante booleana que esta True si el dedo esta doblado y false si esta estirado. Ahora con la información de cada dedo se comprueba si estan estirados o no y dependiendo del estado de los dedos y de si la variable de estado de los gestos esta a True o False, se emite el evento start o end correspondiente a cada gesto. 
+Para ello, primero se buscaba la posición de la punta de todos los dedos y de la muñeca. Una vez con todas las posiciones obtenidas, mediante una función se calculaba la distancia de la punta del dedo correspondiente a la muñeca y si esa distancia era inferior a 0.09 (obtenido luego de varias pruebas para que sea una distancia óptima), se definía que el dedo en cuestión estaba doblado.
+Para cada dedo hay una constante booleana que este True si el dedo está doblado y false si está estirado. Ahora con la información de cada dedo se comprueba si están estirados o no y dependiendo del estado de los dedos y de si la variable de estado de los gestos está a True o False, se emite el evento start o end correspondiente a cada gesto. 
 
 \subsection{Resultados}
 \label{subsec:resultados3}
@@ -804,37 +800,36 @@ Como resultado, se obtuvo la demo de \textit{nuevos gestos}\footnote{\url{https:
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de nuevos gestos
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \includegraphics[width=0.7\textwidth]{img/nuevos_gestos.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
   \caption{Primera demo de manos}
   \label{fig:sprint3}
 \end{figure}
 
-El resultado fue bastante similar al del sprint anterior, pero con la principal diferencia de que se habian añadido mas gestos a la lógica de las manos como se aprecia en la figura \ref{fig:sprint3}
+El resultado fue bastante similar al del sprint anterior, pero con la principal diferencia de que se habían añadido más gestos a la lógica de las manos, como se aprecia en la figura \ref{fig:sprint3}
 
-Ahora que teniamos una lógica de detección de manos y de gestos era tiempo de crear la la lógica necesaria para poder interactuar con los elementos dentro de la escena, para lo cual, primero era necesario saber cuando las manos estaban colisionando con los elementos de la escena. 
+Ahora que teníamos una lógica de detección de manos y de gestos, era tiempo de crear la lógica necesaria para poder interactuar con los elementos dentro de la escena, para lo cual, primero era necesario saber cuando las manos estaban colisionando con los elementos de la escena. 
 \section{Sprint 4}
 \label{sec:sprint4}
-Incorporación de colliders  
+Incorporación de colliders a la escena para la detección de colisiones.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal4}
-Como ultimo paso de preparación de las manos era necesario saber cuando las manos estaban interactuado con los elementos de la escena. El objetivo principal de este sprint era la incorporación de Incorporación de colliders  
-en la escena. 
-
+Como último paso de preparación de las manos era necesario saber cuando las manos estaban interactuando con los elementos de la escena. El objetivo principal de este sprint era la incorporación de colliders  
+a la escena y preparar la lógica necesaria para poder detectar las colisiones entre los elementos de la escena. 
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion4}
 Para añadir Incorporación de colliders  
-a la escena se hizo uso del componente propio de A-Frame \textit{obb-collider}\footnote{\url{https://aframe.io/docs/1.7.0/components/obb-collider.html}}.
-La principal ventaja que nos proporciona el uso de este componente nativo de A-Frame, era que cuando detecta una colisión entre 2 entidades que posean dicho componente este lanza un evento indicando el inicio de la colisión y cuando no hay colisión lanza otro indicando el final de la colisión.
+a la escena se hizo uso del componente propio de A-Frame, \textit{obb-collider}\footnote{\url{https://aframe.io/docs/1.7.0/components/obb-collider.html}}.
+La principal ventaja que nos proporciona el uso de este componente nativo de A-Frame, era que cuando detecta una colisión entre 2 entidades que posean dicho componente, este lanza un evento indicando el inicio de la colisión y cuando no hay colisión lanza otro indicando el final de la colisión.
 Los eventos que lanza el componente eran \texttt{obbcollisionstarted} y \texttt{obbcollisionended}.
 
-Lo principal para añadir los Incorporación de colliders  
+Lo principal para añadir los colliders a la escena 
 era añadirlos a la mano, ya que añadirlos a los distintos elementos de la escena era tan sencillo como añadir el componente de \texttt{obb-collider}. Para ello,
-habia que modificar la función encargada de actualizar las articulaciones de las manos. 
+había que modificar la función encargada de actualizar las articulaciones de las manos. 
 
-Dentro de la función de \texttt{updateSkeleton} \ref{lst:nuevas_manos} se añade las siguientes lineas de código:
+Dentro de la función de \texttt{updateSkeleton} \ref{lst:nuevas_manos} se añade las siguientes líneas de código:
 
 \begin{lstlisting}[caption=Añadir Incorporación de colliders a la mano, captionpos=b, label=lst:colliders]
   
@@ -843,7 +838,7 @@ Dentro de la función de \texttt{updateSkeleton} \ref{lst:nuevas_manos} se añad
   }
 \end{lstlisting}
 
-Como se aprecia en el código \ref{lst:colliders}, se comprueba si la articulación en cuestion tiene ya un colider y si no lo tiene lo añade.
+Como se aprecia en el código \ref{lst:colliders}, se comprueba si la articulación en cuestión tiene ya un collider y si no lo tiene, lo añade.
 
 \subsection{Resultados}
 \label{subsec:resultados4}
@@ -851,39 +846,39 @@ Como resultado de este sprint se obtuvo la demo de \textit{colliders}\footnote{\
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de colliders
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Primera demo de manos}
+  \includegraphics[width=0.7\textwidth]{img/collider.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Demo colliders}
   \label{fig:sprint4}
 \end{figure}
 
-En dicha escena se mantienen los logros que ya habiamos obtenido en los sprints anteriores. Y para comrpobar el funcionamiento de los colliders se añadio a la escena un cubo
-al que le añadimos el componente de \texttt{obb-collider}. En dicha escena se implemento la lógica de que si se detectaba colisión entre el cubo y las manos  el color del cubo cambiaria para tener una respuesta mas visual. 
+En dicha escena se mantienen los logros que ya habíamos obtenido en los sprints anteriores. Y para comprobar el funcionamiento de los colliders se añadió a la escena un cubo
+al que le añadimos el componente de \texttt{obb-collider}. En dicha escena se implemento la lógica de que si se detectaba colisión entre el cubo y las manos,  el color del cubo cambiaria para tener una respuesta más visual. 
 
-Mientras se comprobaba el funcionamiento se noto un error. Como la mano estaba formada por varias esferas con espacios entre medias, y cada  esfera poseia un colliders, se emitian varias veces los eventos de inicio y fin de la colisión incluso si no se sacaba la mano del cubo. 
-Esto era un problema ya que estos eventos repetidos cuando no corresponden hacian que cualquier función implementada cuando se detecta colisión actue de forma intermitente y por lo tanto erronea. Aunque este problema no fue identificado hasta el sprint siguiente. 
+Mientras se comprobaba el funcionamiento se noto un error. Como la mano estaba formada por varias esferas con espacios entre medias, y cada  esfera poseía un colliders, se emitían varias veces los eventos de inicio y fin de la colisión, incluso si no se sacaba la mano del cubo. 
+Esto era un problema ya que estos eventos repetidos cuando no corresponden hacían que cualquier función implementada cuando se detecta colisión actúe de forma intermitente y, por lo tanto, errónea. Aunque este problema no fue identificado hasta el sprint siguiente. 
 
 \section{Sprint 5}
 \label{sec:sprint5}
-Función grabable
+Incorporación de la función grabable a la escena para interactuar con los elementos.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal5}
-Para este sprint se quiso ya ir incorporando el funcionamiento de los gestos en la escena. Para empezar se quiso trabajar con el gesto \texttt{Pinch}. Se planteo que si se hacia con la manos derecha sobre el cubo poder 
-arrastrar dicho cubo por la escena en cualquier dirección e imitando la rotación de la mano para que parezca que lo estamos agarrando realmente. Y si se hacia con la mano izquierda, el cubo unicamente se podria deslizar en un unico eje, el eje X.
+Para este sprint se quiso ya ir incorporando el funcionamiento de los gestos en la escena. Para empezar se quiso trabajar con el gesto \texttt{Pinch}. Se planteo que sí se hacía con la mano derecha sobre el cubo poder 
+arrastrar dicho cubo por la escena en cualquier dirección e imitando la rotación de la mano para que parezca que lo estamos agarrando realmente. Y si se hacía con la mano izquierda, el cubo únicamente se podría deslizar en un único eje, el eje X.
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion5}
-Este sprint fue uno de los mas complejos hasta ahora, ya que a lo largo del proceso fuimos encontrando distintos problemas que hicieron replantear la lógica del código. 
+Este sprint fue uno de los más complejos hasta ahora, ya que a lo largo del proceso fuimos encontrando distintos problemas que hicieron replantear la lógica del código. 
 
 Para empezar con este sprint, se creo el componente de \texttt{Grabable}, dicho componente no posee un \texttt{schema}. Y en su init aparte de definir las distintas variables necesarias, se comprueba si la entidad a la que se añada el componente posee un collider, y en caso de no tener le añade uno.
 En este componente toda la lógica se ejecuta dentro la una función llamada \texttt{check}, la cual se llama en el \texttt{tick}. 
 
-En dicha función, lo primero que se compruba es si hay una colisión, y si la hay ocurren 2 procesos importantes. El primero, es que se cambia el estado de una variable booleana la cual indica si hay colisión o no, y el segundo, se ejecuta una función llamada \texttt{hoover}. En esa función para saber de forma visual que estamos interactuando con el cubo, incluso antes de realizar ningun gesto, se cambia la trasparencia del cubo ligeramente.
+En dicha función, lo primero que se comprueba es si hay una colisión, y si la hay ocurren 2 procesos importantes. El primero, es que se cambia el estado de una variable booleana, la cual indica si hay colisión o no, y el segundo, se ejecuta una función llamada \texttt{hoover}. En esa función, para saber de forma visual que estamos interactuando con el cubo, incluso antes de realizar ningún gesto, se cambia la trasparencia del cubo ligeramente.
 
-Luego, para distinguir entre el pinch de la mano derecha y la mano izquierda escuchamos los eventos de \texttt{pinchstart} y \texttt{pinchend} ya que el evento lleva la información de la mano que esta realizando el gesto. Con esa información se cambia la variable boolenan correspondiente para saber que mano realiza el gesto. Una vez con esa información ya se podia realizar la lógica del gesto.
+Para poder realizar correctamente la lógica del gesto, era necesario poder acceder a la información de las entidades que forman las articulaciones. Para ello, debíamos de ser capaces de acceder a la información del componente \texttt{manos} mediante las siguientes líneas de código:
 
-Para poder realizar correctamente la lógica del gesto, era necesario poder acceder a la información de las entidades que forman las articulaciones. Para ello, debiamos de ser capaces de acceder a la información del componente \texttt{manos} mediante las siguientes lineas de código:
+Luego, para distinguir entre el pinch de la mano derecha y la mano izquierda, primero accedemos a la información de la mano derecha y de la izquierda atraves del componente \texttt{manos}, esto lo hacemos accediendo a la información del componente como se muestra en el fragmento de código \ref{lst:info_manos}. Una vez con acceso a esa información, pudiendo distinguir las manos, se comprueba la variable de estado \texttt{pinchState}, la cual guardamos en dos constantes, una por cada manos. Estas constantes son las que nos proporcionan la información de si se esta realizando el gesto y que mano lo esta haciendo.
 
 \begin{lstlisting}[caption=Acceso información componente manos, captionpos=b, label=lst:info_manos]
   
@@ -892,58 +887,61 @@ Para poder realizar correctamente la lógica del gesto, era necesario poder acce
 
   const manoDerecha = this.rightHandEntity.components.manos;
   const manoIzquierda = this.leftHandEntity.components.manos;
+
+  const rightPinchState = manoDerecha.pinchState;
+  const leftPinchState = manoIzquierda.pinchState;
 \end{lstlisting}
 
 Con eso ya somos capaces de acceder a la información de \texttt{joints}, donde se almacenaban todas las entidades de las articulaciones.
 
-Para la mano izquierda fue mas sencillo. Se comprobaba si habia solisión con el cubo y tambien si la variable correspondiente al pinch de la mano izquierda estaba en True, y de estarlo, el cubo cambiaba su color a azul y posteriormente se procede a acceder a la información 
-de la punta del indice de la mano izquierda y se hace que el cubo copie la coordenada de dicha articulación mientras mantiene sus otras coordenadas, asi se desliza unicamente en un único eje.
+Para la mano izquierda fue más sencillo. Se comprobaba si había colisión con el cubo y también si la variable correspondiente al pinch de la mano izquierda estaba en True, y de estarlo, el cubo cambiaba su color a azul y posteriormente se accede a la información 
+de la punta del índice de la mano izquierda y se hace que el cubo copie la coordenada de dicha articulación mientras mantiene sus otras coordenadas, así se desliza únicamente en un único eje.
 
-Para la manos derecha fue mas complejo. Se queria poder agarrar el cubo y poder deslizarlo y rotarlo a antojo del usuario. Para ello se planteo hacer un \texttt{reparenting}, para volver la entidad del cubo hija de la entidad de la mano para que asi imitara sus movimientos y rotaciones. Para realizar esto se realizo un \textit{test externo}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/external_tests/reparenting_test.html}}.
-El test dio los resultados deseados, pero a la hora de aplicarlo al código resaltaron varios probelmas. 
+Para la mano derecha fue más complejo. Se quería poder agarrar el cubo y poder deslizarlo y rotarlo a antojo del usuario. Para ello se planteo hacer un \texttt{reparenting}, para volver la entidad del cubo hija de la entidad de la mano, para que así imitara sus movimientos y rotaciones. Para realizar esto se realizo un \textit{test externo}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/external_tests/reparenting_test.html}}.
+El test dio los resultados deseados, pero a la hora de aplicarlo al código resaltaron varios problemas. 
 
-El primero, era que no se lograba realizar el \texttt{reparenting} con la entidad de la mano, asi que para solucionarlo se obto por que el nuevo padre del cubo fuese la punta del dedo índice mientras se realizaba el gesto.
-Otro fallo que resalto fue la rotación. Pese a que el \texttt{reparenting} se realizaba correctamente, el cubo no seguia las rotaciones de la mano. Y esto se debia a como se dibujaban las manos, ya que a cada frame se actualiza la posición de cada articulación, pero no la rotación, con lo cual esta se mantiene fija. Para solucionar este problema, se obto por tomar 3 articulaciones de la mano y con estas 
-como referencia para los ejes X y Z se creo un eje de coordenadas relativo. Dicho eje relativo seguiria la orientación y rotación de la mano. Una vez obtenido ese eje cuando se realiza el gesto derecho el cubo empieza a imitar dicho eje, permitiendo que el cubo rote al mismo tiempo que se arrastra el cubo por la escena. 
+El primero, era que no se lograba realizar el \texttt{reparenting} con la entidad de la mano, así que para solucionarlo se optó por que el nuevo padre del cubo fuese la punta del dedo índice mientras se realizaba el gesto.
+Otro fallo que resalto fue la rotación. Pese a que el \texttt{reparenting} se realizaba correctamente, el cubo no seguía las rotaciones de la mano. Y esto se debía a como se dibujaban las manos, ya que a cada frame se actualiza la posición de cada articulación, pero no la rotación, con lo cual esta se mantiene fija. Para solucionar este problema, se optó por tomar 3 articulaciones de la mano y con estas 
+como referencia para los ejes X y Z se creo un eje de coordenadas relativo. Dicho eje relativo seguiría la orientación y rotación de la mano. Una vez obtenido ese eje, cuando se realiza el gesto derecho, el cubo empieza a imitar dicho eje, permitiendo que el cubo rote al mismo tiempo que se arrastra el cubo por la escena. 
 \subsection{Resultados}
 \label{subsec:resultados5}
 El resultado de este sprint se refleja en la demo \textit{hands grabable}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/first_steps/second_hands/hands_grabable.js}}. 
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Manos Grabable}
+  \includegraphics[width=0.7\textwidth]{img/grabable_right.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos Grabable derecha}
   \label{fig:sprint5-1}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Manos Grabable}
+  \includegraphics[width=0.7\textwidth]{img/grabable_left.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos Grabable izquierda}
   \label{fig:sprint5-2}
 \end{figure}
 
-Como se aprecia en las figuras \ref{fig:sprint5-1} y \ref{fig:sprint5-2} cada vez que se realiza el gesto con cada una de las manos sobre el cubo este reacciona de manera distinta. 
-El color cabia para tener una respuesta mas visual además de que cada mano tenia se propia reacción. 
+Como se aprecia en las figuras \ref{fig:sprint5-1} y \ref{fig:sprint5-2} cada vez que se realiza el gesto con cada una de las manos sobre el cubo, este reacciona de manera distinta. 
+El color cabía para tener una respuesta más visual, además de que cada mano tenía sé propia reacción. 
 
-Con esto se habia conseguido implementar las acciones de \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}. De cara al siguiente sprint se decidio organizar mejor el código de dichas acciones al igual que añadir las acciones de \texttt{Stretch} y \texttt{Click}
+Con esto se había conseguido implementar las acciones de \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}. De cara al siguiente sprint se decidió organizar mejor el código de dichas acciones al igual que añadir las acciones de \texttt{Stretch} y \texttt{Click}
 
 \section{Sprint 6}
 \label{sec:sprint6}
-Manos finales
+Creación de las manos finales del proyecto, optimización de elementos y cierre del proyecto.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal6}
-El objetivo de este ultimo sprint era añadir nuevas acciones y organizar mejor el código para que quedase lo mas limpio posible. 
-También, por sugerencia del tutor se intento modificar el código para que las manos diseñadas en este proyecto funcionasen junto con el componente ya existente de \texttt{Superhands}, aunque esto no se logro al final. 
+El objetivo de este último sprint era añadir nuevas acciones y organizar mejor el código para que quedase lo más limpio posible. 
+También, por sugerencia del tutor, se intento modificar el código para que las manos diseñadas en este proyecto funcionasen junto con el componente ya existente de \texttt{Superhands}, aunque esto no se logro al final. 
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion6}
-Para empezar con este sprint, primero se decidio por organizar el código ya existente y las acciones. Para ello, por cada acción que ya estaba implementada , \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}, se creo un componente. También, el componente \texttt{Grabable}, creado en el sprint anterior fue modificado para que en vez de llamar directamente a las funciones encargadas de las acciones de los gestos, emita los eventos \texttt{Start} o \texttt{End} correspondeintes a cada acción. 
+Para empezar con este sprint, primero se decidió por organizar el código ya existente y las acciones. Para ello, por cada acción que ya estaba implementada, \texttt{Hoover}, \texttt{Drag} y \texttt{Slide}, se creo un componente. También, el componente \texttt{Grabable}, creado en el sprint anterior, fue modificado para que en vez de llamar directamente a las funciones encargadas de las acciones de los gestos, emita los eventos \texttt{Start} o \texttt{End} correspondientes a cada acción. 
 
-Dichos eventos luego serian escuchados por el componente correspondiente. La estructura de los componentes de las acciones todos siguen la misma estructura. En el \texttt{Init} primero se comprueba si la entidad a la que fue añadido contiene también el componente \texttt{Grabable} y si no lo tiene lo añade ya que este componente es indispensable para que los componentes de acciones funcionen a excepción del componente correspondiente al \texttt{Click}. Luego de eso, el componente escucha los eventos de \texttt{Start} y \texttt{End} y si los escucha llama a una función
+Dichos eventos luego serían escuchados por el componente correspondiente. La estructura de los componentes de las acciones todos siguen la misma estructura. En el \texttt{Init} primero se comprueba si la entidad a la que fue añadido contiene también el componente \texttt{Grabable} y si no lo tiene lo añade ya que este componente es indispensable para que los componentes de acciones funcionen a excepción del componente correspondiente al \texttt{Click}. Luego de eso, el componente escucha los eventos de \texttt{Start} y \texttt{End} y si los escucha, llama a una función
 , la cual inicializa los datos o variables correspondientes que posteriormente se usaran en la función \texttt{Tick} del componente. En el siguiente fragmento de código se aprecia el componente \texttt{hoover} como ejemplo:
 
 \begin{lstlisting}[caption=Componente Hoover, captionpos=b, label=lst:Hoover]
@@ -984,35 +982,40 @@ Dichos eventos luego serian escuchados por el componente correspondiente. La est
 \end{lstlisting}
 
 Para los componentes de \texttt{Slide} y \texttt{Drag} se ha mantenido la lógica obtenida en el sprint anterior, pero aplicando la estructura mostrada. 
-También, al componente \texttt{Slide}, se le añadio un \texttt{Schema}. Este componente es el único que lo tiene y en el se puede definir en que eje queremos que se deslice el objeto, ya no se limita al eje X.
+También, al componente \texttt{Slide}, se le añadió un \texttt{Schema}. Este componente es el único que lo tiene y en el se puede definir en que eje queremos que se deslice el objeto, ya no se limita al eje X.
 
-Respecto al componente de \texttt{Stretch}, la lógica detras del gesto es similar a las acciones previamente implementadas. La única diferencia es que este componente unicamente reacciona cuando se esta haciendo el gesto sobre el mismo objeto con ambas manos a la vez.
-Una vez activado, el componente comprueba la distancia entre la punta de los dedos indices de ambas manos y con esa distancia la guarda en una variable. Utilizando esa distasncia inicial, se crea un factor de escalado al dividir la distancia actual entre las manos y la inicial. Posteriormente se multiplica dicho factor por la escala del objeto, asi esta crecera o decrecera dependiendo de la distancia entre ambas manos. 
+Respecto al componente de \texttt{Stretch}, la lógica detrás del gesto es similar a las acciones previamente implementadas. La única diferencia es que este componente únicamente reacciona cuando se está haciendo el gesto sobre el mismo objeto con ambas manos a la vez.
+Una vez activado, el componente comprueba la distancia entre la punta de los dedos índices de ambas manos y con esa distancia la guarda en una variable. Utilizando esa distancia inicial, se crea un factor de escalado al dividir la distancia actual entre las manos y la inicial. Posteriormente, se multiplica dicho factor por la escala del objeto, así esta crecerá o decrecerá dependiendo de la distancia entre ambas manos. 
 
-Hasta ahora todas las acciones habian funcionado con el gesto \texttt{Pinch}, pero para la accion de \texttt{Click} era necesario otro. Para este componente se utilizo el gesto de \texttt{Point}, el cual consistia en tener el dedo índice estirado. Al relizar el gesto el código crearía un puntero desde la punta del dedo y a cada frame actualizaria su dirección utilizando como vector la línea que une la punta del dedo con su nudillo. 
-Ahora que teniamos el puntero era necesaria una acción para que se emitiera el evento. Para ello, se utilizó el dedo pulgar. Como si se tratase de una pistola, se configuró el código para que cuando se haga el gesto de "disparar una pistola" se emitiera el evento de click. Toda esta implementación del gesto se introdujo directamente dentro del componente principal, el componente \texttt{Manos}. 
-Posteriormente, en el propio componente, al escuchar el evento este componente unicamente cambia el color del cubo a morado y al soltar el gesto de pistola, sin necesidad de soltar el gesto de \texttt{Point}, el color vuelve a su color original. 
+Hasta ahora todas las acciones habían funcionado con el gesto \texttt{Pinch}, pero para la acción de \texttt{Click} era necesario otro. Para este componente se utilizo el gesto de \texttt{Point}, el cual consistía en tener el dedo índice estirado. Al realizar el gesto el código crearía un puntero desde la punta del dedo y a cada frame actualizaría su dirección utilizando como vector la línea que une la punta del dedo con su nudillo. 
+Ahora que teníamos el puntero era necesaria una acción para que se emitiera el evento. Para ello, se utilizó el dedo pulgar. Como si se tratase de una pistola, se configuró el código para que cuando se haga el gesto de "disparar una pistola" se emitiera el evento de click. Toda esta implementación del gesto se introdujo directamente dentro del componente principal, el componente \texttt{Manos}. 
+Posteriormente, en el propio componente, al escuchar el evento, este componente únicamente cambia el color del cubo a morado y al soltar el gesto de pistola, sin necesidad de soltar el gesto de \texttt{Point}, el color vuelve a su color original. 
+
+Aparte de eso, se realizo otra optimización. Hasta ahora, se habían añadido colisionadores a todas las articulaciones de la mano, pero esto resulto en varios problemas. El principal problema era que, ya que las articulaciones no se tocaban entre sí, cuando el usuario tocaba con la mano los elementos de la escena, los eventos del colisionador se repetían, esto se debía a que cada articulación estaba mandando los eventos, lo cual hacía que el resto de funcionalidades relacionadas a las acciones con la mano no funcionases correctamente. 
+Para solucionar esto, se opto por limitar la cantidad de colisionadores en la mano a la punta del dedo índice y a la muñeca. Esta decisión se tomo ya que, para la mayoría de interacciones, únicamente con detectar la colisión del dedo índice es suficiente y en el caso de la muñeca, esto se hizo pensando en futuras implementaciones como por ejemplo pulsar un botón con la mano en vez de con un dedo.
+
 \subsection{Resultados}
 \label{subsec:resultados6}
 El resultado de este sprint es la propia \textit{demo}\footnote{\url{https://github.com/JuJoarias/TFG/blob/main/demo/demo.html}} presentada al final. 
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Manos finales 1}
+  \includegraphics[width=0.7\textwidth]{img/click.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos finales click}
   \label{fig:sprint6-1}
 \end{figure}
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de la escena de grabable
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Manos finales 2}
+  \includegraphics[width=0.7\textwidth]{img/stretch.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Manos finales stretch}
   \label{fig:sprint6-2}
 \end{figure}
 
-En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de las acciones implementadas durante este proyecto. En esta demo se aprecia un cubo por cada acción que se implemento al igual que un cubo que posee todas ya que cada cubo unicamente cuenta con uno de los componentes de acción.
+En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de las acciones implementadas durante este proyecto. En esta demo se aprecia un cubo por cada acción que se implemento al igual que un cubo que posee todas ya que cada cubo únicamente cuenta con uno de los componentes de acción.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESULTADOS capitulo 4%
@@ -1021,74 +1024,138 @@ En las figuras \ref{fig:sprint6-1} y \ref{fig:sprint6-2} se muestran algunas de 
 \cleardoublepage
 \chapter{Resultados}
 \label{chap:resultados}
-En este capítulo se se describen en detalle los resultados obtenidos a lo largo de este proyecto, así como una descripción funcional de este, donde se desarrollan las partes básicas de la conclusión del proyecto de forma funcional. También, en este capítulo se incluye un manual de usuario donde se detalla la forma en la que los usuarios pueden interactuar dentro de la escena de demo final y como se podria implementar en otras escenas. Finalmente, se describen los detalles tecnicos detras del funcionamiento del proyecto y su implementación.
+En este capítulo se describen en detalle los resultados obtenidos a lo largo de este proyecto, así como una descripción funcional de este, donde se desarrollan las partes básicas de la conclusión del proyecto de forma funcional. También, en este capítulo se incluye una descripción funcional para el usuario, donde se detalla la forma en la que los usuarios pueden interactuar dentro de la escena de demo final y manejarse dentro de ella, al igual que como se podría implementar en otras escenas. Finalmente, se describen los detalles técnicos detrás del funcionamiento del proyecto y su implementación,
+dando detalles en profundidad sobre la estructura de los componentes y su utilización.
 
 \section{Descripción funcional}
 \label{sec:descripcion-funcional}
-El proyecto esta dividido en dos áreas principales, la primera se centra en las entidades comunes de una escena de A-Frame, como cubos y esferas. El enfoque de esta área consiste en la creación e implementación de componentes que nos permitan interactuar con las distintas entidades dentro de la escena de forma mas natural, permitiendo coger y mover dichos elementos.
+El proyecto está dividido en dos áreas principales, la primera se centra en las entidades comunes de una escena de A-Frame, como cubos y esferas. El enfoque de esta área consiste en la creación e implementación de componentes que nos permitan interactuar con las distintas entidades dentro de la escena de forma más natural, permitiendo coger y mover dichos elementos entre otras acciones.
 
-El segundo área del proyecto se centra en el uso avanzado del sistema de handtracking que posee WebXR, permitiendo la detección y el renderizado de las manos dentro del entorno virtual. Aparte de la detección, este área también se centra en la creación de la lógica necesaria para que las manos puedan interactuar con los distintos elementos dentro den entorno virtual.
-\section{Manual de usuario}
+La segunda área del proyecto se centra en el uso avanzado del sistema de detección de manos que posee WebXR, permitiendo la detección y el renderizado de las manos dentro del entorno virtual. Aparte de la detección, esta área también se centra en la creación de la lógica necesaria para que las manos puedan interactuar con los distintos elementos dentro del entorno virtual, mediante la detección de gestos.
+
+Los componentes diseñados en este proyecto, tanto en la primera área como en la segunda, permiten al usuario poder visualizar sus manos dentro del entorno virtual además de poder interactuar con los distintos elementos de la escena, permitiendo acciones como agarrar, estirar o hacer click sobre dichos elementos. 
+
+\section{Descripción funcional para el usuario}
 \label{sec:manual-usuario}
-Nada mas cargar la escena de la demo, el usuario se encontrará en el centro de esta, rodeado de una serie de cubos que estan sobre unos pedestales. Cinco de los cubos representan cada uno de los distintos componentes de interacción que se crearon durante el proyecto, estos se encuentran formando un semicirculo frente al usuario y detras del usuario hay un sexto cubo, el cual posee todos los componentes.
+Nada más cargar la escena de la demo, el usuario se encontrará en el centro de esta, rodeado de una serie de cubos que están sobre unos pedestales. Cinco de los cubos representan cada uno de los distintos componentes de interacción que se crearon durante el proyecto, estos se encuentran formando un semicírculo frente al usuario y detrás del usuario hay un sexto cubo, el cual posee todos los componentes.
 
 Al principio, si el sistema no ha detectado las manos en las coordenadas [0,0] aparecerá una esfera, pero dicha esfera desaparece en cuanto el sistema detecta las manos. Es recomendable que lo primero en hacer al cargar la escena es que el usuario se mire las manos para poder detectarlas y renderizarlas correctamente. 
 
-Una vez se detectan las manos manos, el usuario puede acercarse a cada uno de los cubos. Encima de cada cubo hay un panel flotante, donde aparece el nombre del componente que posee el cubo al igual que una descripción del gesto necesario para interactuar con el cubo en cuestión. 
+Una vez se detectan las manos, manos, el usuario puede acercarse a cada uno de los cubos. Encima de cada cubo hay un panel flotante, donde aparece el nombre del componente que posee el cubo, al igual que una descripción del gesto necesario para interactuar con el cubo en cuestión. 
 
-La mayoria de los cubos requieren que el usuario se acerque a estos y que los toque dentro de la escena virtual para poder interactuar con ellos, en caso de que el espacio donde se encuentra el usuario no sea lo bastante grande como para acercarse a todos los cubos indivudualmente, detras del usuario al aparecer se encuentra un único cubo que posee todos los componentes, asi el usuario puede probar todas las funcionalidades sin necesidad de ir uno por uno. 
-Para poder interactuar con los distintos cubos, el usuario necesita realizar dos tipos de gestos, el primero es el gesto \texttt{Pinch}, este gesto es necesario para la mayoria de los cubos, y el segundo es el gesto \texttt{Point}, los cubos que requieren de este segundo gesto no es necesario acercarse hasta estos para interactuar con ellos. 
+La mayoría de los cubos requieren que el usuario se acerque a estos y que los toque dentro de la escena virtual para poder interactuar con ellos, en caso de que el espacio donde se encuentra el usuario no sea lo bastante grande como para acercarse a todos los cubos individualmente, detrás del usuario al aparecer se encuentra un único cubo que posee todos los componentes, así el usuario puede probar todas las funcionalidades sin necesidad de ir uno por uno. 
+Para poder interactuar con los distintos cubos, el usuario necesita realizar dos tipos de gestos, el primero es el gesto \texttt{Pinch}, este gesto es necesario para la mayoría de los cubos, y el segundo es el gesto \texttt{Point}, los cubos que requieren de este segundo gesto no es necesario acercarse hasta estos para interactuar con ellos. 
+
 \section{Descripción tecnica}
 \label{sec:descripcion-tecnica}
 
 Para esta sección hablaremos de las dos partes principales del proyecto, la detección e implementación de las manos en el entorno virtual y la creación de los distintos componentes que acompañan a los elementos de la escena para interactuar con ellos.
 
-\subsection{Handtracking}
+\subsection{Detección de manos}
 \label{subsec:handtracking}
-La detección de las manos es uno de los pilares fundamentales del proyecto. El proceso siguio varias etapas hasta llegar al resultado final de este proyecto.
+La detección de las manos es uno de los pilares fundamentales de este proyecto. El proceso siguió varias etapas hasta llegar al resultado final de este proyecto. Para crear el componente de detección y renderización de manos se hizo uso de la tecnología WebXR, y dado que el proyecto entero se hizo usando A-Frame, este proyecto únicamente funciona en navegadores compatibles con WebGL, en especial, los navegadores de los dispositivos VR, son los únicos en los que funciona, ya que sin un dispositivo VR, es imposible detectar las manos, con lo cual, la escena no funcionaría.
 
-Primero, se creo el componente de \texttt{manos}, este componente era el encargado de detectar y renderizar las manos dentro de la escena virtual. En la figura \ref{fig:manos} se aprecia el resultado de las manos dentro de la escena.
+Como ya se ha mencionado, este proyecto hizo uso de WebXR, esta tecnología fue indispensable para realizar la detección de las manos. Para empezar, había que definir dentro de la escena, en el HTML, que se iba a usar dicha tecnología tal y como se muestra en el fragmento de código \ref{lst:webxr}. Ya con eso, desde el archivo JavaScript donde se definían los componentes se podía acceder a su información. Para ello, primero era necesario acceder a la sesión XR y posteriormente a la información de los inputs, las manos, en el fragmento de código \ref{lst:defXR} se muestra de manera simplificada como acceder a dicha información.
+
+\begin{lstlisting}[caption=Definición de WebXR en la escena, captionpos=b, label=lst:webxr]
+  xr-mode-ui="enabled: true; enterVRDisabled: false;" 
+  webxr="optionalFeatures: hand-tracking"
+\end{lstlisting}
+
+En el siguiente ejemplo, en el fragmento de código \ref{lst:defXR}, se accede a la información de los inputs, ambas manos, y se obtiene la información de la posición de la punta del dedo índice para luego guardarlo en una variable. Siguiendo este concepto fue que se pudo obtener toda la información necesaria de las manos para toda la parte relacionada con la detección de manos.
+
+\begin{lstlisting}[caption=Ejemplo simplificado de acceder a la información XR, captionpos=b, label=lst:defXR]
+  const session = this.el.sceneEl.renderer.xr.getSession();
+  const inputSources = session.inputSources;
+  for (const inputSource of inputSources) {
+    const hand = inputSource.hand;
+    
+    const indexTip = hand.get('index-finger-tip');
+    if (indexTip) {
+      const pose = frame.getJointPose(indexTip, referenceSpace);
+    }
+  }
+\end{lstlisting}
+
+
+Primero, se creó el componente de \texttt{manos}, este componente era el encargado de detectar y renderizar las manos dentro de la escena virtual. En la figura \ref{fig:manos} se aprecia el resultado de las manos dentro de la escena.
 
 \begin{figure}[H] 
   \centering
-  %   \includegraphics[width=0.7\textwidth]{img/...} imagen de las manos dentro de la escena
-  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \includegraphics[width=0.7\textwidth]{img/manos.jpg} 
+  % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
   \caption{Manos en la escena}
   \label{fig:manos}
 \end{figure}
 
-Para poder renderizar la mano, era necesario definir todas las articulaciones que la componian, desde la muñeca hasta la punta de los dedos y todas las distintas falanges intermedias. Esto se debe a que ya que se utilizo WebXR, al querer que el programa funcionase en navegadores, si no se definian las falanges el programa no seria capaz de detectar aquellas que no fueron definidas.
-En la figura \ref{fig:manos-esquema} se muestra todas las articulaciones necesarias para que WebXR sea capaz de detectar y renderizar de forma correcta las manos. 
-\begin{figure}[H] 
-  \centering
-  \includegraphics[width=0.4\textwidth]{img/webxr-mano.png} 
-  \caption{Esquema manos}
-  \label{fig:manos-esquema}
-\end{figure}
+Para poder renderizar la mano, era necesario definir todas las articulaciones que la componían, desde la muñeca hasta la punta de los dedos y todas las distintas falanges intermedias. Esto se debe a que, ya que se utilizo WebXR, al querer que el programa funcionase en navegadores, si no se definían las falanges, el programa no seria capaz de detectar aquellas que no fueron definidas.
+En la figura \ref{fig:WebXR-manos} se muestra todas las articulaciones necesarias para que WebXR sea capaz de detectar y renderizar de forma correcta. 
 
-Esto unicamente nos permite detectar las manos, pero no era suficiente para renderizarlas en la escena. Para ello era necesario crear una esfera por cada articulación. Utilizando el listado que posee todos los nombres de las articulaciones se crea una esfera por cada una y se procede a guardar cada entidad en un diccionario, a cada entidad se le asignaba un nombre con el nombre de la articulación y la mano a la que pertenece, definido en el \texttt{schema} del componente.
+Esto únicamente nos permite detectar las manos, pero no era suficiente para renderizarlas en la escena. Para ello era necesario crear una esfera por cada articulación. Utilizando el listado que posee todos los nombres de las articulaciones se crea una esfera por cada una y se guarda cada entidad en un diccionario, a cada entidad se le asignaba un nombre con el nombre de la articulación y la mano a la que pertenece, definido en el \texttt{schema} del componente.
 
-Ya que estabamos utilizando WebXR, para poder acceder a la información de las posiciones de cada articulación era necesario acceder a la sesion XR y acceder a sus inputs, en este caso las manos. Esto se realizaba en una función llamada \texttt{updateSkeleton}. Por cada input de la sesion el programa accede al diccionario creado anteriormente y por cada articulación, a traves de la sesion, se accede a su posición y tamaño y se actualiza la entidad correspondiente. También, en caso de que la articulación en cuestion sea la punta del deo índice o la muñeca se le añade un colisionador para 
-poder interactuar con los elementos dentro de la escena. Esta actualización de la posición se realiza a cada frame, permitiendo un movimiento fluido y suave. 
+Ya que estábamos utilizando WebXR, para poder acceder a la información de las posiciones de cada articulación era necesario acceder a la sesión XR y acceder a sus inputs, en este caso las manos. Esto se realizaba en una función llamada \texttt{updateSkeleton}. Por cada input de la sesión el programa accede al diccionario creado anteriormente y por cada articulación, a través de la sesión, se accede a su posición y tamaño y se actualiza la entidad correspondiente. También, en caso de que la articulación en cuestión sea la punta del dedo índice o la muñeca, se le añade un colisionador para 
+poder interactuar con los elementos dentro de la escena. Esta actualización de la posición se realiza a cada frame, permitiendo un movimiento fluido y suave. En el fragmento de código \ref{lst:updateskeleton} se muestra el fragmento de la función mencionada, en el se muestra como se actualiza la posición de cada articulación: 
 
-Ahora que las manos se renderizan en la escena era necesario detectar los gestos. Para ello, en una función nueva llamada \texttt{detectGesture}, al igual que la anterior, esta función se ejecutaba a cada frame. Se vuelve a acceder a la sesión de WebXR para obtener las posiciones de algunas articulaciones clave, como la muñeca, las puntas de los dedos y la falanje intermedia del dedo índice.
-Para el gesto \texttt{Pinch}, se utiliza la distancia entre la pinta del índice y del pulgar y si la distancia es lo suficiente pequeña o no se lanzan los eventos de \texttt{pinchstart} y \texttt{pinchend} respectivamente. Esta acción se ejecuta a traves de una función dentro de la función \texttt{detectGesture}, y lo mismo ocurre con los gestos de \texttt{Openhand} y \texttt{Fist}, pese a que luego no se usan estos gestos. El caso del gesto de \texttt{Point} es diferente al de los otros gestos, la forma en la que se detecta es igual, pero los otros gestos al lanzar sus eventos correspondientes, estos son escuchados por los componentes interactivos directamente, mientras que para este gesto,
-dentro de este mismo componente se realizan varios pasos previos. Este gesto esta dividido en dos fases, cuando el usuario esta haciendo la acción de \texttt{pistol} y cuando no. Cuando no es cuando el usuario tiene el índice y el pulgar estirados, al realizar esta acción el programa crea un puntero en la punta del índice, este puntero es el que nos permite interactuar con los elementos a distancia. Cuando el usuario hace la acción de \texttt{pistol},cuando el pulgar se pega al dedo índice, haciendo la acción de disparar con los dedos, se emite el evento de \texttt{click} en el elemnto que intersecciona con el puntero. 
+\begin{lstlisting}[caption=Actualización de las manos en la escena, captionpos=b, label=lst:updateskeleton]
+  for (const [jointName, jointEntity] of Object.entries(this.joints)) {
+    const joint = inputSource.hand.get(jointName);
+    const jointPose = this.frame.getJointPose(joint, this.referenceSpace);
+    const { x, y, z } = jointPose.transform.position;
+    const radius = jointPose.radius || 0.008;  // Radio del joint
+    jointEntity.setAttribute('position', { x, y, z });
+    jointEntity.setAttribute('radius', radius);
+    if (jointName == 'index-finger-tip' || jointName == 'wrist'){
+        if (!jointEntity.hasAttribute('obb-collider')) {
+          jointEntity.setAttribute('obb-collider', `size: ${radius * 2} ${radius * 2} ${radius * 2}`);
+        }
+    }
+  }
+\end{lstlisting}
 
-Para el puntero, era necesario que siguiera la dirección a la que puntamos con la mano, para ello en una tercera función llamada \texttt{updatePointer} se volvia a acceder a la sesión XR y se tomaban las posiciones de la punta y nudillo del dedo índice y usando el vector que se generaba a partir de esas posiciones se actualizaba la dirección a la que apunta el vector.
+Como se muestra en la figura \ref{lst:esferas} del capítulo \ref{chap:Desarrollo del proyecto}, al iniciar este componente se crea un diccionario  el cual contiene todas las entidades que representan las articulaciones con sus respectivos nombres. En el fragmento que se acaba de mostrar se recorre dicho diccionario y utilizando la lógica explicada en la figura \ref{lst:defXR}, se accede a la información de la articulación en cuestión y se actualiza su entidad, además, en caso de que la articulación sea la punta del índice o la muñeca se comprueba si esta posee un colisionador y en caso de no tenerlo se le añade.
 
-\subsection{Componentes interactivos}
+Ahora que las manos se renderizan en la escena, era necesario detectar los gestos. Para ello, en una función nueva llamada \texttt{detectGesture}, al igual que la anterior, esta función se ejecutaba a cada frame. Se vuelve a acceder a la sesión de WebXR para obtener las posiciones de algunas articulaciones clave, como la muñeca, las puntas de los dedos y la falange intermedia del dedo índice.
+Para el gesto \texttt{Pinch}, se utiliza la distancia entre la pinta del índice y del pulgar y si la distancia es lo suficiente pequeña o no se cambia una variable estado dentro del componente llamada \texttt{pinchState}, en esta variable booleana se alamcena si se esta realizando el gesto o no. Esta acción se ejecuta a través de una función dentro de la función \texttt{detectGesture}, y lo mismo ocurre con los gestos de \texttt{Openhand} y \texttt{Fist}, pese a que luego no se usan estos gestos. 
+
+El caso del gesto de \texttt{Point} es diferente al de los otros gestos, la forma en la que se detecta es igual, pero los otros gestos al lanzar sus eventos correspondientes, estos son escuchados por los componentes interactivos directamente, mientras que para este gesto,
+dentro de este mismo componente se realizan varios pasos previos. Este gesto está dividido en dos fases, cuando el usuario está haciendo la acción de \texttt{pistol} y cuando no. Cuando no, es cuando el usuario tiene el índice y el pulgar estirados, al realizar esta acción el programa crea un puntero en la punta del índice, esto se hace mediante la creación de una nueva entidad la cual se coloca en la punta del dedo índice y se le añade el atributo de \texttt{raycaster}, este puntero es el que posteriormente nos permite interactuar con los elementos a distancia. Cuando el usuario hace la acción de \texttt{pistol}, cuando el pulgar se pega al dedo índice, haciendo la acción de disparar con los dedos, se emite el evento de \texttt{clickStart} en el elemento que intersecciona con el puntero, es este evento el que posteriormente escuchara el componente correspondiente a esta acción. 
+
+Para el puntero, era necesario que siguiera la dirección a la que apuntamos con la mano, para ello en una tercera función llamada \texttt{updatePointer} se volvía a acceder a la sesión XR y se tomaban las posiciones de la punta y nudillo del dedo índice y usando el vector que se generaba a partir de esas posiciones se actualizaba la dirección a la que apunta el vector.
+
+\subsection{Componentes que interactual con la escena}
 \label{subsec:componentes-interactivos}
-Para los componentes interactivos primero se creo el componente \texttt{grabable}, dicho componente era el encargado de escuchar los eventos de los colisionadores al igual que del gesto \texttt{Pinch}, al escuchar los eventos lo primero era diferenciar de que mano provenian, para ello en caso de colisión se comprueba el nombre de la articulación que colisionó y en el caso del gesto se comprueban los detalles del evento se introduce la mano definida en el \texttt{schema}. Dependiendo de la mano se actualiza una de las variables estado dentro de este componente. Independientemente de la mano, si se detecta una colisión,
-se emite el evento de \texttt{hooverStart} y ya dependiendo de las variables estado que definen que mano esta colisionando o haciendo el gesto se emiten los eventos para realizar los gestos de \texttt{drag}, \texttt{slide} o \texttt{stretch}, estos eventos luego son escuchados por los componentes correspondientes a cada acción.
+Respecto a los componentes diseñados para interactuar con la escena, primero se creo el componente \texttt{grabable}, dicho componente era el encargado de escuchar los eventos de los colisionadores, al igual que comprueba el estado de la variable de \texttt{pinchState} del componente \texttt{manos}. Este componente no posee un \texttt{schema} y no es necesario definirlo dentro de la escena, en el HTML, ya que los otros componentes lo añaden directamente. Antes de realizar ninguna acción, este componente comprueba si la entidad a la que está ligado posee un colisionador y en caso de no tenerlo lo añade, esto es necesario, puesto que sin el colisionador tanto en la mano como en la otra entidad, no seriamos capaces de detectar las colisiones, posteriormente al escuchar los eventos, lo primero era diferenciar de qué mano provenían, para ello en caso de colisión se comprueba el nombre de la articulación que colisionó y en el caso del gesto, como tenemos acceso a la información del componente \texttt{manos} y podemos distinguir entre la derecha y la izquierda, se copia en constantes,una por mano, el valor de la variable \texttt{pinchState}. Dependiendo de la mano se actualiza una de las constantes de estado dentro de este componente, dichas constantes son: \texttt{this.colideRight}, \texttt{this.colideLeft}, \texttt{leftPinchState} y \texttt{rightPinchState}. También, independientemente de la mano, si se detecta una colisión,
+se emite el evento de \texttt{hooverStart},haciendo que la acción de \texttt{hoover} se realice, y ya dependiendo de las variables de estado que definen que mano está colisionando o haciendo el gesto se emiten los eventos para realizar las acciones de \texttt{drag}, \texttt{slide} o \texttt{stretch}, estos eventos luego son escuchados por los componentes correspondientes a cada acción.
 
-Para la acción de \texttt{click} es la única que no necesita pasar a traves del componente \texttt{grabable} ya que no es necesario tocar el elemento con este componente. 
-Al recibir los eventos correspondientes a la acción, cambiando el color o devolviendolo a la normalidad dependiendo del evento. 
-La acción de \texttt{hoover} al recibir sus eventos correspondietes hace que la entidad se vuelva mas transparente al interactuar con ella.
-Para la acción de \texttt{slide}, al recibir el evento se accede a la información compartida a traves del evento, la posición del dedo índice, y dependeindo del eje seleccionado en el \texttt{schema} de este componente, se puede deslizar el elemento a traves de la escena en ese eje que selecciono el usuario mientras los otros ejes se mantienen constantes.
+Para la acción de \texttt{click} es la única que no necesita pasar a través del componente \texttt{grabable} ya que no es necesario tocar el elemento con este componente para realizar esta acción. 
+Al recibir los eventos correspondientes a la acción, este componente cambia el color del elemento o lo devuelve a la normalidad dependiendo de si el evento es el de start o el de end. 
 
-La acción de \texttt{drag} es la mas compleja de todas. Para que funcionase correctamente esta accion se divide en dos fases, el reparenting y la rotación. Para que el elemento de la escena pudiera ser cogido con la mano, al escuchar los eventos correspondientes se realiza un reparenting, haciendo que la entidad sea hija de la punta del dedo índice,su información se transmite en los detalles del evento, en vez de la escena, esto nos permite arrastrar la entidad por la escena. Pero por como se dibujan las articulaciones, unicamente se actualiza su posición y no la rotación era necesario un paso extra para la rotación.
-Para ello primero se accede a la información de la mano, transmitida en los detalles del evento, y se toma la posicion de tres articulación, la punta y nudillo del índice y el nudillo del dedo meñique. Con esas tres posiciones se crea un eje relativo que posee la rotación de la mano, una vez con eso la entidad que estamos tomando copia dicho eje, haciendo que la entidad copie la rotación de la mano.
+Para la acción de \texttt{hoover}, al recibir sus eventos, \texttt{hooverStart} o \texttt{hooverEnd}, el componente relacionado con esta acción hace que la entidad en la escena se vuelva ligeramente más trasparente en el caso del evento start y en el caso del evento end la devuelve a la normalidad.
+
+Respecto a la acción de \texttt{slide}, este componente es el único de los componentes que reaccionan con la escena que contiene un \texttt{schema}, en dicha sección el usuario puede definir por qué eje (X, Y o Z) o porque plano (XY, XZ o YZ) puede deslizarse el elemento en cuestión, en caso de no definir nada, por defecto se toma el eje X. Posteriormente, al recibir el evento correspondiente a la acción, se accede a la información compartida a través del evento, en dicha información se encuentra la posición del dedo índice, y dependiendo del eje o plano seleccionado en el \texttt{schema} de este componente, se puede deslizar el elemento a través de la escena en ese eje/plano que selecciono el usuario mientras los otros ejes se mantienen constantes.
+
+Para la acción de \texttt{stretch}, dentro de la información correspondiente al evento start de este gesto, se transmite la información de la punta del dedo índice de ambas manos. Como el funcionamiento de este componente es el de cambiar la escala del elemento que se esté agarrando, usando la información de ambos dedos se calcula la distancia que hay entre ambos, la distancia inicial se guarda en una variable y a cada frame se calcula la distancia actual y se guarda en una segunda variable. Como se muestra en el fragmento de código \ref{lst:stretch}, usando ambas distancias se crea un factor de escalado para posteriormente multiplicar la escala actual del elemento por dicho factor.
+\begin{lstlisting}[caption=Actualización del factor de escala, captionpos=b, label=lst:stretch]
+  this.initialDistance = hand1Pos.distanceTo(hand2Pos);
+  this.previousDistance = this.initialDistance;
+  this.currentScale = this.el.object3D.scale.clone();
+
+  tick: function () {  
+    const hand1Pos = this.hand1.object3D.position;
+    const hand2Pos = this.hand2.object3D.position;
+    const currentDistance = hand1Pos.distanceTo(hand2Pos);
+    if (Math.abs(currentDistance - this.previousDistance) > 0.01) {
+    const scaleFactor = currentDistance / this.initialDistance;
+    const newScale = this.currentScale.clone().multiplyScalar(scaleFactor);
+    this.el.object3D.scale.copy(newScale);
+    this.previousDistance = currentDistance;
+    }
+  }
+\end{lstlisting}
+
+La acción de \texttt{drag} es la más compleja de todas. Para que funcionase correctamente esta acción se divide en dos fases, el reparenting y la rotación. Para que el elemento de la escena pudiera ser cogido con la mano, al escuchar los eventos correspondientes se realiza un reparenting, haciendo que la entidad sea hija de la punta del dedo índice, la información de dicho dedo se transmite en los detalles del evento del mismo modo que se hacía en la acción de \texttt{Slide}, en vez de la escena. Realizar esta acción del reparenting nos permite arrastrar la entidad por la escena mientras el elemento y la articulación mantienen una distancia constante, esta misma acción se podría llegar a realizar haciendo cálculos de distancia entre el dedo y el centro de la entidad que deseamos mover y mantener dicha distancia e incluso el vector que las une, permitiendo que la entidad siga tanto los movimientos como la rotación de la nueva entidad padre, pero realizándolo de esta manera resulta más sencillo al no requerir ese tipo de cálculos. No obstante, por como se dibujan las articulaciones, únicamente se actualiza su posición y no la rotación haciendo que independientemente de la posición de la mano, las entidades que definen las articulaciones siempre estarán orientadas en la misma dirección, por tanto, es necesario un paso extra para la rotación.
+Para ello primero se accede a la información de la mano, también transmitida en los detalles del evento, y se toma la posición de tres articulaciones, la punta y nudillo del dedo índice y el nudillo del dedo meñique. Con esas tres posiciones, se calculan los vectores que las unen y se crea un eje relativo, el cual siempre imitara la rotación de la mano siendo el eje X el vector que une la punta y el nudillo del dedo índice, una vez con dicho eje, la entidad que estamos tomando copia dicho eje, esto hace que la entidad copie la rotación de la mano.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PRUEBAS Y EXPERIMENTOS capitulo 5%
