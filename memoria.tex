@@ -271,7 +271,7 @@ En esta sección se presenta la estructura de esta memoria, organizada en capít
 
 \begin{itemize}
   \item \hyperref[chap:tecnologias]{\textbf{Tecnologías utilizadas:}} Este capítulo enumera y describe las distintas tecnologías que han sido utilizadas a lo largo de todo el proyecto. Dichas tecnologías están divididas en principales y auxiliares y en cada una, además de su funcionalidad, se describe su importancia en el desarrollo del proyecto.
-  \item \hyperref[chap:resultados]{\textbf{Descripción del resultado obtenido:}} Aquí se presenta el resultado final del proyecto. Se describe de forma detallada la arquitectura de los distintos componentes que se han creado, al igual que se da una explicación de cara al usuario para que sea capaz de manejarse dentro de la escena y pueda interactuar con los elementos en ella. 
+  \item \hyperref[chap:resultados]{\textbf{Descripción de los resultados obtenidos:}} Aquí se presenta el resultado final del proyecto. Se describe de forma detallada la arquitectura de los distintos componentes que se han creado, al igual que se da una explicación de cara al usuario para que sea capaz de manejarse dentro de la escena y pueda interactuar con los elementos en ella. 
   \item \hyperref[chap:Desarrollo del proyecto]{\textbf{Desarrollo del proyecto:}} Este capítulo describe el proceso que ha sido necesario para llegar a los resultados obtenidos. Se describe siguiendo la metodología \texttt{Agile}, dividiendo el proceso en distintos sprints donde cada uno tiene sus propios objetivos y resultados.
   \item \hyperref[chap:pruebas-experimentos]{\textbf{Pruebas y experimentos:}} En este capítulo se describen las opiniones y sensaciones que han tenido algunas personas que han ayudado a probar la escena final. 
   \item \hyperref[chap:conclusiones]{\textbf{Conclusiones:}} En este último capítulo se exploran las distintas lecciones aprendidas a lo largo del desarrollo de este proyecto, al igual que la aplicación de los distintos conocimientos que se han adquirido a lo largo de la carrera. Además, se contemplan las distintas aplicaciones a futuro que podría tener este proyecto o las posibles optimizaciones que se le podrían hacer.
@@ -436,7 +436,7 @@ Gracias a la amplia variedad de posibilidades que permite la biblioteca de Three
 \begin{figure}[H] 
   \centering
   \includegraphics[width=0.7\textwidth]{img/three.jpeg}
-  \caption{Escena de Three.js}
+  \caption{Escena creada con Three.js}
   \label{fig:three}
 \end{figure}
 
@@ -541,29 +541,27 @@ Para este proyecto, LaTeX facilito considerablemente el trabajo a la hora de cre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Descripción del resultado obtenido}
+\chapter{Descripción de los resultados obtenidos}
 \label{chap:resultados}
-En este capítulo se describen en detalle los resultados obtenidos a lo largo de este proyecto, así como una descripción funcional de este, donde se desarrollan las partes básicas de la conclusión del proyecto de forma funcional. También, en este capítulo se incluye una descripción funcional para el usuario, donde se detalla la forma en la que los usuarios pueden interactuar dentro de la escena de demo final y manejarse dentro de ella, al igual que como se podría implementar en otras escenas. Finalmente, se describen los detalles técnicos detrás del funcionamiento del proyecto y su implementación,
+En este capítulo de describe en detalle los resultados obtenidos al final de este proyecto. Primero se dará una descripción funcional para el usuario, donde se describirá las posibles aplicaciones funcionales de estre proyecto además de una descripcion de la escena, donde se detallarán los detalles de esta para que cualquier usuario pueda manejarse en esta. También, se describen los detalles técnicos detrás del funcionamiento del proyecto y su implementación,
 dando detalles en profundidad sobre la estructura de los componentes y su utilización.
-
-\section{Descripción funcional}
-\label{sec:descripcion-funcional}
-El proyecto está dividido en dos áreas principales, la primera se centra en las entidades comunes de una escena de A-Frame, como cubos y esferas. El enfoque de esta área consiste en la creación e implementación de componentes que nos permitan interactuar con las distintas entidades dentro de la escena de forma más natural, permitiendo coger y mover dichos elementos entre otras acciones.
-
-La segunda área del proyecto se centra en el uso avanzado del sistema de seguimiento de manos que posee WebXR, permitiendo la detección y el renderizado de las manos dentro del entorno virtual. Aparte de la detección, esta área también se centra en la creación de la lógica necesaria para que las manos puedan interactuar con los distintos elementos dentro del entorno virtual, mediante la detección de gestos.
-
-Los componentes diseñados en este proyecto, tanto en la primera área como en la segunda, permiten al usuario poder visualizar sus manos dentro del entorno virtual además de poder interactuar con los distintos elementos de la escena, permitiendo acciones como agarrar, estirar o hacer click sobre dichos elementos. 
 
 \section{Descripción funcional para el usuario}
 \label{sec:manual-usuario}
-Nada más cargar la escena de la demo, el usuario se encontrará en el centro de esta, rodeado de una serie de cubos que están sobre unos pedestales. Cinco de los cubos representan cada uno de los distintos componentes de interacción que se crearon durante el proyecto, estos se encuentran formando un semicírculo frente al usuario y detrás del usuario hay un sexto cubo, el cual posee todos los componentes.
+El proyecto se plantea como una 'caja de herramientas', la cual consiste en una serie de componentes que permiten utilizar las manos dentro de las escenas virtuales dentro de un navegador. El proyecto está dividido en dos áreas principales, la primera se centra en las entidades comunes de una escena de A-Frame, como cubos y esferas. El enfoque de esta área consiste en la creación e implementación de componentes que nos permitan interactuar con las distintas entidades dentro de la escena de forma más natural, permitiendo coger y mover dichos elementos entre otras acciones mediante el uso de gestos con nuestras manos.
+
+La segunda área del proyecto se centra en el uso avanzado del sistema de seguimiento de manos que posee WebXR, permitiendo la detección y el renderizado de las manos dentro del entorno virtual. Aparte de la detección, esta área también se centra en la creación de la lógica necesaria para que las manos puedan interactuar con los distintos elementos dentro del entorno virtual, mediante la detección de gestos.
+
+Los componentes diseñados en este proyecto, tanto en la primera área como en la segunda, permiten al usuario poder visualizar sus manos dentro del entorno virtual además de poder interactuar con los distintos elementos de la escena, permitiendo acciones como agarrar, estirar o hacer click sobre dichos elementos. Esto permite la creación de escenas o aplicaciones dentro del navegador que permitan al usuario utlizar sus propias manos dentro de la escena para interactuar de diversas maneras con dicha escena. 
+
+Nada más cargar la escena de la demo, el usuario se encontrará en el centro de esta, rodeado de una serie de cubos que están sobre unos pedestales y cada uno posee un panel encima de estos. Cinco de los cubos (los cuales se encuentran formando un semicírculo frente al usuario) representan cada uno de los distintos componentes de interacción que se crearon durante el proyecto y detrás del usuario hay un sexto cubo, el cual posee todos los componentes para así poder probarlos todos sin necesidad de interactuar con todos los otros cubos.
 
 Al principio, si el sistema no ha detectado las manos en las coordenadas [0,0] aparecerá una esfera, pero dicha esfera desaparece en cuanto el sistema detecta las manos. Es recomendable que lo primero en hacer al cargar la escena es que el usuario se mire las manos para poder detectarlas y renderizarlas correctamente. 
 
-Una vez se detectan las manos, manos, el usuario puede acercarse a cada uno de los cubos. Encima de cada cubo hay un panel flotante, donde aparece el nombre del componente que posee el cubo, al igual que una descripción del gesto necesario para interactuar con el cubo en cuestión. 
+Una vez se detectan las manos, manos, el usuario puede acercarse a cada uno de los cubos. Encima de cada cubo hay un panel flotante, donde aparece el nombre del componente que posee el cubo en cuestión al igual que una descripción de la acción necesaria para interactuar con el cubo en cuestión, esta descripción contiene tanto el gesto necesario para poder interactuar con el cubo como el movimiento de mano/s si es necesario. 
 
 La mayoría de los cubos requieren que el usuario se acerque a estos y que los toque dentro de la escena virtual para poder interactuar con ellos, en caso de que el espacio donde se encuentra el usuario no sea lo bastante grande como para acercarse a todos los cubos individualmente, detrás del usuario al aparecer se encuentra un único cubo que posee todos los componentes, así el usuario puede probar todas las funcionalidades sin necesidad de ir uno por uno. 
-Para poder interactuar con los distintos cubos, el usuario necesita realizar dos tipos de gestos, el primero es el gesto \texttt{Pinch}, este gesto es necesario para la mayoría de los cubos, y el segundo es el gesto \texttt{Point}, los cubos que requieren de este segundo gesto no es necesario acercarse hasta estos para interactuar con ellos. 
+Para poder interactuar con los distintos cubos, el usuario necesita realizar dos tipos de gestos, el primero es el gesto \texttt{Pinch}, este gesto es necesario para la mayoría de los cubos, y todos los cubos que requieren de este gesto es necesario acercarse a ellos para poder interactuar. Y el segundo es el gesto \texttt{Point}, los cubos que requieren de este segundo gesto no es necesario acercarse hasta estos para interactuar con ellos, si se realiza el gesto correctamente y hay una línea directa de visión entre el usuario y el cubo es posible interactuar con el desde cualquier parte de la escena. 
 
 \section{Descripción tecnica}
 \label{sec:descripcion-tecnica}
@@ -643,17 +641,18 @@ Para el puntero, era necesario que siguiera la dirección a la que apuntamos con
 
 \subsection{Componentes que interactual con la escena}
 \label{subsec:componentes-interactivos}
-Respecto a los componentes diseñados para interactuar con la escena, primero se creo el componente \texttt{grabable}, dicho componente era el encargado de escuchar los eventos de los colisionadores, al igual que comprueba el estado de la variable de \texttt{pinchState} del componente \texttt{manos}. Este componente no posee un \texttt{schema} y no es necesario definirlo dentro de la escena, en el HTML, ya que los otros componentes lo añaden directamente. Antes de realizar ninguna acción, este componente comprueba si la entidad a la que está ligado posee un colisionador y en caso de no tenerlo lo añade, esto es necesario, puesto que sin el colisionador tanto en la mano como en la otra entidad, no seriamos capaces de detectar las colisiones, posteriormente al escuchar los eventos, lo primero era diferenciar de qué mano provenían, para ello en caso de colisión se comprueba el nombre de la articulación que colisionó y en el caso del gesto, como tenemos acceso a la información del componente \texttt{manos} y podemos distinguir entre la derecha y la izquierda, se copia en constantes,una por mano, el valor de la variable \texttt{pinchState}. Dependiendo de la mano se actualiza una de las constantes de estado dentro de este componente, dichas constantes son: \texttt{this.colideRight}, \texttt{this.colideLeft}, \texttt{leftPinchState} y \texttt{rightPinchState}. También, independientemente de la mano, si se detecta una colisión,
+\begin{itemize}
+  \item Respecto a los componentes diseñados para interactuar con la escena, primero se creo el componente \textbf{\texttt{grabable}}, dicho componente es indispensable, ya que sin el los componentes que requieren interactuar físicamente con los elementos de la escena, como \texttt{drag} o \texttt{hoover}, no funcionarían en absoluto, para que funcionen correctamente, este componente es el encargado de escuchar los eventos de los colisionadores, al igual que comprueba el estado de la variable de \texttt{pinchState} del componente \texttt{manos}. Este componente no posee un \texttt{schema} y no es necesario definirlo dentro de la escena, en el HTML, ya que los otros componentes lo añaden directamente. Antes de realizar ninguna acción, este componente comprueba si la entidad a la que está ligado posee un colisionador y en caso de no tenerlo lo añade, esto es necesario puesto que sin el colisionador tanto en la mano como en la otra entidad, no seriamos capaces de detectar las colisiones, posteriormente al escuchar los eventos, lo primero era diferenciar de qué mano provenían, para ello en caso de colisión se comprueba el nombre de la articulación que colisionó con el elemento de la escena y en el caso del gesto, como tenemos acceso a la información del componente \texttt{manos} y podemos distinguir entre la derecha y la izquierda, se copia en un par de constantes, una por mano, el valor de la variable \texttt{pinchState}. Dependiendo de la mano se actualiza una de las constantes de estado dentro de este componente, dichas constantes son: \texttt{this.colideRight}, \texttt{this.colideLeft}, \texttt{leftPinchState} y \texttt{rightPinchState}. También, independientemente de la mano, si se detecta una colisión,
 se emite el evento de \texttt{hooverStart},haciendo que la acción de \texttt{hoover} se realice, y ya dependiendo de las variables de estado que definen que mano está colisionando o haciendo el gesto se emiten los eventos para realizar las acciones de \texttt{drag}, \texttt{slide} o \texttt{stretch}, estos eventos luego son escuchados por los componentes correspondientes a cada acción.
 
-Para la acción de \texttt{click} es la única que no necesita pasar a través del componente \texttt{grabable} ya que no es necesario tocar el elemento con este componente para realizar esta acción. 
-Al recibir los eventos correspondientes a la acción, este componente cambia el color del elemento o lo devuelve a la normalidad dependiendo de si el evento es el de start o el de end. 
+  \item Para la acción de \textbf{\texttt{click}} es la única que no necesita pasar a través del componente \texttt{grabable} ya que no es necesario tocar el elemento con este componente para realizar esta acción. 
+Al recibir los eventos correspondientes a la acción de start y end, este componente cambia el color del elemento o lo devuelve a la normalidad dependiendo de si el evento es el de start o el de end. 
 
-Para la acción de \texttt{hoover}, al recibir sus eventos, \texttt{hooverStart} o \texttt{hooverEnd}, el componente relacionado con esta acción hace que la entidad en la escena se vuelva ligeramente más trasparente en el caso del evento start y en el caso del evento end la devuelve a la normalidad.
+  \item Para la acción de \textbf{\texttt{hoover}}, al recibir sus eventos, \texttt{hooverStart} o \texttt{hooverEnd}, el componente relacionado con esta acción hace que la entidad en la escena se vuelva ligeramente más trasparente en el caso del evento start y en el caso del evento end la devuelve a la normalidad. Esta acción nos permite saber de forma mas visual cuando se es posible interaccionar con el elemento, ya que, como se mencionó previamente, la mayoría de componentes requieren que el usuario interactue fisicamente con los elementos para que los componentes funcionen.
 
-Respecto a la acción de \texttt{slide}, este componente es el único de los componentes que reaccionan con la escena que contiene un \texttt{schema}, en dicha sección el usuario puede definir por qué eje (X, Y o Z) o porque plano (XY, XZ o YZ) puede deslizarse el elemento en cuestión, en caso de no definir nada, por defecto se toma el eje X. Posteriormente, al recibir el evento correspondiente a la acción, se accede a la información compartida a través del evento, en dicha información se encuentra la posición del dedo índice, y dependiendo del eje o plano seleccionado en el \texttt{schema} de este componente, se puede deslizar el elemento a través de la escena en ese eje/plano que selecciono el usuario mientras los otros ejes se mantienen constantes.
+  \item Respecto a la acción de \textbf{\texttt{slide}}, este componente es el único de los componentes que reaccionan con la escena que contiene un \texttt{schema}, en dicha sección el usuario puede definir por qué eje (X, Y o Z) o porque plano (XY, XZ o YZ) puede deslizarse el elemento en cuestión, en caso de no definir nada, por defecto se toma el eje X. Posteriormente, al recibir el evento correspondiente a la acción, se accede a la información compartida a través del evento, en dicha información se encuentra la posición del dedo índice de la mano izquierda, y dependiendo del eje o plano seleccionado en el \texttt{schema} de este componente, se puede deslizar el elemento a través de la escena en ese eje/plano que selecciono el usuario mientras los otros ejes se mantienen constantes.
 
-Para la acción de \texttt{stretch}, dentro de la información correspondiente al evento start de este gesto, se transmite la información de la punta del dedo índice de ambas manos. Como el funcionamiento de este componente es el de cambiar la escala del elemento que se esté agarrando, usando la información de ambos dedos se calcula la distancia que hay entre ambos, la distancia inicial se guarda en una variable y a cada frame se calcula la distancia actual y se guarda en una segunda variable. Como se muestra en el fragmento de código \ref{lst:stretch}, usando ambas distancias se crea un factor de escalado para posteriormente multiplicar la escala actual del elemento por dicho factor.
+  \item Para la acción de \textbf{\texttt{stretch}}, dentro de la información correspondiente al evento start de este gesto, se transmite la información de la punta del dedo índice de ambas manos. Como el funcionamiento de este componente es el de cambiar la escala del elemento que se esté agarrando, usando la información de ambos dedos, primero se calcula la distancia que hay entre ambos, la distancia inicial se guarda en una variable y a cada frame se calcula la distancia actual para guardarla en una segunda variable. Como se muestra en el fragmento de código \ref{lst:stretch}, usando ambas distancias se crea un factor de escalado para posteriormente multiplicar la escala actual del elemento por dicho factor, dicho factor se obtiene al dividir la escala actual que hay entre las dos manos entre la distancia inicial.
 \begin{lstlisting}[caption=Actualización del factor de escala, captionpos=b, label=lst:stretch]
   this.initialDistance = hand1Pos.distanceTo(hand2Pos);
   this.previousDistance = this.initialDistance;
@@ -672,9 +671,47 @@ Para la acción de \texttt{stretch}, dentro de la información correspondiente a
   }
 \end{lstlisting}
 
-La acción de \texttt{drag} es la más compleja de todas. Para que funcionase correctamente esta acción se divide en dos fases, el reparenting y la rotación. Para que el elemento de la escena pudiera ser cogido con la mano, al escuchar los eventos correspondientes se realiza un reparenting, haciendo que la entidad sea hija de la punta del dedo índice, la información de dicho dedo se transmite en los detalles del evento del mismo modo que se hacía en la acción de \texttt{Slide}, en vez de la escena. Realizar esta acción del reparenting nos permite arrastrar la entidad por la escena mientras el elemento y la articulación mantienen una distancia constante, esta misma acción se podría llegar a realizar haciendo cálculos de distancia entre el dedo y el centro de la entidad que deseamos mover y mantener dicha distancia e incluso el vector que las une, permitiendo que la entidad siga tanto los movimientos como la rotación de la nueva entidad padre, pero realizándolo de esta manera resulta más sencillo al no requerir ese tipo de cálculos. No obstante, por como se dibujan las articulaciones, únicamente se actualiza su posición y no la rotación haciendo que independientemente de la posición de la mano, las entidades que definen las articulaciones siempre estarán orientadas en la misma dirección, por tanto, es necesario un paso extra para la rotación.
-Para ello primero se accede a la información de la mano, también transmitida en los detalles del evento, y se toma la posición de tres articulaciones, la punta y nudillo del dedo índice y el nudillo del dedo meñique. Con esas tres posiciones, se calculan los vectores que las unen y se crea un eje relativo, el cual siempre imitara la rotación de la mano siendo el eje X el vector que une la punta y el nudillo del dedo índice, una vez con dicho eje, la entidad que estamos tomando copia dicho eje, esto hace que la entidad copie la rotación de la mano.
+  \item La acción de \textbf{\texttt{drag}} es la más compleja de todas. Para que funcionase correctamente esta acción se divide en dos fases, el reparenting y la rotación. Para que el elemento de la escena pudiera ser cogido con la mano, al escuchar los eventos correspondientes se realiza un reparenting, haciendo que la entidad sea hija de la punta del dedo índice en vez de ser hija de la escena como hasta ahora, la información de dicho dedo se transmite en los detalles del evento del mismo modo que se hacía en la acción de \texttt{Slide}. Realizar esta acción del reparenting nos permite arrastrar la entidad por la escena mientras el elemento y la articulación mantienen una distancia constante, esta misma acción se podría llegar a realizar haciendo cálculos de distancia entre el dedo y el centro de la entidad que deseamos mover y mantener dicha distancia e incluso el vector que las une, permitiendo que la entidad siga tanto los movimientos como la rotación de la nueva entidad padre, pero realizándolo de esta manera resulta más sencillo al no requerir ese tipo de cálculos. No obstante, por como se dibujan las articulaciones, únicamente se actualiza su posición y no la rotación haciendo que independientemente de la posición de la mano, las entidades que definen las articulaciones siempre estarán orientadas en la misma dirección, por tanto, es necesario un paso extra para la rotación.
+Para ello primero se accede a la información de la mano, también transmitida en los detalles del evento, y se toma la posición de tres articulaciones, la punta y nudillo del dedo índice y el nudillo del dedo meñique. Con esas tres posiciones, se calculan los vectores que las unen y se crea un eje relativo ortonormal, el cual siempre imitara la rotación de la mano siendo el eje X el vector que une la punta y el nudillo del dedo índice, una vez con dicho eje, la entidad que estamos tomando copia dicho eje, esto hace que la entidad copie la rotación de la mano. En el siguiente fragmento de código se puede apreciar como se calcula el falso eje de coordenadas y como se aplica al objeto que se intenta desplazar.
+\begin{lstlisting}[caption=Creación del falso eje de coordenadas, captionpos=b, label=lst:fake_coords]
+  this.vectorX.copy(pos2).sub(pos1).normalize();  // Calcular el vector X (de esfera1 a esfera2)
+  this.fakeX.copy(this.vectorX);
 
+  this.vectorXZ.copy(pos3).sub(pos1);  // Calcular el vector Z (perpendicular al eje X, desde esfera3)
+  this.vectorZ.crossVectors(this.vectorX, this.vectorXZ).normalize();
+  this.fakeZ.copy(this.vectorZ);
+
+  this.fakeY.crossVectors(this.fakeZ, this.fakeX).normalize();  // Calcular el eje Y como el producto cruzado entre X y Z
+  
+  if (this.fakeY.length() === 0) { // Asegurarnos de que el sistema sea ortonormal
+    this.fakeZ.negate();
+    this.fakeY.crossVectors(this.fakeZ, this.fakeX).normalize();
+  }
+  
+  this.rotationMatrix.makeBasis(this.fakeX, this.fakeY, this.fakeZ);
+  
+  this.el.object3D.setRotationFromMatrix(this.rotationMatrix); 
+\end{lstlisting}
+\end{itemize}
+
+En la figura \ref{fig:mosaico} se muestran algunas de las acciones explicadas en esta sección dentro de la escena.
+\begin{figure}[H] 
+  \centering
+  % \includegraphics[width=0.7\textwidth]{img/} // imagen del mosaico de acciones 
+  \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
+  \caption{Acciones dentro de la escena}
+  \label{fig:mosaico}
+\end{figure}
+
+\section{Construcción de escenas}
+\label{sec:escenas}
+
+Como ya se mencionó, este proyecto se planteó como una caja de herramientas para la creación de escenas o aplicaciones VR dentro un un navegador. La capacidad de poder utilizar nuestras propias manos para poder interactuar con los distintos elementos que hay en la escena nos da posibilidades casi infinitas para utilizarlas. 
+
+Tal y como esta ahora el proyecto, algunos de los componentes se pueden utilizar directamente como los componentes de \texttt{drag}, \texttt{slide}, \texttt{stretch} o incluso \texttt{hoover}. Dado que la función de estos componentes es muy directa estos se pueden aplicar directamente, estos componentes se pueden utilizar para toda clase de aplicaciones o escenas. Un ejemplo podría ser una aplicación de diseño de casas en VR,
+donde el usuario a traves de un meno selecciona los elementos que desee añadir (paredes, techos, muebles...) y utilizando los componentes creados en este proyecto podría mover, ajustar e incluso dimensionar los distintos elementos que el añada hasta obtener el resultado que desea. 
+
+Respecto a la acción de \texttt{click}, ahora mismo esta diseñada para cambiar el color del componente en el momento de click, pero de forma muy sencilla es posible cambiar esa lógica para que realice otras acciones. Esta acción puede ser muy util para interactuar con distintos menus para el usuario o incluso en juegos que requieran disparar. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % desarrollo del proyecto capitulo 4 %
@@ -692,11 +729,7 @@ Por la forma en la que se fue planteando el proyecto, al final de cada sprint se
 Puesta en marcha del proyecto, planteamiento con el tutor y dominio del uso básico de A-Frame.
 \subsection{Objetivos}
 \label{subsec:objetivo-principal0}
-El objetivo principal de este sprint se puede dividir en 2 partes principales. 
-\begin{itemize}
-  \item \textbf{Dominio del uso básico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas, al igual que la creación e implementación de componentes o el empleo de librerías de A-Frame.
-  \item \textbf{El planteamiento con el tutor}, donde se identificaron las necesidades para el proyecto, también se plantearon los primeros objetivos principales del proyecto, detectar y dibujar las manos y poder usarlas para interactuar con ellas. 
-\end{itemize}
+El objetivo principal de este sprint consiste en el \textbf{dominio del uso básico de A-Frame}. Aprender a usar de forma correcta como funcionan las escenas, al igual que la creación e implementación de componentes o el empleo de librerías de A-Frame.
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion0}
@@ -704,11 +737,11 @@ La identificación de las necesidades y requisitos de un proyecto es una parte f
 Al principio se plantearon varios caminos, pero la idea general de todos ellos era la creación de un sistema de seguimiento de manos que sea capaz de interactuar con distintos elementos dentro de la escena. 
 
 Para lograr llegar a ese objetivo primero fue necesario dominar los elementos básicos de A-Frame como viene a ser la organización de la escena, el uso y creación de componentes y el uso de eventos. 
-Para ello, primero se creo primero el repositorio de \textit{Git}  con el que trabajaremos durante todo el proyecto. Se crearon una serie de escenas sencillas con el objetivo de dominar el empleo de componentes y eventos simples. 
+Para ello, primero se creo primero el repositorio de \textit{Git}  con el que trabajaremos durante todo el proyecto. Para lograr el objetivo de este sprint, se realizaron una serie de escenas sencillas en las cuales se dominó el uso y creación de componentes al igual que el uso de eventos simples como el evento \texttt{click}.
 \subsection{Resultados}
 \label{subsec:resultados0}
 Para familiarizarme aún más con el entorno de A-Frame se generaron una serie de escenas muy sencillas donde se generaba y utilizaba un componente customizado y se hacía uso del evento nativo de A-Frame \texttt{click}. Estas escenas permitieron un mayor entendimiento del funcionamiento tanto de componentes como de eventos, que fueron fundamentales para el resto del proyecto.
-El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en la figura \ref{fig:sprint0}.
+El resultado de dichas pruebas para mejorar la comprensión de A-Frame se pueden apreciar en la figura \ref{fig:sprint0}. En dicha escena, se crearon 2 componentes, el primero generaba un cubo y permite seleccionar los cubos de las paredes que lo forman, y el segundo crea una esfera animada que rebota dentro del cubo. 
 \begin{figure}[H] 
   \centering
   \includegraphics[width=0.7\textwidth]{img/primera_escena.png} 
@@ -725,12 +758,12 @@ Investigación del handtracking y primeras implementaciones de este en el proyec
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal1}
-En este primer sprint oficial del proyecto, el objetivo principal era investigar y comprender el uso del handtracking en A-Frame. 
-Este era el paso principal en el que se basaría todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame, este proyecto habría sido imposible de realizar.
+El objetivo principal de este sprint era investigar y comprender el uso del handtracking en A-Frame. 
 Además de obtener una primera demo del handtracking en la escena.
+
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion1}
-Los primeros pasos fueron investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}.
+En este primer sprint oficial del proyecto, los primeros pasos fueron investigar el handtracking en A-Frame con los elementos ya existentes como \textit{\texttt{super hands}}\footnote{\url{https://github.com/c-frame/aframe-super-hands-component}}, o los componentes nativos de A-Frame \texttt{hand-controls} o \texttt{hand-tracking-controls}. Este era el paso principal en el que se basaría todo el proyecto, ya que sin una comprensión del funcionamiento del handtracking en A-Frame, este proyecto habría sido imposible de realizar.
 Para ellos se usaron pequeñas escenas de prueba para comprender mejor el comportamiento de las manos en la realidad virtual, y del mismo modo, tener una idea más clara del objetivo final del aspecto de handtracking. 
 
 Tras la investigación de las manos y puesto que el proyecto se desarrollo en A-Frame para que funcione en los navegadores, se decidió utilizar la tecnología de WebXR para el seguimiento de manos, puesto que esta tecnología ya posee un sistema preparado para ello. Además, usando la tecnología de WebXR nos permitía trabajar con cada una de las articulaciones de la mano de forma independiente, permitiéndonos tomar la información necesaria de las articulaciones cuando es necesario. 
@@ -745,7 +778,7 @@ Siguiendo la documentación de \textit{WebXR}\footnote{\url{https://www.w3.org/T
 \end{figure}
 
 Para poder crear las manos de forma exitosa dentro del entorno de realidad virtual siguiendo WebXR, primero se crea el componente que será el encargado de detectar y dibujar las manos en este proyecto, dicho componente se llama \texttt{hand-skeleton}. Dicho componente no tenía un \texttt{schema}, en el \texttt{init} se definían las distintas variables que eran necesarias para el funcionamiento del código. 
-En el HTML que define la escena únicamente era necesario añadir una vez el componente como una entidad. Pero era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición únicamente se realizaba en el código de JavaScript.
+En el HTML que define la escena únicamente era necesario añadir una vez el componente como una entidad. Pero como el componente trabaja directamente con la api de WebXR, era imprescindible definir todas y cada una de las articulaciones, como se muestra en el fragmento de código \ref{lst:articulaciones}, pero esa definición únicamente se realizaba en el código de JavaScript.
 \begin{lstlisting}[caption=Definición de articulaciones, captionpos=b, label=lst:articulaciones]
   const orderedJoints = [
     ["wrist"],
@@ -766,26 +799,26 @@ y también se ajusta el radio de la esfera para que coincida con la mano, esta f
     }
     const inputSources = session.inputSources;
     for (const inputSource of inputSources) {
-        if (inputSource.hand) {
-            const hand = inputSource.hand;
-            const handedness = inputSource.handedness; // Determina si es la mano derecha o izquierda
-            for (const finger of orderedJoints) {
-                for (const jointName of finger) {
-                    const joint = hand.get(jointName);
-                    if (joint) {
-                        const jointPose = this.frame.getJointPose(joint, this.referenceSpace);
-                        if (jointPose) {
-                            const position = jointPose.transform.position;
-                            if (!this.spheres[handedness + '_' + jointName]) {
-                                this.spheres[handedness + '_' + jointName] = this.drawSphere(jointPose.radius, position);
-                            } else {
-                                this.spheres[handedness + '_' + jointName].object3D.position.set(position.x, position.y, position.z);
-                            }
-                        }
-                    }
+      if (inputSource.hand) {
+        const hand = inputSource.hand;
+        const handedness = inputSource.handedness; // Determina si es la mano derecha o izquierda
+        for (const finger of orderedJoints) {
+          for (const jointName of finger) {
+            const joint = hand.get(jointName);
+            if (joint) {
+              const jointPose = this.frame.getJointPose(joint, this.referenceSpace);
+              if (jointPose) {
+                const position = jointPose.transform.position;
+                if (!this.spheres[handedness + '_' + jointName]) {
+                  this.spheres[handedness + '_' + jointName] = this.drawSphere(jointPose.radius, position);
+                } else {
+                  this.spheres[handedness + '_' + jointName].object3D.position.set(position.x, position.y, position.z);
                 }
+              }
             }
+          }
         }
+      }
     }
   },
 \end{lstlisting}
@@ -803,26 +836,26 @@ Primero, para la detección del gesto se creo la función de \texttt{detectGestu
     let rightPinching = false;
     let leftPinching = false;
     for (const inputSource of inputSources) {
-        if (inputSource.hand) {
-            const thumbTip = this.frame.getJointPose(inputSource.hand.get("thumb-tip"), this.referenceSpace);
-            const indexTip = this.frame.getJointPose(inputSource.hand.get("index-finger-tip"), this.referenceSpace);
-            if (thumbTip && indexTip) {
-                const distance = calculateDistance(thumbTip.transform.position, indexTip.transform.position);
-                if (distance < pinchDistance) {
-                    if (inputSource.handedness === 'right') {
-                        rightPinching = true;
-                        if (!this.rightPinching) {
-                          this.createBoxAtHand(inputSource.hand);  
-                        }
-                    } else if (inputSource.handedness === 'left') {
-                        leftPinching = true;
-                        if (!this.leftPinching) {
-                            this.selectObjectAtHand(inputSource.hand); // Selecciona un objeto cercano para mover
-                        }
-                    }
-                }
+      if (inputSource.hand) {
+        const thumbTip = this.frame.getJointPose(inputSource.hand.get("thumb-tip"), this.referenceSpace);
+        const indexTip = this.frame.getJointPose(inputSource.hand.get("index-finger-tip"), this.referenceSpace);
+        if (thumbTip && indexTip) {
+          const distance = calculateDistance(thumbTip.transform.position, indexTip.transform.position);
+          if (distance < pinchDistance) {
+            if (inputSource.handedness === 'right') {
+              rightPinching = true;
+              if (!this.rightPinching) {
+                this.createBoxAtHand(inputSource.hand);  
+              }
+            } else if (inputSource.handedness === 'left') {
+              leftPinching = true;
+              if (!this.leftPinching) {
+                this.selectObjectAtHand(inputSource.hand); // Selecciona un objeto cercano para mover
+              }
             }
+          }
         }
+      }
     }
     this.rightPinching = rightPinching;
     this.leftPinching = leftPinching;
@@ -860,7 +893,7 @@ Introducción de eventos al sistema y optimización del manejo de manos.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal2}
-Tras las observaciones del sprint anterior, para este sprint se replanteo el funcionamiento de los gestos. También, se reorganizo la forma de renderización de las manos en la escena y la detección de los gestos con el fin de obtener un código más optimizado. 
+Los objetivos de este sprint consistian en el replanteamiento de la detección de gestos además de la optimización de la forma de renderización de las manos en la escena y la detección de los gestos con el fin de obtener un código más optimizado. 
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion2}
@@ -933,8 +966,7 @@ Introducción de nuevos gestos de las manos a la escena.
 
 \subsection{Objetivos}
 \label{subsec:objetivo-principal3}
-Para este nuevo sprint, el objetivo principal era introducir más gestos. Hasta ahora únicamente estaba implementado el gesto de \texttt{Pinch}.
-Durante este sprint se deseaba introducir la lógica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand}.
+El objetivo principal de este sprint era el introducir la lógica de los gestos \texttt{Fist}, \texttt{Point} y \texttt{Openhand} ya que hasta ahora únicamente se había implementado el gesto \texttt{Pinch}.
 
 \subsection{Tareas Realizadas}
 \label{subsec:implementacion3}
@@ -951,7 +983,7 @@ Como resultado, se obtuvo la demo de \textit{nuevos gestos}\footnote{\url{https:
   \centering
   \includegraphics[width=0.7\textwidth]{img/nuevos_gestos.jpg} 
   % \fbox{\rule{0pt}{150pt} \rule{0.7\textwidth}{0pt}} 
-  \caption{Primera demo de manos}
+  \caption{Nuevos gestos en la escena}
   \label{fig:sprint3}
 \end{figure}
 
@@ -1205,7 +1237,7 @@ Para finalizar, gracias a las opiniones de los usuarios que ayudaron a probar es
 \cleardoublepage
 \chapter{Conclusiones}
 \label{chap:conclusiones}
-En este último capítulo se presenta un resumen de las conclusiones obtenidas y las lecciones aprendidas a lo largo del desarrollo de este proyecto. También, se destacaran los conocimientos aplicados durante su elavoración y se evaluará el cumplimiento de los objetivos establecidos. Además, se ofreceran opciones y planteamientos de cara a futuras mejoras o implementaciones del sistema u otros posibles proyectos.
+En este último capítulo se presenta un resumen de las conclusiones obtenidas y las lecciones aprendidas a lo largo del desarrollo de este proyecto. También, se destacaran los conocimientos aplicados durante su elavoración y se evaluará el cumplimiento de los objetivos establecidos. Además, se ofreceran opciones y planteamientos de cara a futuras mejoras o implementaciones del sistema u otros posibles proyectos y se explicarán los esfuerzos y recursos dedicados a cada sección del proyecto.
 
 Respecto al cumplimiento del objetivo general, desarrollar un sistema de seguimiento de manos y gestos para utilizar en escenas dentro del navegador, ha sido cumplido. Se ha creado un sistema de detección y renderización de manos capaz de interactuar con los distintos elementos dentro de la escena de forma mas natural y fluida en comparación a los elementos existentes previamente. La manos resultantes mantienen un tamaño y proporción bastante realistas respecto a las manos del usuario lo que le permite adaptarse mejor al entorno virtual.
 
@@ -1214,6 +1246,27 @@ Utilizando esa información, se consigío cumplir los objetivos de detección y 
 Respecto a la implementación de acciones, ese objetivo se cumplio con creces. Al principio unicamente se planteaba implementar un par de acciones, pero al final del proyecto se logro implementar hasta 5 acciones, siendo estas las mismas que posee el componente de \texttt{Superhands}.
 Además, dado que todas y cada una de las demos que se fueron desarrollando se probaron através del dispositivo Quest3, el objetivo de compatibilidad con dicho dispositivo fue mas que superado.
 Finalemnte, el objetivo de integración con otros componentes nativos de A-Frame, se puede considerar cumplido ya que para el desarrollo de los componentes se hizo uso de algunos nativos como \texttt{obb-collider} o \texttt{raycaster}, aunque con el tiempo se podrían integrar más.
+
+\section{Esfuerzo y recursos dedicados}
+\label{sec:esfuerzos}
+
+Este proyecto se empezó a mediados de Octubre de 2024, todo el proyecto fue desarrollado usando mi ordenador portatil personal y unas gafas Quest3 ofrecidas por la universidad.
+
+Las dos primeras semanas del proyecto corresponden al \hyperref[sec:sprint0]{sprint 0}, donde se dedicó una média de dos horas por las tardes para cumplir los objetivos planteados en este sprint.
+
+El \hyperref[sec:sprint1]{sprint 1} fue uno de los más largos, dado que entre la investigación de las posibilidades actuales, el estúdio de WebXR y la creación del compoennte de este proyecto tomo cerca de dos meses, avarcando desde principios de Noviembre hasta la vuelta de vacaciones de año nuevo, a princpios de año. Durante este tiempo se procuró dedicar como poco dos horas diarias a este proyecto.
+
+El siguiente sprint, el \hyperref[sec:sprint2]{sprint 2}, tuvo una duración de dos semanas, avarcando desde princpios de Enero hasta mediados-finales. Al igual que anteriormente se procuró aportar una média de dos horas diarias para este sprint, aunque al ser época de examenes no siempre era posible.
+
+Para el \hyperref[sec:sprint3]{sprint 3}, se dedicaron otras dos semanas, este sprint avarcó desde mediados-finales de Enero hasta principios de Febrero, dedicando cerca de tres horas diarias ya que durante la segunda mitad del curso disponía de más tiempo para dedicar al proyecto.
+
+El \hyperref[sec:sprint4]{sprint 4} tubo una duración de una semana, donde también se dedicó una média de tres horas diarias para completar este sprint.
+
+Para el siguiente sprint, el \hyperref[sec:sprint5]{sprint 5}, se dedicó desde mediados de Febrero hasta finales, pasando otras dos semans. Durante este periodo, al igual que con los anteriores, se dedicó una média de tres horas diarias para cumplir los objetivos de este sprint. 
+
+Finalmente, para el \hyperref[sec:sprint6]{sprint 6} se dedicó un mes, hasta finales de Marzo, donde se cumplieron los objetivos planteados para este sprint además de intentar combinar los resultados de este proyecto con el compoennte de \texttt{superhands}.
+
+Para terminar, desde princpios de Abril hasta ahora, principios de Junio, se ha dedicado la gran mayoría de ese tiempo para la creación de esta memoria, teniendo reuniones periódicas con el tutor hasta obtener el resultado obtenido. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
